@@ -22,7 +22,7 @@
                     <div class="content-box">
                         <div class="sec-title mb_35">
                             <h6>About Us</h6>
-                            <h2>Leaders in <span>[Furnace Camera]</span> Manufacturing</h2>
+                            <h2>Leaders in <br><span class="text-nowrap">[Furnace&nbsp;Camera]</span> <br>Manufacturing</h2>
                         </div>
                         <div class="text-box mb_30">
                             <p>Founded in 1996 in Karur, Tamil Nadu, TEMAX manufactures high-temperature

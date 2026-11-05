@@ -140,6 +140,12 @@
             object-fit: contain;
         }
 
+        /* Prevent bracketed accent headings from breaking mid-phrase */
+        .sec-title h2 span,
+        .sec-title h2 .text-nowrap {
+            white-space: nowrap;
+        }
+
         @media (max-width: 991px) {
             .main-header .header-logo {
                 display: none;

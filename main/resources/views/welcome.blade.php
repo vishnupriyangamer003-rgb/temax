@@ -262,7 +262,7 @@
                     <div class="content-box">
                         <div class="sec-title mb_45">
                             <h6>About Us</h6>
-                            <h2>Leaders in <span>[Furnace Camera]</span> Manufacturing</h2>
+                            <h2>Leaders in <br><span class="text-nowrap">[Furnace&nbsp;Camera]</span> <br>Manufacturing</h2>
                         </div>
                         <div class="inner-box">
                             <div class="single-team">
