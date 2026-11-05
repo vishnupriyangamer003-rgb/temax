@@ -116,11 +116,28 @@
             position: relative;
             display: block;
             width: auto;
-            height: 42px;
+            max-width: 175px;
+            max-height: 40px;
+            height: auto;
+            object-fit: contain;
         }
 
         .sticky-header .header-logo img {
-            height: 36px;
+            max-width: 150px;
+            max-height: 34px;
+            height: auto;
+            object-fit: contain;
+        }
+
+        /* Logo constraints across all pages (banner, page-title, etc.) */
+        .banner-top-section .based-content .inner .logo-box .logo img,
+        .page-title .based-content .inner .logo-box .logo img,
+        .logo-box .logo img {
+            max-width: 180px;
+            width: 100%;
+            height: auto;
+            display: block;
+            object-fit: contain;
         }
 
         @media (max-width: 991px) {
@@ -221,7 +238,7 @@
                         <div class="left-column">
                             <figure class="header-logo">
                                 <a href="{{ route('home') }}">
-                                    <img src="{{ asset('assets/images/temax/logo.png') }}" alt="{{ setting('site_name', 'TEMAX') }}">
+                                    <img src="{{ asset('assets/images/temax/logo.png') }}?v={{ file_exists(base_path('../assets/images/temax/logo.png')) ? filemtime(base_path('../assets/images/temax/logo.png')) : '2' }}" alt="{{ setting('site_name', 'TEMAX') }}">
                                 </a>
                             </figure>
                             <div class="menu-area">
@@ -285,7 +302,7 @@
                         <div class="left-column">
                             <figure class="header-logo">
                                 <a href="{{ route('home') }}">
-                                    <img src="{{ asset('assets/images/temax/logo.png') }}" alt="{{ setting('site_name', 'TEMAX') }}">
+                                    <img src="{{ asset('assets/images/temax/logo.png') }}?v={{ file_exists(base_path('../assets/images/temax/logo.png')) ? filemtime(base_path('../assets/images/temax/logo.png')) : '2' }}" alt="{{ setting('site_name', 'TEMAX') }}">
                                 </a>
                             </figure>
                             <div class="menu-area">
@@ -317,7 +334,7 @@
 
             <nav class="menu-box">
                 <div class="nav-logo">
-                    <a href="{{ route('home') }}"><img src="{{ asset('assets/images/temax/logo.png') }}" alt="{{ setting('site_name', 'TEMAX') }}"></a>
+                    <a href="{{ route('home') }}"><img src="{{ asset('assets/images/temax/logo.png') }}?v={{ file_exists(base_path('../assets/images/temax/logo.png')) ? filemtime(base_path('../assets/images/temax/logo.png')) : '2' }}" alt="{{ setting('site_name', 'TEMAX') }}"></a>
                 </div>
                 <div class="menu-outer"><!--Here Menu Will Come Automatically Via Javascript / Same Menu as in Header--></div>
                 <div class="contact-info">

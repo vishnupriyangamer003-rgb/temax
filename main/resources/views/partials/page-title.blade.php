@@ -15,7 +15,7 @@
         <div class="inner">
             <div class="logo-box">
                 <figure class="logo">
-                    <a href="{{ route('home') }}"><img src="{{ asset('assets/images/temax/logo.png') }}" alt="{{ setting('site_name', 'TEMAX') }}"></a>
+                    <a href="{{ route('home') }}"><img src="{{ asset('assets/images/temax/logo.png') }}?v={{ file_exists(base_path('../assets/images/temax/logo.png')) ? filemtime(base_path('../assets/images/temax/logo.png')) : '2' }}" alt="{{ setting('site_name', 'TEMAX') }}"></a>
                 </figure>
                 <h5>Based In <br>Karur, India.</h5>
             </div>
