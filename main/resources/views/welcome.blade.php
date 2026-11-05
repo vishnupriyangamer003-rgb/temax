@@ -292,7 +292,7 @@
                             <h5>Proudly Made in India.</h5>
                         </div>
                         <div class="image-box">
-                            <figure class="image clearfix"><img src="{{ asset('assets/images/temax/production-unit-2.jpg') }}" alt="TEMAX production unit"></figure>
+                            <figure class="image clearfix"><img src="{{ asset('assets/images/temax/production-unit-2.jpg') }}?v={{ file_exists(base_path('../assets/images/temax/production-unit-2.jpg')) ? filemtime(base_path('../assets/images/temax/production-unit-2.jpg')) : '2' }}" alt="TEMAX production unit"></figure>
                             <div class="image-content">
                                 <div class="text-box">
                                     <h2>30<span>+</span></h2>
@@ -1402,6 +1402,36 @@
             .temax-service-section .service-right-inner .count-box {
                 min-width: 100%;
                 padding-left: 0;
+            }
+        }
+
+        /* About section image enhancements */
+        .about-section .inner-content .image-box .image img {
+            border-radius: 14px;
+            box-shadow: 0 16px 40px rgba(15, 30, 45, 0.16);
+            transition: transform 0.4s ease;
+        }
+
+        .about-section .inner-content .image-box:hover .image img {
+            transform: scale(1.02);
+        }
+
+        .about-section .inner-content .award-box {
+            border-radius: 12px;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.18);
+        }
+
+        .about-section .inner-content .image-box .image-content {
+            border-radius: 12px;
+            box-shadow: 0 12px 32px rgba(15, 30, 45, 0.14);
+        }
+
+        @media (max-width: 991px) {
+            .about-section .inner-content .image-box .image img {
+                max-width: 100% !important;
+                float: none !important;
+                height: auto !important;
+                width: 100%;
             }
         }
     </style>

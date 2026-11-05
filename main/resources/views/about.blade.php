@@ -341,7 +341,7 @@
                 <div class="col-lg-4 col-md-12 col-sm-12 image-column">
                     <div class="image-box temax-production-image">
                         <div class="image-shape" style="background-image: url({{ asset('assets/images/shape/shape-15.png') }});"></div>
-                        <figure class="image"><img src="{{ asset('assets/images/temax/production-unit-2.jpg') }}" alt="TEMAX team at work"></figure>
+                        <figure class="image"><img src="{{ asset('assets/images/temax/production-unit-2.jpg') }}?v={{ file_exists(base_path('../assets/images/temax/production-unit-2.jpg')) ? filemtime(base_path('../assets/images/temax/production-unit-2.jpg')) : '2' }}" alt="TEMAX team at work"></figure>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12 col-sm-12 right-column">
