@@ -126,8 +126,7 @@
                                     </div>
                                     <div class="col-lg-6 col-md-6 col-sm-12 single-column">
                                         <div class="form-group">
-                                            <div class="icon-box"><img src="{{ asset('assets/images/icons/icon-33.png') }}" alt=""></div>
-                                            <input type="text" name="location" placeholder="Plant / Location" maxlength="120" value="{{ old('location') }}">
+                                            <input type="text" name="location" placeholder="Plant / Location" maxlength="120" value="{{ old('location') }}" style="padding-left: 20px;">
                                         </div>
                                     </div>
                                     <div class="col-lg-12 col-md-12 col-sm-12 single-column">
