@@ -312,59 +312,64 @@
     <!-- about-section end -->
 
     <!-- service-section -->
-    <section class="service-section">
+    <section class="service-section temax-service-section">
         <div class="bg-layer" style="background-image: url({{ asset('assets/images/background/service-bg.jpg') }});"></div>
         <div class="auto-container">
             <div class="inner-container">
                 <div class="upper-box">
                     <div class="row align-items-center">
-                        <div class="col-lg-4 col-md-12 col-sm-12 count-column">
-                            <div class="count-box align-3">
-                                <div class="shape" style="background-image: url({{ asset('assets/images/shape/shape-5.png') }});"></div>
-                                <h2>90<span>%</span></h2>
-                                <h5>Made in India <br>with Precision.</h5>
+                        <div class="col-lg-4 col-md-12 col-sm-12 service-left-column">
+                            <div class="single-service-box">
+                                <div class="inner-box">
+                                    <figure class="image"><img src="{{ asset('assets/images/resource/service-1.png') }}" alt="Discover Our Complete Service Range"></figure>
+                                    <div class="lower-content">
+                                        <h3>Discover Our Complete Service Range.</h3>
+                                        <p>Six product lines for high-temperature viewing.</p>
+                                        <a href="{{ route('services') }}"><i class="flaticon-right-arrow"></i><span>All Services</span></a>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                        <div class="col-lg-8 col-md-12 col-sm-12 title-column">
-                            <div class="sec-title">
-                                <h6>{!! setting('services_subtitle', 'What we offer') !!}</h6>
-                                <h2>{!! setting('services_title', 'Our services &amp; solutions') !!}</h2>
-                                <p class="mt_12">Furnace cameras, cooling, retraction and thermal systems.</p>
+                        <div class="col-lg-8 col-md-12 col-sm-12 service-right-column">
+                            <div class="service-right-inner">
+                                <div class="sec-title">
+                                    <h6>{!! setting('services_subtitle', 'What we offer') !!}</h6>
+                                    <h2>{!! setting('services_title', 'Our services &amp; solutions') !!}</h2>
+                                    <p class="mt_12">Furnace cameras, cooling, retraction and thermal systems.</p>
+                                </div>
+                                <div class="count-box align-3">
+                                    <div class="shape" style="background-image: url({{ asset('assets/images/shape/shape-5.png') }});"></div>
+                                    <h2>90<span>%</span></h2>
+                                    <h5>Made in India <br>with Precision.</h5>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
                 <div class="lower-box">
-                    <div class="single-service-box">
-                        <div class="inner-box">
-                            <figure class="image"><img src="{{ asset('assets/images/resource/service-1.png') }}" alt=""></figure>
-                            <div class="lower-content">
-                                <h3>Discover Our Complete
-                                    Service Range.</h3>
-                                <p>Six product lines for high-temperature viewing.</p>
-                                <a href="{{ route('services') }}"><i class="flaticon-right-arrow"></i><span>All Services</span></a>
-                            </div>
-                        </div>
-                    </div>
                     <div class="three-item-carousel owl-carousel owl-theme owl-dots-none">
                         @foreach ($homeServices as $service)
-                            <div class="service-block-one">
+                            <div class="service-block-three">
                                 <div class="inner-box">
-                                    <div class="image-inner">
-                                        <span class="count-text">{{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}</span>
-                                        <div class="image-box">
-                                            <div class="shape" style="background-image: url({{ asset('assets/images/shape/shape-6.png') }});"></div>
-                                            <figure class="image"><img src="{{ asset($service->image ?: 'assets/images/service/service-1.jpg') }}" alt="{{ $service->title }}"></figure>
-                                            <div class="icon-box"><i class="{{ $serviceIcons[$loop->index % count($serviceIcons)] }}"></i></div>
-                                        </div>
+                                    <div class="shape" style="background-image: url({{ asset('assets/images/shape/shape-19.png') }});"></div>
+                                    <div class="icon-box"><i class="{{ $serviceIcons[$loop->index % count($serviceIcons)] }}"></i></div>
+                                    <h6>Service {{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}</h6>
+                                    <div class="title-box">
+                                        <div class="title-shape"></div>
+                                        <h2><a href="{{ route('services.show', $service->slug) }}">{{ $service->title }}</a></h2>
                                     </div>
-                                    <div class="lower-content">
-                                        <div class="block-title">
-                                            <div class="line-shape"></div>
-                                            <h3><a href="{{ route('services.show', $service->slug) }}">{{ $service->title }}</a></h3>
+                                    <p>{{ \Illuminate\Support\Str::limit($service->summary, 110) }}</p>
+                                    <div class="link-box"><a href="{{ route('services.show', $service->slug) }}"><i class="flaticon-right-arrow"></i></a></div>
+                                    <div class="overlay-content">
+                                        <div class="overlay-bg" style="background-image: url({{ asset($service->image ?: 'assets/images/resource/block-bg.jpg') }});"></div>
+                                        <div class="icon-box"><i class="{{ $serviceIcons[$loop->index % count($serviceIcons)] }}"></i></div>
+                                        <h6>Service {{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}</h6>
+                                        <div class="title-box">
+                                            <div class="title-shape"></div>
+                                            <h2><a href="{{ route('services.show', $service->slug) }}">{{ $service->title }}</a></h2>
                                         </div>
                                         <p>{{ \Illuminate\Support\Str::limit($service->summary, 110) }}</p>
-                                        <div class="btn-box"><a href="{{ route('services.show', $service->slug) }}"><i class="flaticon-right-arrow"></i><span>Read More</span></a></div>
+                                        <div class="btn-box"><a href="{{ route('services.show', $service->slug) }}" class="theme-btn btn-three"><i class="flaticon-right-arrow"></i><span>Read More</span></a></div>
                                     </div>
                                 </div>
                             </div>
@@ -377,7 +382,7 @@
     <!-- service-section end -->
 
     <!-- industries-section -->
-    <section class="industries-section">
+    <section class="industries-section temax-industries-section">
         <div class="bg-layer" style="background-image: url({{ asset('assets/images/background/industries-bg.png') }});"></div>
         <div class="auto-container">
             <div class="sec-title mb_45">
@@ -386,39 +391,28 @@
                 <a href="{{ route('projects') }}"><i class="flaticon-right-arrow"></i><span>All Projects</span></a>
             </div>
             <div class="inner-container">
-                <div class="single-box">
-                    <div class="inner-box">
-                        <figure class="image-box"><img src="{{ asset('assets/images/temax/power-600mw.jpg') }}" alt="600MW power plant camera system"></figure>
-                        <div class="lower-content">
-                            <div class="shape" style="background-image: url({{ asset('assets/images/shape/shape-7.png') }});"></div>
-                            <h2>600<span>MW</span></h2>
-                            <h5>Utility Power Plant <br>Camera System.</h5>
-                        </div>
-                    </div>
-                </div>
                 <div class="tabs-box">
-                    <div class="row clearfix">
-                        <div class="col-lg-8 col-md-12 col-sm-12 big-column">
+                    <div class="row clearfix align-items-start">
+                        <div class="col-lg-6 col-md-12 col-sm-12 big-column">
                             <div class="tab-btn-box">
-                                <div class="row clearfix">
-                                    <div class="col-lg-6 col-md-6 col-sm-12 btn-column">
-                                        <ul class="tab-btns tab-buttons clearfix">
-                                            @foreach (array_slice($industries, 0, 2) as $index => $industry)
-                                                <li class="tab-btn {{ $index === 0 ? 'active-btn' : '' }}" data-tab="#ind-tab-{{ $index + 1 }}">{{ $industry['name'] }}</li>
-                                            @endforeach
-                                        </ul>
-                                    </div>
-                                    <div class="col-lg-6 col-md-6 col-sm-12 btn-column">
-                                        <ul class="tab-btns tab-buttons clearfix">
-                                            @foreach (array_slice($industries, 2) as $index => $industry)
-                                                <li class="tab-btn {{ $index === 0 && count($industries) === 2 ? 'active-btn' : '' }}" data-tab="#ind-tab-{{ $index + 3 }}">{{ $industry['name'] }}</li>
-                                            @endforeach
-                                        </ul>
+                                <ul class="tab-btns tab-buttons clearfix">
+                                    @foreach ($industries as $index => $industry)
+                                        <li class="tab-btn {{ $index === 0 ? 'active-btn' : '' }}" data-tab="#ind-tab-{{ $index + 1 }}">{{ $industry['name'] }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                            <div class="single-box">
+                                <div class="inner-box">
+                                    <figure class="image-box"><img src="{{ asset('assets/images/temax/power-600mw.jpg') }}" alt="600MW power plant camera system"></figure>
+                                    <div class="lower-content">
+                                        <div class="shape" style="background-image: url({{ asset('assets/images/shape/shape-7.png') }});"></div>
+                                        <h2>600<span>MW</span></h2>
+                                        <h5>Utility Power Plant <br>Camera System.</h5>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                        <div class="col-lg-4 col-md-12 col-sm-12 content-column">
+                        <div class="col-lg-6 col-md-12 col-sm-12 content-column">
                             <div class="tabs-content">
                                 @foreach ($industries as $index => $industry)
                                     <div class="tab {{ $index === 0 ? 'active-tab' : '' }}" id="ind-tab-{{ $index + 1 }}">
@@ -720,3 +714,695 @@
     @include('partials.cta')
 
 @endsection
+
+@push('styles')
+    <style>
+        .temax-industries-section .inner-container {
+            position: relative;
+            display: block;
+            margin-left: 0 !important;
+            padding-left: 0 !important;
+            margin-right: 0 !important;
+            border-top: 1px solid #e4e9ec;
+            border-bottom: 1px solid #e4e9ec;
+            padding-top: 25px;
+            padding-bottom: 25px;
+        }
+
+        .temax-industries-section .inner-container::before,
+        .temax-industries-section .inner-container::after {
+            display: none !important;
+        }
+
+        .temax-industries-section .tab-btn-box {
+            position: relative;
+            margin: 0;
+        }
+
+        .temax-industries-section .tab-btns .tab-btn {
+            position: relative;
+            display: block;
+            font-size: 20px;
+            line-height: 28px;
+            font-family: var(--title-font);
+            font-weight: 600;
+            color: var(--title-color);
+            padding: 22px 28px;
+            cursor: pointer;
+            border-bottom: 1px solid #e4e9ec;
+            border-left: 1px solid #e4e9ec;
+            transition: all 300ms ease;
+            background: #fff;
+        }
+
+        .temax-industries-section .tab-btns .tab-btn:hover {
+            color: var(--theme-color);
+            background: #fbfcfd;
+        }
+
+        .temax-industries-section .tab-btns .tab-btn.active-btn {
+            color: var(--theme-color);
+            background: #f6f9fc;
+            border-left: 3px solid var(--theme-color);
+        }
+
+        /* 600MW Power Plant Camera System box moved below Cement / Thermal / Glass tabs */
+        .temax-industries-section .single-box {
+            position: relative !important;
+            left: auto !important;
+            top: auto !important;
+            width: 100% !important;
+            margin-top: 26px;
+            padding: 0;
+        }
+
+        .temax-industries-section .single-box .inner-box {
+            position: relative;
+            display: block;
+            padding: 22px;
+            background: #f8fafc;
+            border: 1px solid #e4e9ec;
+            border-radius: 10px;
+            box-shadow: 0 6px 20px rgba(20, 42, 59, 0.05);
+        }
+
+        .temax-industries-section .single-box .inner-box .image-box {
+            position: relative;
+            display: block;
+            overflow: hidden;
+            border-radius: 8px;
+            aspect-ratio: 16 / 10;
+        }
+
+        .temax-industries-section .single-box .inner-box .image-box img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 500ms ease;
+        }
+
+        .temax-industries-section .single-box .inner-box:hover .image-box img {
+            transform: scale(1.03);
+        }
+
+        .temax-industries-section .single-box .inner-box .lower-content {
+            position: relative;
+            display: block;
+            padding-top: 18px;
+        }
+
+        .temax-industries-section .single-box .inner-box .lower-content .shape {
+            position: absolute;
+            right: 0;
+            top: 18px;
+            width: 70px;
+            height: 51px;
+            background-repeat: no-repeat;
+            opacity: 0.6;
+        }
+
+        .temax-industries-section .single-box .inner-box .lower-content h2 {
+            display: block;
+            font-size: 46px;
+            line-height: 1;
+            margin-bottom: 5px;
+            color: var(--title-color);
+            font-weight: 700;
+        }
+
+        .temax-industries-section .single-box .inner-box .lower-content h2 span {
+            font-weight: 300;
+            color: var(--theme-color);
+            font-size: 32px;
+            margin-left: 3px;
+        }
+
+        .temax-industries-section .single-box .inner-box .lower-content h5 {
+            display: block;
+            font-size: 17px;
+            line-height: 24px;
+            color: #555d65;
+            font-weight: 600;
+            margin: 0;
+        }
+
+        /* Industry card: reduced width & aligned */
+        .temax-industries-section .content-column {
+            display: flex;
+            justify-content: flex-start;
+        }
+
+        .temax-industries-section .tabs-content {
+            width: 100%;
+            max-width: 460px;
+        }
+
+        .temax-industries-section .tabs-box .content-box {
+            position: relative;
+            display: block;
+            width: 100%;
+            max-width: 460px;
+            margin: 0;
+            margin-left: 0;
+            padding: 42px 36px 46px 36px;
+            background-color: var(--secondary-color);
+            border-radius: 10px;
+            box-shadow: 0 16px 36px rgba(18, 25, 33, 0.16);
+            text-align: left;
+        }
+
+        .temax-industries-section .tabs-box .content-box h6 {
+            display: block;
+            font-size: 14px;
+            line-height: 22px;
+            color: var(--theme-color);
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+            margin-bottom: 6px;
+            font-weight: 600;
+        }
+
+        .temax-industries-section .tabs-box .content-box h3 {
+            display: block;
+            font-size: 28px;
+            line-height: 36px;
+            color: #fff;
+            font-weight: 600;
+            margin-bottom: 14px;
+        }
+
+        .temax-industries-section .tabs-box .content-box p {
+            color: #b0b7bd;
+            font-size: 15px;
+            line-height: 25px;
+            margin-bottom: 24px;
+        }
+
+        .temax-industries-section .tabs-box .content-box .list-item {
+            display: block;
+            margin-bottom: 28px;
+            padding: 0;
+        }
+
+        .temax-industries-section .tabs-box .content-box .list-item li {
+            position: relative;
+            display: block;
+            color: #d1d6dc;
+            font-size: 15px;
+            line-height: 24px;
+            padding-left: 28px;
+            margin-bottom: 10px;
+        }
+
+        .temax-industries-section .tabs-box .content-box .list-item li:before {
+            position: absolute;
+            content: "\f117";
+            font-family: 'flaticon_metallic';
+            left: 0;
+            top: 2px;
+            font-size: 14px;
+            color: var(--theme-color);
+        }
+
+        .temax-industries-section .tabs-box .content-box .list-item li:last-child {
+            margin-bottom: 0;
+            margin-top: 4px;
+        }
+
+        .temax-industries-section .tabs-box .content-box .list-item li:last-child::before {
+            display: none;
+        }
+
+        .temax-industries-section .tabs-box .content-box .list-item li a {
+            color: var(--theme-color);
+            font-weight: 600;
+            font-size: 14px;
+            transition: color 300ms ease;
+        }
+
+        .temax-industries-section .tabs-box .content-box .list-item li a:hover {
+            color: #fff;
+            text-decoration: underline;
+        }
+
+        .temax-industries-section .tabs-box .content-box .link-box a {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 14px;
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 600;
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            justify-content: flex-start;
+            padding: 10px 18px;
+            background: rgba(255, 255, 255, 0.08);
+            border-radius: 6px;
+            transition: all 300ms ease;
+        }
+
+        .temax-industries-section .tabs-box .content-box .link-box a:hover {
+            background: var(--theme-color);
+            color: #fff;
+        }
+
+        .temax-industries-section .tabs-box .content-box .link-box a i {
+            position: relative;
+            display: inline-block;
+            width: auto;
+            height: auto;
+            line-height: 1;
+            font-size: 15px;
+            color: var(--theme-color);
+            background: transparent;
+            text-align: center;
+            transition: color 300ms ease;
+        }
+
+        .temax-industries-section .tabs-box .content-box .link-box a:hover i {
+            color: #fff;
+            background: transparent;
+        }
+
+        /* Scoped styles for Services section */
+        .temax-service-section .upper-box {
+            position: relative;
+            padding: 70px 40px 30px 40px;
+        }
+
+        .temax-service-section .single-service-box {
+            position: relative !important;
+            top: auto !important;
+            right: auto !important;
+            left: auto !important;
+            bottom: auto !important;
+            width: 100% !important;
+            max-width: 375px;
+            background: #ffffff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+            transition: transform 300ms ease, box-shadow 300ms ease;
+        }
+
+        .temax-service-section .single-service-box:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 18px 36px rgba(0, 0, 0, 0.12);
+        }
+
+        .temax-service-section .single-service-box .inner-box {
+            position: relative;
+            display: block;
+        }
+
+        .temax-service-section .single-service-box .inner-box .image {
+            position: relative;
+            display: block;
+            overflow: hidden;
+        }
+
+        .temax-service-section .single-service-box .inner-box .image img {
+            width: 100%;
+            height: auto;
+            display: block;
+            transition: transform 500ms ease;
+        }
+
+        .temax-service-section .single-service-box:hover .inner-box .image img {
+            transform: scale(1.04);
+        }
+
+        .temax-service-section .single-service-box .lower-content {
+            position: relative;
+            padding: 24px 28px 28px 28px;
+            background: #ffffff;
+        }
+
+        .temax-service-section .single-service-box .lower-content h3 {
+            font-size: 22px;
+            line-height: 30px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: var(--title-color, #1a1e21);
+        }
+
+        .temax-service-section .single-service-box .lower-content p {
+            font-size: 14px;
+            line-height: 22px;
+            color: #66696b;
+            margin-bottom: 18px;
+        }
+
+        .temax-service-section .single-service-box .lower-content a {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 14px;
+            line-height: 24px;
+            color: var(--title-color, #1a1e21);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            transition: color 300ms ease;
+        }
+
+        .temax-service-section .single-service-box .lower-content a:hover {
+            color: var(--theme-color);
+        }
+
+        .temax-service-section .single-service-box .lower-content a i {
+            font-size: 18px;
+            color: var(--theme-color);
+            transition: transform 300ms ease;
+        }
+
+        .temax-service-section .single-service-box .lower-content a:hover i {
+            transform: translateX(4px);
+        }
+
+        .temax-service-section .service-right-inner {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 30px;
+            flex-wrap: wrap;
+            padding-left: 15px;
+        }
+
+        .temax-service-section .service-right-inner .sec-title {
+            flex: 1 1 340px;
+            max-width: 440px;
+            padding-left: 0 !important;
+        }
+
+        .temax-service-section .service-right-inner .sec-title h6 {
+            position: relative;
+            display: inline-block;
+            font-size: 14px;
+            line-height: 20px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            color: var(--theme-color);
+            margin-bottom: 8px;
+        }
+
+        .temax-service-section .service-right-inner .sec-title h2 {
+            font-size: 38px;
+            line-height: 46px;
+            font-weight: 700;
+            color: var(--title-color, #1a1e21);
+            margin-bottom: 12px;
+        }
+
+        .temax-service-section .service-right-inner .sec-title p {
+            font-size: 15px;
+            line-height: 24px;
+            color: #66696b;
+            margin: 0;
+        }
+
+        .temax-service-section .service-right-inner .count-box {
+            flex: 0 0 auto;
+            position: relative;
+            min-width: 200px;
+            padding-left: 10px;
+        }
+
+        .temax-service-section .service-right-inner .count-box h2 {
+            font-size: 100px;
+            line-height: 90px;
+            font-weight: 700;
+            color: var(--title-color, #1a1e21);
+            margin-bottom: 6px;
+        }
+
+        .temax-service-section .service-right-inner .count-box h2 span {
+            font-size: 52px;
+            color: var(--theme-color);
+        }
+
+        .temax-service-section .service-right-inner .count-box h5 {
+            font-size: 16px;
+            line-height: 24px;
+            font-weight: 600;
+            color: #4b5259;
+        }
+
+        .temax-service-section .service-right-inner .count-box .shape {
+            position: absolute;
+            top: -10px;
+            right: -10px;
+            width: 80px;
+            height: 110px;
+            background-repeat: no-repeat;
+            background-size: contain;
+            opacity: 0.35;
+            pointer-events: none;
+        }
+
+        .temax-service-section .lower-box {
+            position: relative;
+            margin-right: 0 !important;
+            padding-right: 0 !important;
+            border-top: 1px solid #dbdfe3;
+            padding-top: 30px;
+            margin-top: 35px;
+        }
+
+        .temax-service-section .lower-box .owl-nav {
+            position: absolute;
+            top: -55px;
+            right: 20px;
+            left: auto !important;
+            bottom: auto !important;
+            display: flex;
+            gap: 8px;
+            z-index: 5;
+        }
+
+        .temax-service-section .lower-box .owl-nav button {
+            position: relative;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 44px;
+            height: 44px;
+            line-height: 44px;
+            background-color: #ffffff;
+            border: 1px solid #dbdfe3;
+            border-radius: 4px;
+            text-align: center;
+            font-size: 20px;
+            color: #66696b;
+            transition: all 300ms ease;
+            cursor: pointer;
+        }
+
+        .temax-service-section .lower-box .owl-nav button.owl-prev {
+            border-bottom: 1px solid #dbdfe3 !important;
+        }
+
+        .temax-service-section .lower-box .owl-nav button:hover {
+            color: #ffffff;
+            background-color: var(--theme-color);
+            border-color: var(--theme-color);
+        }
+
+        /* Scoped styles for service-block-three cards in service-section */
+        .temax-service-section .service-block-three {
+            margin-bottom: 20px;
+        }
+
+        .temax-service-section .service-block-three .inner-box {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 440px;
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
+            padding: 34px 30px 36px 36px;
+            margin-bottom: 0;
+            overflow: hidden;
+            transition: all 400ms ease;
+        }
+
+        .temax-service-section .service-block-three .inner-box:hover {
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.12);
+        }
+
+        .temax-service-section .service-block-three .inner-box h6 {
+            font-size: 13px;
+            font-weight: 600;
+            letter-spacing: 0.08em;
+            color: #a5aaaf;
+            text-transform: uppercase;
+            margin-bottom: 12px;
+        }
+
+        .temax-service-section .service-block-three .inner-box .title-box {
+            margin-bottom: 18px;
+            padding-bottom: 18px;
+        }
+
+        .temax-service-section .service-block-three .inner-box .title-box h2 {
+            font-size: 22px;
+            line-height: 30px;
+            font-weight: 700;
+            min-height: 60px;
+        }
+
+        .temax-service-section .service-block-three .inner-box p {
+            font-size: 14px;
+            line-height: 24px;
+            color: #66696b;
+            margin-bottom: 24px;
+            min-height: 72px;
+        }
+
+        .temax-service-section .service-block-three .inner-box .icon-box {
+            background-color: #f0f4f8;
+            color: var(--theme-color);
+            transition: all 300ms ease;
+        }
+
+        .temax-service-section .service-block-three .inner-box .link-box a {
+            background-color: #f0f4f8;
+            color: var(--theme-color);
+            border-radius: 4px;
+            transition: all 300ms ease;
+        }
+
+        .temax-service-section .service-block-three .inner-box .link-box a:hover {
+            background-color: var(--theme-color);
+            color: #ffffff;
+        }
+
+        .temax-service-section .service-block-three .inner-box .overlay-content {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            background-color: rgba(22, 26, 29, 0.94);
+            border-radius: 8px;
+            padding: 34px 30px 36px 36px;
+        }
+
+        .temax-service-section .service-block-three .inner-box .overlay-content .overlay-bg {
+            opacity: 0.22;
+        }
+
+        .temax-service-section .service-block-three .inner-box .overlay-content .icon-box {
+            background-color: rgba(255, 255, 255, 0.1);
+            color: var(--theme-color);
+        }
+
+        .temax-service-section .service-block-three .inner-box .overlay-content h6 {
+            color: #dbdfe3;
+        }
+
+        .temax-service-section .service-block-three .inner-box .overlay-content .title-box h2 a {
+            color: #ffffff;
+        }
+
+        .temax-service-section .service-block-three .inner-box .overlay-content p {
+            color: #c4c9ce;
+        }
+
+        .temax-service-section .service-block-three .inner-box .overlay-content .theme-btn.btn-three {
+            background-color: var(--theme-color);
+            color: #ffffff;
+            border-radius: 4px;
+            transition: all 300ms ease;
+        }
+
+        .temax-service-section .service-block-three .inner-box .overlay-content .theme-btn.btn-three i {
+            color: #ffffff;
+        }
+
+        .temax-service-section .service-block-three .inner-box .overlay-content .theme-btn.btn-three:hover {
+            background-color: #ffffff;
+            color: var(--title-color);
+        }
+
+        .temax-service-section .service-block-three .inner-box .overlay-content .theme-btn.btn-three:hover i {
+            color: var(--theme-color);
+        }
+
+        @media (max-width: 991px) {
+            .temax-industries-section .single-box {
+                margin-top: 24px;
+                margin-bottom: 24px;
+            }
+
+            .temax-industries-section .content-column {
+                justify-content: flex-start;
+                margin-top: 24px;
+            }
+
+            .temax-industries-section .tabs-content,
+            .temax-industries-section .tabs-box .content-box {
+                max-width: 100%;
+                padding: 34px 26px;
+            }
+
+            .temax-service-section .upper-box {
+                padding: 45px 20px 20px 20px !important;
+            }
+
+            .temax-service-section .service-left-column {
+                margin-bottom: 30px;
+            }
+
+            .temax-service-section .single-service-box {
+                max-width: 100%;
+                margin: 0 auto;
+            }
+
+            .temax-service-section .service-right-inner {
+                padding-left: 0;
+                gap: 20px;
+            }
+
+            .temax-service-section .service-right-inner .sec-title h2 {
+                font-size: 32px;
+                line-height: 40px;
+            }
+
+            .temax-service-section .service-right-inner .count-box h2 {
+                font-size: 80px;
+                line-height: 75px;
+            }
+
+            .temax-service-section .service-right-inner .count-box h2 span {
+                font-size: 42px;
+            }
+
+            .temax-service-section .lower-box {
+                margin-top: 25px;
+                padding-top: 20px;
+            }
+
+            .temax-service-section .lower-box .owl-nav {
+                display: none !important;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .temax-service-section .service-right-inner {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .temax-service-section .service-right-inner .count-box {
+                min-width: 100%;
+                padding-left: 0;
+            }
+        }
+    </style>
+@endpush

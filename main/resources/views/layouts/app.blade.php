@@ -79,8 +79,28 @@
     <link href="{{ asset('assets/css/responsive.css') }}?v={{ $assetVersion }}" rel="stylesheet">
 
     <style>
-        .preloader {
-            display: none !important;
+        .loader-wrap {
+            position: fixed;
+            inset: 0;
+            z-index: 999999;
+        }
+
+        .loader-wrap .handle-preloader {
+            background: #193247;
+        }
+
+        .loader-wrap .animation-preloader .spinner {
+            width: 76px;
+            height: 76px;
+            margin-bottom: 30px;
+            border: 3px solid rgba(255, 255, 255, 0.18);
+            border-top-color: var(--theme-color);
+        }
+
+        .loader-wrap .animation-preloader .txt-loading .letters-loading {
+            font-size: 48px;
+            letter-spacing: 8px;
+            -webkit-text-stroke-color: rgba(255, 255, 255, 0.35);
         }
 
         /* Header logo (replaces the theme's "Access" sidebar button) */
@@ -128,8 +148,34 @@
             box-sizing: content-box;
         }
 
+        .main-footer .footer-bottom .bottom-inner {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            padding: 22px 0;
+        }
+
+        .main-footer .footer-bottom .bottom-inner .copyright {
+            width: 100%;
+        }
+
+        .main-footer .footer-bottom .bottom-inner .copyright p {
+            margin-bottom: 0;
+            line-height: 1.6;
+            text-align: center;
+            white-space: nowrap;
+            font-size: clamp(11px, 1.3vw, 16px);
+        }
+
         .mobile-menu .nav-logo img {
             max-width: 160px;
+        }
+
+        @media (max-width: 767px) {
+            .main-footer .footer-bottom .bottom-inner .copyright p {
+                font-size: 11px;
+            }
         }
     </style>
 
@@ -328,7 +374,6 @@
                                         <li><a href="{{ route('projects') }}"><i class="flaticon-right"></i><span>Projects</span></a></li>
                                         <li><a href="{{ route('services') }}"><i class="flaticon-right"></i><span>Services</span></a></li>
                                         <li><a href="{{ route('contact') }}"><i class="flaticon-right"></i><span>Contact Us</span></a></li>
-                                        <li><a href="{{ route('admin.login') }}"><i class="flaticon-right"></i><span>Admin Login</span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -375,44 +420,8 @@
             <div class="footer-bottom">
                 <div class="auto-container">
                     <div class="bottom-inner">
-                        <div class="left-column">
-                            @php
-                                $socials = array_filter([
-                                    'facebook'  => setting('facebook'),
-                                    'twitter'   => setting('twitter'),
-                                    'instagram' => setting('instagram'),
-                                    'linkedin'  => setting('linkedin'),
-                                    'youtube'   => setting('youtube'),
-                                ]);
-                                $socialIcons = [
-                                    'facebook'  => 'flaticon-facebook',
-                                    'twitter'   => 'flaticon-twitter',
-                                    'instagram' => 'flaticon-instagram-logo',
-                                    'linkedin'  => 'flaticon-linkedin',
-                                    'youtube'   => 'flaticon-youtube',
-                                ];
-                            @endphp
-                            @if (!empty($socials))
-                                <ul class="social-links">
-                                    @foreach ($socials as $network => $url)
-                                        <li><a href="{{ $url }}" target="_blank" rel="noopener" aria-label="{{ ucfirst($network) }}"><i class="{{ $socialIcons[$network] }}"></i></a></li>
-                                    @endforeach
-                                </ul>
-                            @endif
-                            <p>{{ setting('tagline', 'Furnace Camera Manufacturer') }}</p>
-                        </div>
-                        <div class="middle-column">
-                            <div class="inner-box mb_30">
-                                <h5>{{ setting('site_name', 'TEMAX') }}<br>{{ setting('tagline', 'Furnace Camera Manufacturer') }}</h5>
-                            </div>
-                        </div>
-                        <div class="right-column align-3">
-                            <figure class="footer-logo mb_25">
-                                <a href="{{ route('home') }}"><img src="{{ asset('assets/images/temax/logo.png') }}" alt="{{ setting('site_name', 'TEMAX') }}"></a>
-                            </figure>
-                            <div class="copyright">
-                                <p>{!! setting('copyright_text', 'Copyrights &copy; ' . date('Y') . ' <a href="' . route('home') . '">' . setting('site_name', 'TEMAX') . ',</a> <br>All Rights Reserved.') !!}</p>
-                            </div>
+                        <div class="copyright">
+                            <p>{!! setting('copyright_text', 'Copyright &copy; ' . date('Y') . ' <a href="' . route('home') . '">' . setting('site_name', 'TEMAX') . '</a>. All rights reserved.') !!}</p>
                         </div>
                     </div>
                 </div>

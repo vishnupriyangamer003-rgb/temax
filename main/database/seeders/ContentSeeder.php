@@ -381,7 +381,7 @@ class ContentSeeder extends Seeder
                 'place' => 'Cement plant, India',
                 'type'  => 'Cement',
                 'text'  => 'In 2016 TEMAX developed the first furnace camera for kiln application — the reference installation that started the TEMAX furnace camera range. The unit gave operators their first live view inside the kiln and set the standard for the retrofit and cowl shell cameras that followed.',
-                'images' => ['assets/images/temax/kiln-2016.png', 'assets/images/temax/camera-tube.jpg'],
+                'images' => ['assets/images/temax/kiln-camera-ui.jpg', 'assets/images/temax/camera-tube.jpg'],
             ],
             [
                 'title' => 'TEMAX Cameras in a Captive Power Plant',

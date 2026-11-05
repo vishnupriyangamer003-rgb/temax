@@ -11,7 +11,7 @@
         <div class="auto-container">
             <div class="row clearfix">
                 <div class="col-lg-6 col-md-12 col-sm-12 image-column">
-                    <div class="image-box">
+                    <div class="image-box temax-about-gallery">
                         <figure class="image image-1"><img src="{{ asset('assets/images/temax/production-unit.jpg') }}" alt="TEMAX production unit"></figure>
                         <figure class="image image-2"><img src="{{ asset('assets/images/temax/control-panel.jpg') }}" alt="TEMAX control panel"></figure>
                         <figure class="image image-3"><img src="{{ asset('assets/images/temax/camera-tube.jpg') }}" alt="TEMAX furnace camera tube"></figure>
@@ -243,7 +243,7 @@
 
 
     <!-- chooseus-style-two -->
-    <section class="chooseus-style-two">
+    <section class="chooseus-style-two temax-production-section">
         <div class="auto-container">
             <div class="sec-title mb_25 centred">
                 <h6>Why Choose Us</h6>
@@ -274,7 +274,7 @@
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12 col-sm-12 image-column">
-                    <div class="image-box">
+                    <div class="image-box temax-production-image">
                         <div class="image-shape" style="background-image: url({{ asset('assets/images/shape/shape-15.png') }});"></div>
                         <figure class="image"><img src="{{ asset('assets/images/temax/production-unit-2.jpg') }}" alt="TEMAX team at work"></figure>
                     </div>
@@ -383,3 +383,145 @@
     @include('partials.cta')
 
 @endsection
+
+@push('styles')
+    <style>
+        .about-style-three.alternat-2 .image-box.temax-about-gallery {
+            display: grid;
+            grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
+            grid-template-rows: repeat(2, minmax(0, 1fr));
+            gap: 14px;
+            height: 440px;
+            margin: 0;
+            padding: 0;
+        }
+
+        .about-style-three.alternat-2 .temax-about-gallery .image {
+            position: relative;
+            inset: auto;
+            display: block;
+            min-width: 0;
+            min-height: 0;
+            margin: 0;
+            overflow: hidden;
+            border-radius: 14px;
+            background: #e8edf1;
+            box-shadow: 0 12px 30px rgba(20, 42, 59, 0.12);
+        }
+
+        .about-style-three.alternat-2 .temax-about-gallery .image-1 {
+            grid-column: 1;
+            grid-row: 1 / span 2;
+        }
+
+        .about-style-three.alternat-2 .temax-about-gallery .image-2 {
+            grid-column: 2;
+            grid-row: 1;
+        }
+
+        .about-style-three.alternat-2 .temax-about-gallery .image-3 {
+            grid-column: 2;
+            grid-row: 2;
+        }
+
+        .about-style-three.alternat-2 .temax-about-gallery .image img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .about-style-three.alternat-2 .temax-about-gallery .image-1 img {
+            object-position: 68% center;
+        }
+
+        .about-style-three.alternat-2 .temax-about-gallery .image:hover img {
+            transform: scale(1.035);
+        }
+
+        .about-style-three.alternat-2 .temax-about-gallery .rotate-text {
+            top: auto;
+            right: 18px;
+            bottom: 18px;
+            z-index: 1;
+            padding: 11px 16px;
+            border-radius: 6px;
+            font-size: 13px;
+            line-height: 1.2;
+            letter-spacing: 0.08em;
+            transform: none;
+            box-shadow: 0 6px 18px rgba(20, 42, 59, 0.2);
+        }
+
+        .about-style-three.alternat-2 .temax-about-gallery .rotate-text::before {
+            display: none;
+        }
+
+        .temax-production-section .temax-production-image {
+            max-width: 460px;
+            margin: 0 auto;
+        }
+
+        .temax-production-section .temax-production-image .image-shape {
+            display: none;
+        }
+
+        .temax-production-section .temax-production-image .image {
+            position: relative;
+            display: block;
+            margin: 0;
+            overflow: hidden;
+            aspect-ratio: 4 / 3;
+            border: 8px solid #fff;
+            border-radius: 20px;
+            background: #e8edf1;
+            box-shadow: 0 18px 42px rgba(20, 42, 59, 0.16);
+        }
+
+        .temax-production-section .temax-production-image .image img {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center 42%;
+            border-radius: 12px;
+        }
+
+        @media (max-width: 767px) {
+            .about-style-three.alternat-2 .image-box.temax-about-gallery {
+                height: 360px;
+                margin: 0 auto 35px;
+            }
+
+            .temax-production-section .temax-production-image {
+                max-width: 520px;
+                margin: 0 auto 30px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .about-style-three.alternat-2 .image-box.temax-about-gallery {
+                grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+                grid-template-rows: minmax(0, 1.2fr) minmax(0, 0.8fr);
+                gap: 9px;
+                height: 310px;
+            }
+
+            .about-style-three.alternat-2 .temax-about-gallery .image-1 {
+                grid-column: 1 / span 2;
+                grid-row: 1;
+            }
+
+            .about-style-three.alternat-2 .temax-about-gallery .image-2 {
+                grid-column: 1;
+                grid-row: 2;
+            }
+
+            .about-style-three.alternat-2 .temax-about-gallery .image-3 {
+                grid-column: 2;
+                grid-row: 2;
+            }
+        }
+    </style>
+@endpush
