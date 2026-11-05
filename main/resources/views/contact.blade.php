@@ -38,7 +38,11 @@
                                         <div class="text-box">
                                             <p>
                                                 <a href="tel:{{ preg_replace('/[^0-9+]/', '', setting('phone')) }}">{{ setting('phone_display', setting('phone')) }}</a><br>
-                                                @if (setting('phone2'))<a href="tel:{{ preg_replace('/[^0-9+\s,]/', '', setting('phone2')) }}">{{ setting('phone2') }}</a><br>@endif
+                                                @if (setting('phone2'))
+                                                    @foreach (array_filter(array_map('trim', explode(',', setting('phone2')))) as $p2)
+                                                        <a href="tel:{{ preg_replace('/[^0-9+]/', '', $p2) }}">{{ format_phone($p2) }}</a><br>
+                                                    @endforeach
+                                                @endif
                                                 <a href="mailto:{{ setting('email') }}">{{ setting('email') }}</a>
                                             </p>
                                         </div>

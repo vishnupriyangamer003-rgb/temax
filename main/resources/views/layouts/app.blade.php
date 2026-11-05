@@ -348,6 +348,11 @@
                     <ul>
                         <li>{{ setting('address_short', setting('address')) }}</li>
                         <li><a href="tel:{{ preg_replace('/[^0-9+]/', '', setting('phone')) }}">{{ setting('phone_display', setting('phone')) }}</a></li>
+                        @if (setting('phone2'))
+                            @foreach (array_filter(array_map('trim', explode(',', setting('phone2')))) as $p2)
+                                <li><a href="tel:{{ preg_replace('/[^0-9+]/', '', $p2) }}">{{ format_phone($p2) }}</a></li>
+                            @endforeach
+                        @endif
                         <li><a href="mailto:{{ setting('email') }}">{{ setting('email') }}</a></li>
                     </ul>
                 </div>
@@ -426,7 +431,9 @@
                                     <p>{{ setting('address') }}</p>
                                     <div class="phone"><a href="tel:{{ preg_replace('/[^0-9+]/', '', setting('phone')) }}">{{ setting('phone_display', setting('phone')) }}</a></div>
                                     @if (setting('phone2'))
-                                        <div class="phone"><a href="tel:{{ preg_replace('/[^0-9+]/', '', explode(',', setting('phone2'))[0]) }}">{{ setting('phone2') }}</a></div>
+                                        @foreach (array_filter(array_map('trim', explode(',', setting('phone2')))) as $p2)
+                                            <div class="phone"><a href="tel:{{ preg_replace('/[^0-9+]/', '', $p2) }}">{{ format_phone($p2) }}</a></div>
+                                        @endforeach
                                     @endif
                                     <div class="email"><a href="mailto:{{ setting('email') }}">{{ setting('email') }}</a></div>
                                     <div class="map-link">
