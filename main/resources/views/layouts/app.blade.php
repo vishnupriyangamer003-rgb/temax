@@ -366,21 +366,19 @@
                 <div class="auto-container">
                     <div class="row clearfix">
                         <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
-                            <div class="footer-widget contact-widget">
+                            <div class="footer-widget support-widget">
                                 <div class="widget-title">
-                                    <h3>Contact</h3>
+                                    <h3>Let's Build Something Great Together</h3>
                                 </div>
                                 <div class="widget-content">
-                                    <p>{{ setting('address') }}</p>
-                                    <div class="phone"><a href="tel:{{ preg_replace('/[^0-9+]/', '', setting('phone')) }}">{{ setting('phone_display', setting('phone')) }}</a></div>
-                                    @if (setting('phone2'))
-                                        <div class="phone"><a href="tel:{{ preg_replace('/[^0-9+]/', '', explode(',', setting('phone2'))[0]) }}">{{ setting('phone2') }}</a></div>
-                                    @endif
-                                    <div class="email"><a href="mailto:{{ setting('email') }}">{{ setting('email') }}</a></div>
-                                    <div class="map-link">
-                                        <a href="{{ setting('map_embed') ? 'https://www.google.com/maps?q=' . urlencode(setting('address_short', setting('address'))) : 'https://www.google.com/maps' }}" target="_blank" rel="noopener">
-                                            <i class="flaticon-right-arrow"></i><span>Google Map</span>
-                                        </a>
+                                    <ul class="list-item mb_25 clearfix">
+                                        <li><i class="flaticon-approved"></i><span>90% Manufacturing in India</span></li>
+                                        <li><i class="flaticon-approved"></i><span>All Spares Available Locally</span></li>
+                                        <li><i class="flaticon-approved"></i><span>Immediate Support</span></li>
+                                    </ul>
+                                    <div class="link-box">
+                                        <div class="icon-box"><i class="flaticon-chat"></i></div>
+                                        <a href="{{ route('contact') }}"><span>Free <br>Consultation</span><i class="flaticon-right-arrow"></i></a>
                                     </div>
                                 </div>
                             </div>
@@ -420,19 +418,21 @@
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
-                            <div class="footer-widget support-widget">
+                            <div class="footer-widget contact-widget">
                                 <div class="widget-title">
-                                    <h3>Let's Build Something Great Together</h3>
+                                    <h3>Contact</h3>
                                 </div>
                                 <div class="widget-content">
-                                    <ul class="list-item mb_25 clearfix">
-                                        <li><i class="flaticon-approved"></i><span>90% Manufacturing in India</span></li>
-                                        <li><i class="flaticon-approved"></i><span>All Spares Available Locally</span></li>
-                                        <li><i class="flaticon-approved"></i><span>Immediate Support</span></li>
-                                    </ul>
-                                    <div class="link-box">
-                                        <div class="icon-box"><i class="flaticon-chat"></i></div>
-                                        <a href="{{ route('contact') }}"><span>Free <br>Consultation</span><i class="flaticon-right-arrow"></i></a>
+                                    <p>{{ setting('address') }}</p>
+                                    <div class="phone"><a href="tel:{{ preg_replace('/[^0-9+]/', '', setting('phone')) }}">{{ setting('phone_display', setting('phone')) }}</a></div>
+                                    @if (setting('phone2'))
+                                        <div class="phone"><a href="tel:{{ preg_replace('/[^0-9+]/', '', explode(',', setting('phone2'))[0]) }}">{{ setting('phone2') }}</a></div>
+                                    @endif
+                                    <div class="email"><a href="mailto:{{ setting('email') }}">{{ setting('email') }}</a></div>
+                                    <div class="map-link">
+                                        <a href="{{ setting('map_embed') ? 'https://www.google.com/maps?q=' . urlencode(setting('address_short', setting('address'))) : 'https://www.google.com/maps' }}" target="_blank" rel="noopener">
+                                            <i class="flaticon-right-arrow"></i><span>Google Map</span>
+                                        </a>
                                     </div>
                                 </div>
                             </div>
