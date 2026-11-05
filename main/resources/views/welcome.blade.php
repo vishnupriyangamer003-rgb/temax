@@ -262,14 +262,14 @@
                     <div class="content-box">
                         <div class="sec-title mb_45">
                             <h6>About Us</h6>
-                            <h2><span class="text-nowrap">[Furnace&nbsp;Camera]</span> Manufacturing</h2>
+                            <h2>Leader in <span class="text-nowrap">[Furnace&nbsp;Camera]</span> Manufacturing</h2>
                         </div>
                         <div class="inner-box">
                             <div class="single-team">
                                 <h3>Engineered in Karur</h3>
                                 <div class="link align-3"><a href="{{ route('about') }}"><i class="flaticon-right-arrow"></i></a></div>
-                                <span class="rotate-text">Core Team</span>
-                                <figure class="image-box"><img src="{{ asset('assets/images/resource/team-1.png') }}" alt="TEMAX team"></figure>
+                                <span class="rotate-text">Founder &amp; Leader</span>
+                                <figure class="image-box"><img src="{{ asset('assets/images/resource/team-1.png') }}" alt="TEMAX founder &amp; leader"></figure>
                             </div>
                             <div class="text-box">
                                 <h3>Three Decades of Furnace Viewing</h3>
