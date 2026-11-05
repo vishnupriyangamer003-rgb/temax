@@ -452,6 +452,8 @@
     <script src="{{ asset('assets/js/scrolltop.min.js') }}?v={{ $assetVersion }}"></script>
     <script src="{{ asset('assets/js/odometer.js') }}?v={{ $assetVersion }}"></script>
     <script src="{{ asset('assets/js/nav-tool.js') }}?v={{ $assetVersion }}"></script>
+    <script src="{{ asset('assets/js/jquery.lettering.min.js') }}?v={{ $assetVersion }}"></script>
+    <script src="{{ asset('assets/js/jquery.circleType.js') }}?v={{ $assetVersion }}"></script>
 
     <!-- main-js -->
     <script src="{{ asset('assets/js/script.js') }}?v={{ $assetVersion }}"></script>

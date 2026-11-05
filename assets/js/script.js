@@ -575,7 +575,7 @@
 	}
 
 
-	if($('.curved-circle').length) {
+	if($('.curved-circle').length && $.fn.circleType) {
         $('.curved-circle').circleType({position: 'absolute', dir: 0.90, radius: 54, forceHeight: true, forceWidth: true});
     }
 
