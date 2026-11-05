@@ -17,8 +17,8 @@ class ServiceController extends Controller
     {
         $service = Service::active()->where('slug', $slug)->with(['items', 'steps'])->firstOrFail();
 
-        $others = Service::active()->ordered()->where('id', '!=', $service->id)->limit(3)->get();
+        $services = Service::active()->ordered()->get();
 
-        return view('service-detail', compact('service', 'others'));
+        return view('service-detail', compact('service', 'services'));
     }
 }
