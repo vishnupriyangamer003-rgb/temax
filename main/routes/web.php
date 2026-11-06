@@ -2,12 +2,14 @@
 
 use App\Http\Controllers\Admin\AccountController as AdminAccountController;
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
+use App\Http\Controllers\Admin\ClientController as AdminClientController;
 use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
 use App\Http\Controllers\Admin\EnquiryController as AdminEnquiryController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\Admin\ProjectController as AdminProjectController;
 use App\Http\Controllers\Admin\ServiceController as AdminServiceController;
 use App\Http\Controllers\Admin\SettingController as AdminSettingController;
+use App\Http\Controllers\Admin\TestimonialController as AdminTestimonialController;
 use App\Http\Controllers\EnquiryController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
@@ -84,6 +86,22 @@ Route::prefix('ktgadmin')->name('admin.')->group(function () {
         Route::get('projects/{project}/edit', [AdminProjectController::class, 'edit'])->name('projects.edit');
         Route::put('projects/{project}', [AdminProjectController::class, 'update'])->name('projects.update');
         Route::delete('projects/{project}', [AdminProjectController::class, 'destroy'])->name('projects.destroy');
+
+        // Testimonials
+        Route::get('testimonials', [AdminTestimonialController::class, 'index'])->name('testimonials.index');
+        Route::get('testimonials/create', [AdminTestimonialController::class, 'create'])->name('testimonials.create');
+        Route::post('testimonials', [AdminTestimonialController::class, 'store'])->name('testimonials.store');
+        Route::get('testimonials/{testimonial}/edit', [AdminTestimonialController::class, 'edit'])->name('testimonials.edit');
+        Route::put('testimonials/{testimonial}', [AdminTestimonialController::class, 'update'])->name('testimonials.update');
+        Route::delete('testimonials/{testimonial}', [AdminTestimonialController::class, 'destroy'])->name('testimonials.destroy');
+
+        // Clients / Brands
+        Route::get('clients', [AdminClientController::class, 'index'])->name('clients.index');
+        Route::get('clients/create', [AdminClientController::class, 'create'])->name('clients.create');
+        Route::post('clients', [AdminClientController::class, 'store'])->name('clients.store');
+        Route::get('clients/{client}/edit', [AdminClientController::class, 'edit'])->name('clients.edit');
+        Route::put('clients/{client}', [AdminClientController::class, 'update'])->name('clients.update');
+        Route::delete('clients/{client}', [AdminClientController::class, 'destroy'])->name('clients.destroy');
 
         // Enquiries
         Route::get('enquiries', [AdminEnquiryController::class, 'index'])->name('enquiries.index');

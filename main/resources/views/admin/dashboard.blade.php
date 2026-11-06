@@ -165,6 +165,22 @@
         </div>
 
         <div class="stat-card">
+            <div class="stat-icon orange"><i class="fas fa-comments"></i></div>
+            <div class="stat-info">
+                <h3>{{ $testimonials }}</h3>
+                <p>Testimonials</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
+            <div class="stat-icon blue"><i class="fas fa-building"></i></div>
+            <div class="stat-info">
+                <h3>{{ $clients }}</h3>
+                <p>Client Brands</p>
+            </div>
+        </div>
+
+        <div class="stat-card">
             <div class="stat-icon purple"><i class="fas fa-envelope"></i></div>
             <div class="stat-info">
                 <h3>{{ $newEnquiries }}</h3>
@@ -226,3 +242,4 @@
     </div>
 
 @endsection
+
