@@ -517,11 +517,6 @@
                                         @endforeach
                                     @endif
                                     <div class="email"><a href="mailto:{{ setting('email') }}">{{ setting('email') }}</a></div>
-                                    <div class="map-link">
-                                        <a href="{{ setting('map_embed') ? 'https://www.google.com/maps?q=' . urlencode(setting('address_short', setting('address'))) : 'https://www.google.com/maps' }}" target="_blank" rel="noopener">
-                                            <i class="flaticon-right-arrow"></i><span>Google Map</span>
-                                        </a>
-                                    </div>
                                 </div>
                             </div>
                         </div>
