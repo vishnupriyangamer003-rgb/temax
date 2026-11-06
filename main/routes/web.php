@@ -15,6 +15,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\ProjectController;
 use App\Http\Controllers\ServiceController;
+use App\Models\Testimonial;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,7 +27,9 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::get('/about', function () {
-    return view('about');
+    return view('about', [
+        'testimonials' => Testimonial::active()->ordered()->get(),
+    ]);
 })->name('about');
 
 Route::get('/services', [ServiceController::class, 'index'])->name('services');
