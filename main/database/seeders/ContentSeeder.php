@@ -310,8 +310,7 @@ class ContentSeeder extends Seeder
                     ['name' => 'Under Grate Camera', 'description' => 'For cement industry grate monitoring'],
                     ['name' => 'Cowl Shell Camera for Kiln', 'description' => 'Kiln cowl shell observation'],
                     ['name' => 'Kiln & Cooler Retrofit Camera', 'description' => 'Retrofit units for kiln and cooler'],
-                    ['name' => 'Carbon & Annealing Furnace Camera', 'description' => 'For carbon and annealing furnaces'],
-                    ['name' => 'Electric Launching Furnace Camera', 'description' => 'For electric launching furnace applications'],
+                    ['name' => 'Specialised Furnace Cameras', 'description' => 'For carbon, annealing & electric launching furnaces'],
                 ],
             ],
             [
