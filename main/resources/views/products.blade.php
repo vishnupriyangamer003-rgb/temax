@@ -20,9 +20,9 @@
             </div>
             <div class="row clearfix">
                 @foreach ($categories as $category)
-                    <div class="col-lg-3 col-md-6 col-sm-12 product-column">
-                        <div class="product-block-one wow fadeInUp animated" data-wow-delay="{{ str_pad($loop->index * 300, 4, '0', STR_PAD_LEFT) }}ms" data-wow-duration="1500ms">
-                            <div class="inner-box">
+                    <div class="col-lg-3 col-md-6 col-sm-12 product-column d-flex">
+                        <div class="product-block-one w-100 wow fadeInUp animated" data-wow-delay="{{ str_pad($loop->index * 300, 4, '0', STR_PAD_LEFT) }}ms" data-wow-duration="1500ms">
+                            <div class="inner-box d-flex flex-column h-100 w-100">
                                 <div class="light-icon"><img src="{{ asset('assets/images/icons/icon-18.png') }}" alt=""></div>
                                 <h3>{{ $category->title }}</h3>
                                 <p>{{ \Illuminate\Support\Str::limit($category->description, 110) }}</p>
