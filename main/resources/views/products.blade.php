@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Products - Furnace Cameras, Cooling, Industry Systems & Thermal Cameras | TEMAX')
+@section('meta_description', 'High-temperature industrial products by TEMAX: Furnace camera tubes, inclined 90° cameras, kiln cowl shell cameras, SS 316 cooling systems, and kiln shell thermal cameras.')
 
 @section('content')
 

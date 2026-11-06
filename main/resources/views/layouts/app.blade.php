@@ -3,23 +3,32 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="theme-color" content="#192f42">
 
     @php
+        $defaultTitle = 'TEMAX - Leader in Furnace Camera Systems & High-Temperature Monitoring';
+        $defaultDesc = 'TEMAX, founded in 1996 in Karur, India, is a premier manufacturer of high-temperature furnace camera systems, SS 316 cooling systems, auto retraction units and thermal imaging cameras for cement, thermal and glass plants.';
+        $defaultKeywords = 'furnace camera, kiln camera, boiler camera, industrial camera, camera cooling systems, auto retraction systems, thermal camera, cement plant camera, glass furnace camera, TEMAX Karur, India';
+
         $metaTitle = trim($__env->yieldContent('title'));
         $metaTitle = $metaTitle !== ''
             ? html_entity_decode($metaTitle, ENT_QUOTES, 'UTF-8')
-            : setting('meta_title', 'TEMAX - Furnace Camera Manufacturer for Cement, Thermal & Glass Industries');
+            : setting('meta_title', $defaultTitle);
+
         $metaDescription = trim($__env->yieldContent('meta_description'));
         $metaDescription = $metaDescription !== ''
             ? html_entity_decode($metaDescription, ENT_QUOTES, 'UTF-8')
-            : setting('meta_description');
-        $metaKeywords = setting('meta_keywords');
-        $metaAuthor = setting('meta_author');
-        $metaRobots = setting('meta_robots', 'index, follow');
+            : setting('meta_description', $defaultDesc);
+
+        $metaKeywords = setting('meta_keywords', $defaultKeywords);
+        $metaAuthor = setting('meta_author', 'TEMAX');
+        $metaRobots = setting('meta_robots', 'index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1');
         $canonicalUrl = setting('canonical_url') ?: url()->current();
-        $ogTitle = setting('og_title') ?: $metaTitle;
-        $ogDescription = setting('og_description') ?: $metaDescription;
+        $ogTitle = $metaTitle;
+        $ogDescription = $metaDescription;
         $ogImage = setting('og_image') ? asset_url(setting('og_image')) : asset('assets/images/temax/kiln-camera.jpg');
         $twitterCard = setting('twitter_card', 'summary_large_image');
         $favicon = setting('favicon') ? asset_url(setting('favicon')) : asset('assets/images/favicon.ico');
@@ -27,26 +36,72 @@
 
     <title>{{ $metaTitle }}</title>
     <meta name="description" content="{{ $metaDescription }}">
-    @if ($metaKeywords !== '')
-        <meta name="keywords" content="{{ $metaKeywords }}">
-    @endif
-    @if ($metaAuthor !== '')
-        <meta name="author" content="{{ $metaAuthor }}">
-    @endif
+    <meta name="keywords" content="{{ $metaKeywords }}">
+    <meta name="author" content="{{ $metaAuthor }}">
     <meta name="robots" content="{{ $metaRobots }}">
     <link rel="canonical" href="{{ $canonicalUrl }}">
 
-    <!-- Open Graph / social sharing -->
+    <!-- Geo Tags for Local SEO -->
+    <meta name="geo.region" content="IN-TN">
+    <meta name="geo.placename" content="Karur, Tamil Nadu, India">
+    <meta name="geo.position" content="10.9601;78.0766">
+    <meta name="ICBM" content="10.9601, 78.0766">
+
+    <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_IN">
     <meta property="og:site_name" content="{{ setting('site_name', 'TEMAX') }}">
     <meta property="og:title" content="{{ $ogTitle }}">
     <meta property="og:description" content="{{ $ogDescription }}">
     <meta property="og:url" content="{{ $canonicalUrl }}">
     <meta property="og:image" content="{{ $ogImage }}">
+    <meta property="og:image:alt" content="{{ $metaTitle }}">
+
+    <!-- Twitter Card -->
     <meta name="twitter:card" content="{{ $twitterCard }}">
     <meta name="twitter:title" content="{{ $ogTitle }}">
     <meta name="twitter:description" content="{{ $ogDescription }}">
     <meta name="twitter:image" content="{{ $ogImage }}">
+
+    <!-- Schema.org JSON-LD Structured Data for Search Engines -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "{{ setting('site_name', 'TEMAX') }}",
+      "image": "{{ $ogImage }}",
+      "url": "{{ url('/') }}",
+      "telephone": "{{ setting('phone', '+91 4324 226787') }}",
+      "email": "{{ setting('email', 'sales@temax.in') }}",
+      "priceRange": "$$",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "2E, Apple Paradise, 4/25, Kovai Road, Reddipalaiam",
+        "addressLocality": "Karur",
+        "addressRegion": "Tamil Nadu",
+        "postalCode": "639002",
+        "addressCountry": "IN"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": 10.9601,
+        "longitude": 78.0766
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": [
+          "Monday",
+          "Tuesday",
+          "Wednesday",
+          "Thursday",
+          "Friday",
+          "Saturday"
+        ],
+        "opens": "09:00",
+        "closes": "18:00"
+      }
+    }
+    </script>
 
     @if (trim(setting('google_site_verification')))
         <meta name="google-site-verification" content="{{ setting('google_site_verification') }}">
