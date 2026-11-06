@@ -61,3 +61,68 @@
     @include('partials.cta')
 
 @endsection
+
+@push('styles')
+    <style>
+        .project-block-two {
+            width: 100%;
+        }
+
+        .project-block-two .inner-box {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            width: 100%;
+            height: 460px;
+            overflow: hidden;
+            margin-bottom: 30px;
+            border-radius: 4px;
+        }
+
+        .project-block-two .inner-box .upper-box {
+            padding: 24px 30px 18px 30px;
+            border-bottom: 4px solid #fff;
+            margin-top: auto;
+            z-index: 2;
+        }
+
+        .project-block-two .inner-box .upper-box h3 {
+            font-size: 24px;
+            line-height: 32px;
+            max-width: 100%;
+            min-height: 64px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+        }
+
+        .project-block-two .inner-box .lower-box {
+            padding: 16px 30px 16px 30px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 60px;
+            flex-shrink: 0;
+            z-index: 2;
+        }
+
+        @media only screen and (max-width: 767px) {
+            .project-block-two .inner-box {
+                height: 390px;
+            }
+            .project-block-two .inner-box .upper-box {
+                padding: 20px 20px 16px 20px;
+            }
+            .project-block-two .inner-box .upper-box h3 {
+                font-size: 20px;
+                line-height: 28px;
+                min-height: 56px;
+            }
+            .project-block-two .inner-box .lower-box {
+                padding: 12px 20px;
+                height: 54px;
+            }
+        }
+    </style>
+@endpush
