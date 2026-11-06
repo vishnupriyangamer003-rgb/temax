@@ -480,6 +480,7 @@
                                         <li><a href="{{ route('projects') }}"><i class="flaticon-right"></i><span>Projects</span></a></li>
                                         <li><a href="{{ route('services') }}"><i class="flaticon-right"></i><span>Services</span></a></li>
                                         <li><a href="{{ route('contact') }}"><i class="flaticon-right"></i><span>Contact Us</span></a></li>
+                                        <li><a href="{{ route('admin.login') }}"><i class="flaticon-right"></i><span>Admin Login</span></a></li>
                                     </ul>
                                 </div>
                             </div>
