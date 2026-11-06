@@ -713,6 +713,129 @@
     </section>
     <!-- chooseus-section end -->
 
+    @if(isset($testimonials) && $testimonials->count())
+    <!-- testimonial-section -->
+    <section class="testimonial-section">
+        <div class="pattern-layer" style="background-image: url({{ asset('assets/images/shape/shape-13.png') }});"></div>
+        <div class="auto-container">
+            <div class="row clearfix">
+                <div class="col-lg-6 col-md-12 col-sm-12 left-column">
+                    <div class="left-content">
+                        <figure class="image"><img src="{{ asset('assets/images/resource/men-1.png') }}" alt="TEMAX Client Reviews"></figure>
+                        <div class="shape" style="background-image: url({{ asset('assets/images/shape/shape-12.png') }});"></div>
+                        <div class="rating-box">
+                            <h5>5.0</h5>
+                            <div class="inner">
+                                <ul class="rating"> 
+                                    <li><i class="flaticon-star"></i></li>
+                                    <li><i class="flaticon-star"></i></li>
+                                    <li><i class="flaticon-star"></i></li>
+                                    <li><i class="flaticon-star"></i></li>
+                                    <li><i class="flaticon-star"></i></li>
+                                </ul>
+                                <h6>From 100+ Plants</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 right-column">
+                    <div class="right-content">
+                        <div class="sec-title light mb_25">
+                            <h6>{{ setting('testimonials_subtitle', 'Testimonials') }}</h6>
+                            <h2>{!! setting('testimonials_title', 'What our customers <br> say about us') !!}</h2>
+                        </div>
+                        <div class="tabs-box">
+                            <div class="tabs-content">
+                                @foreach($testimonials as $index => $item)
+                                    <div class="tab {{ $index === 0 ? 'active-tab' : '' }}" id="testimonial-tab-{{ $item->id }}">
+                                        <div class="testimonial-content">
+                                            <div class="icon-box"><img src="{{ asset('assets/images/icons/icon-7.png') }}" alt="Quote"></div>
+                                            @if($item->title)
+                                                <h2>{{ $item->title }}</h2>
+                                            @endif
+                                            <p>{{ $item->content }}</p>
+                                            <h3>{{ $item->name }}</h3>
+                                            @if($item->designation || $item->company)
+                                                <span class="designation">{{ $item->designation }}{{ $item->designation && $item->company ? ' — ' : '' }}{{ $item->company }}</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                            <ul class="tab-btns tab-buttons clearfix">
+                                @foreach($testimonials as $index => $item)
+                                    <li class="tab-btn {{ $index === 0 ? 'active-btn' : '' }}" data-tab="#testimonial-tab-{{ $item->id }}">
+                                        <img src="{{ asset($item->avatar ?: 'assets/images/resource/testimonial-' . (($index % 5) + 1) . '.png') }}" alt="{{ $item->name }}">
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- testimonial-section end -->
+    @endif
+
+    @if(isset($clients) && $clients->count())
+    <!-- clients-section -->
+    <section class="clients-section centred">
+        <div class="auto-container">
+            <div class="sec-title mb_45">
+                <h6>{{ setting('clients_subtitle', 'Customers') }}</h6>
+                <h2>{!! setting('clients_title', 'Our Valued <span>[Customers]</span>') !!}</h2>
+                <p class="mt_12">{{ setting('clients_tagline', 'Delivering quality, innovation, and precision.') }}</p>
+            </div>
+            <div class="inner-container">
+                <div class="row align-items-center">
+                    @php
+                        $half = ceil($clients->count() / 2);
+                        $col1 = $clients->slice(0, $half);
+                        $col2 = $clients->slice($half);
+                    @endphp
+                    <div class="col-lg-5 col-md-12 col-sm-12 clients-column">
+                        <div class="clients-box clearfix">
+                            @foreach($col1 as $c)
+                                <figure class="clients-logo">
+                                    @if($loop->iteration <= 2)<div class="border-bottom"></div>@endif
+                                    <div class="border-right"></div>
+                                    <a href="{{ $c->url ?: 'javascript:void(0);' }}" title="{{ $c->name }}" {{ $c->url ? 'target="_blank" rel="noopener"' : '' }}>
+                                        <img src="{{ asset($c->logo) }}" alt="{{ $c->name }}">
+                                    </a>
+                                </figure>
+                            @endforeach
+                        </div>
+                    </div>
+                    <div class="col-lg-2 col-md-12 col-sm-12 content-column">
+                        <div class="content-box">
+                            <h3>Strategic 
+                                <span>Partnerships</span> 
+                                with 100+ 
+                                <span>Global Leaders</span></h3>
+                            <a href="{{ route('contact') }}" class="theme-btn btn-one"><i class="flaticon-right-arrow"></i><span>Contact Us</span></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-5 col-md-12 col-sm-12 clients-column">
+                        <div class="clients-box clearfix">
+                            @foreach($col2 as $c)
+                                <figure class="clients-logo">
+                                    @if($loop->iteration <= 2)<div class="border-bottom"></div>@endif
+                                    <div class="border-left"></div>
+                                    <a href="{{ $c->url ?: 'javascript:void(0);' }}" title="{{ $c->name }}" {{ $c->url ? 'target="_blank" rel="noopener"' : '' }}>
+                                        <img src="{{ asset($c->logo) }}" alt="{{ $c->name }}">
+                                    </a>
+                                </figure>
+                            @endforeach
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- clients-section end -->
+    @endif
+
     <!-- download-section (contact CTA) -->
     @include('partials.cta')
 
@@ -1435,6 +1558,151 @@
                 float: none !important;
                 height: auto !important;
                 width: 100%;
+            }
+        }
+        /* Clients Section Enhancement */
+        .clients-section {
+            padding: 95px 0px 105px 0px;
+            background-color: #f7f9fb;
+        }
+
+        .clients-section .sec-title h2 {
+            font-size: 38px;
+            line-height: 48px;
+        }
+
+        .clients-section .inner-container {
+            background: #fff;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(18, 38, 58, 0.04);
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
+        }
+
+        .clients-section .clients-box {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .clients-section .clients-box .clients-logo {
+            min-height: 125px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px 26px;
+        }
+
+        .clients-section .clients-box .clients-logo a {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
+
+        .clients-section .clients-box .clients-logo img {
+            max-height: 60px;
+            max-width: 170px;
+            width: auto;
+            height: auto;
+            object-fit: contain;
+            filter: grayscale(100%);
+            opacity: 0.75;
+            transition: all 0.3s ease;
+        }
+
+        .clients-section .clients-box .clients-logo:hover img {
+            filter: grayscale(0%);
+            opacity: 1;
+            transform: scale(1.08);
+        }
+
+        .clients-section .content-box {
+            padding: 30px 15px;
+        }
+
+        .clients-section .content-box h3 {
+            font-size: 22px;
+            line-height: 30px;
+            margin-bottom: 20px;
+        }
+
+        /* Testimonial Section Adjustments */
+        .testimonial-section {
+            padding: 10px 0;
+        }
+
+        .testimonial-section .right-content .sec-title h2 {
+            font-size: 34px;
+            line-height: 44px;
+            margin-bottom: 24px;
+        }
+
+        .testimonial-section .right-content .testimonial-content .icon-box {
+            width: 76px;
+            height: 76px;
+            line-height: 76px;
+            margin-bottom: 24px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .testimonial-section .right-content .testimonial-content .icon-box img {
+            max-width: 36px;
+        }
+
+        .testimonial-section .right-content .testimonial-content h2 {
+            font-size: 26px;
+            line-height: 34px;
+            margin-bottom: 16px;
+            max-width: 100%;
+            color: #fff;
+        }
+
+        .testimonial-section .right-content .testimonial-content p {
+            font-size: 17px;
+            line-height: 29px;
+            color: #cbd5e1;
+        }
+
+        .testimonial-section .right-content .testimonial-content h3 {
+            font-size: 20px;
+            color: #fff;
+            margin-top: 18px;
+        }
+
+        .testimonial-section .right-content .testimonial-content .designation {
+            font-size: 13.5px;
+            color: var(--theme-color);
+            letter-spacing: 0.5px;
+            margin-top: 4px;
+        }
+
+        .testimonial-section .right-content .tab-btns {
+            margin-top: 32px;
+        }
+
+        .testimonial-section .right-content .tab-btns li {
+            width: 64px;
+            height: 64px;
+            overflow: hidden;
+        }
+
+        .testimonial-section .right-content .tab-btns li img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
+        }
+
+        @media (max-width: 991px) {
+            .clients-section .inner-container {
+                padding: 20px 10px;
+            }
+
+            .clients-section .content-column {
+                margin: 30px 0;
             }
         }
     </style>
