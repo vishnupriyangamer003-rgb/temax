@@ -21,17 +21,17 @@
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12 content-column">
                     <div class="content-box">
-                        <div class="sec-title mb_35">
+                        <div class="sec-title mb_20">
                             <h6>About Us</h6>
                             <h2>Leader in <span class="text-nowrap">[Furnace&nbsp;Camera]</span> Manufacturing</h2>
                         </div>
-                        <div class="text-box mb_30">
+                        <div class="text-box mb_25">
                             <p>Founded in 1996 in Karur, Tamil Nadu, TEMAX manufactures high-temperature
                                 furnace camera systems, cooling systems, auto retraction systems and
                                 thermal cameras for the cement, thermal and glass industries.</p>
                         </div>
                         <div class="inner-box">
-                            <div class="row clearfix">
+                            <div class="row align-items-stretch clearfix">
                                 <div class="col-lg-6 col-md-6 col-sm-12 left-column">
                                     <div class="left-content">
                                         <div class="icon-box"><i class="flaticon-manufacturing"></i></div>
@@ -453,12 +453,32 @@
 
 @push('styles')
     <style>
+        /* =========================================================
+           About Style Three (Since 1996 & Leader in Furnace Camera)
+           Equal columns, zero empty space, aligned heights
+           ========================================================= */
+        .about-style-three.alternat-2 {
+            padding: 75px 0 80px;
+        }
+
+        .about-style-three.alternat-2 > .auto-container > .row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+        }
+
+        .about-style-three.alternat-2 .image-column {
+            display: flex;
+            flex-direction: column;
+        }
+
         .about-style-three.alternat-2 .image-box.temax-about-gallery {
             display: grid;
             grid-template-columns: minmax(0, 1.15fr) minmax(0, 0.85fr);
             grid-template-rows: repeat(2, minmax(0, 1fr));
             gap: 14px;
-            height: 440px;
+            height: 100% !important;
+            min-height: 520px;
             margin: 0;
             padding: 0;
         }
@@ -525,76 +545,154 @@
             display: none;
         }
 
-        /* Why Choose Us title — bold weight + dark colour so it always reads clearly */
-        .temax-production-section .sec-title h6 {
-            color: #0d2030;
-            font-weight: 700;
-            letter-spacing: 0.1em;
+        /* Content Column Balance */
+        .about-style-three.alternat-2 .content-column {
+            display: flex;
+            flex-direction: column;
         }
 
-        .temax-production-section .sec-title h2 {
-            color: #0d2030;
-            font-weight: 700;
-        }
-
-        .temax-production-section .sec-title h2 span {
-            color: #0d2030;
-            font-weight: 700;
-        }
-
-        .temax-production-section .sec-title p {
-            color: #33414d;
-            font-weight: 500;
-        }
-
-        .temax-production-section .temax-production-image {
-            max-width: 460px;
-            margin: 0 auto;
-        }
-
-        .temax-production-section .temax-production-image .image-shape {
-            display: none;
-        }
-
-        .temax-production-section .temax-production-image .image {
-            position: relative;
-            display: block;
-            margin: 0;
-            overflow: hidden;
-            aspect-ratio: 4 / 3;
-            border: 8px solid #fff;
-            border-radius: 20px;
-            background: #e8edf1;
-            box-shadow: 0 18px 42px rgba(20, 42, 59, 0.16);
-        }
-
-        .temax-production-section .temax-production-image .image img {
-            display: block;
-            width: 100%;
+        .about-style-three.alternat-2 .content-box {
+            display: flex;
+            flex-direction: column;
             height: 100%;
-            object-fit: cover;
-            object-position: center 42%;
+            margin-top: 0;
+            padding-left: 10px;
+        }
+
+        .about-style-three.alternat-2 .content-box .sec-title {
+            margin-bottom: 20px;
+        }
+
+        .about-style-three.alternat-2 .content-box .text-box {
+            margin-bottom: 24px;
+        }
+
+        .about-style-three.alternat-2 .content-box .inner-box {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .about-style-three.alternat-2 .content-box .inner-box > .row {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: stretch;
+            flex: 1;
+        }
+
+        .about-style-three.alternat-2 .content-box .inner-box .left-column,
+        .about-style-three.alternat-2 .content-box .inner-box .award-column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .about-style-three.alternat-2 .content-box .inner-box .left-content {
+            display: flex;
+            flex-direction: column;
+            height: 100%;
+            padding-right: 10px;
+        }
+
+        .about-style-three.alternat-2 .content-box .inner-box .left-content .icon-box {
+            width: 64px;
+            height: 72px;
+            line-height: 78px;
+            font-size: 30px;
+            margin-bottom: 16px;
+        }
+
+        .about-style-three.alternat-2 .content-box .inner-box .left-content h3 {
+            font-size: 21px;
+            line-height: 28px;
+            margin-bottom: 8px;
+        }
+
+        .about-style-three.alternat-2 .content-box .inner-box .left-content p {
+            font-size: 15px;
+            line-height: 23px;
+            margin-bottom: 14px;
+            color: #55606a;
+        }
+
+        .about-style-three.alternat-2 .content-box .inner-box .left-content .list-item {
+            margin-bottom: 20px;
+        }
+
+        .about-style-three.alternat-2 .content-box .inner-box .left-content .list-item li {
+            margin-bottom: 8px;
+            font-size: 14.5px;
+        }
+
+        .about-style-three.alternat-2 .content-box .inner-box .left-content .btn-box {
+            margin-top: auto;
+            padding-top: 6px;
+        }
+
+        .about-style-three.alternat-2 .content-box .award-box {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            height: 100% !important;
+            min-height: 100%;
+            padding: 32px 28px;
+            background-color: #f0f4f8;
             border-radius: 12px;
+            border: 1px solid #e2e8f0;
+            overflow: hidden;
         }
 
-        @media (max-width: 767px) {
+        .about-style-three.alternat-2 .content-box .award-box .award-image {
+            margin-bottom: 22px;
+        }
+
+        .about-style-three.alternat-2 .content-box .award-box h6 {
+            font-size: 15px;
+            margin-bottom: 4px;
+            color: #64748b;
+        }
+
+        .about-style-three.alternat-2 .content-box .award-box h5 {
+            font-size: 18px;
+            line-height: 25px;
+            margin-bottom: 12px;
+            color: var(--primary);
+        }
+
+        .about-style-three.alternat-2 .content-box .award-box .text {
+            margin-top: 4px;
+        }
+
+        @media (max-width: 991px) {
+            .about-style-three.alternat-2 {
+                padding: 60px 0;
+            }
+
             .about-style-three.alternat-2 .image-box.temax-about-gallery {
-                height: 360px;
-                margin: 0 auto 35px;
+                height: 380px !important;
+                min-height: auto;
+                margin-bottom: 35px;
             }
 
-            .temax-production-section .temax-production-image {
-                max-width: 520px;
-                margin: 0 auto 30px;
+            .about-style-three.alternat-2 .content-box {
+                padding-left: 0;
+            }
+
+            .about-style-three.alternat-2 .content-box .inner-box .award-column {
+                margin-top: 25px;
+            }
+
+            .about-style-three.alternat-2 .content-box .award-box {
+                padding: 28px 22px;
             }
         }
 
-        @media (max-width: 480px) {
+        @media (max-width: 575px) {
             .about-style-three.alternat-2 .image-box.temax-about-gallery {
                 grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
                 grid-template-rows: minmax(0, 1.2fr) minmax(0, 0.8fr);
                 gap: 9px;
-                height: 310px;
+                height: 300px !important;
             }
 
             .about-style-three.alternat-2 .temax-about-gallery .image-1 {
