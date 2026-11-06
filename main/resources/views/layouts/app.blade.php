@@ -297,7 +297,6 @@
                                                     @foreach ($navServices as $service)
                                                         <li><a href="{{ route('services.show', $service->slug) }}">{{ $service->title }}</a></li>
                                                     @endforeach
-                                                    <li><a href="{{ route('services') }}">All Services</a></li>
                                                 </ul>
                                             </li>
                                             <li class="{{ request()->routeIs('products*') ? 'current' : '' }}">
