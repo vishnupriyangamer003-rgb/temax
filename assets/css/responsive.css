@@ -86,6 +86,10 @@
 }
 
 @media only screen and (max-width: 1599px){
+  .main-menu .navigation > li:first-child{
+    margin-left: 60px !important;
+  }
+
   .banner-top-section .inner-box h2{
     font-size: 80px;
     line-height: 90px;
@@ -102,6 +106,10 @@
 }
 
 @media only screen and (max-width: 1399px){
+  .main-menu .navigation > li:first-child{
+    margin-left: 40px !important;
+  }
+
   .main-header .menu-right-content .search-form{
     margin-left: 0px;
   }
@@ -111,7 +119,7 @@
   }
 
   .main-menu .navigation > li{
-    margin: 0px 20px;
+    margin: 0px 14px;
   }
 
   .main-header .menu-right-content .search-form{
@@ -124,6 +132,14 @@
 }
 
 @media only screen and (max-width: 1299px){
+  .main-menu .navigation > li:first-child{
+    margin-left: 20px !important;
+  }
+
+  .main-menu .navigation > li{
+    margin: 0px 10px;
+  }
+
   .header-style-four .header-lower .main-menu .navigation > li{
     margin-left: 8px;
     margin-right: 8px;
@@ -140,6 +156,11 @@
   .sticky-header,
   .main-header.style-one .outer-container:before{
     display: none !important;
+  }
+
+  .main-menu .navigation > li:first-child,
+  .mobile-menu .navigation > li:first-child{
+    margin-left: 0px !important;
   }
 
   .menu-area .mobile-nav-toggler {
@@ -233,6 +254,11 @@
 }
 
 @media only screen and (max-width: 991px){
+  .main-menu .navigation > li:first-child,
+  .mobile-menu .navigation > li:first-child{
+    margin-left: 0px !important;
+  }
+
   .banner-top-section .inner-box{
     padding-left: 30px;
     padding-right: 30px;

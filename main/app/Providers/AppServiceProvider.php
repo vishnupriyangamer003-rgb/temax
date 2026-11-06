@@ -24,6 +24,6 @@ class AppServiceProvider extends ServiceProvider
         Paginator::useBootstrap();
 
         // Cache-busting for theme assets.
-        View::share('assetVersion', 'temax2');
+        View::share('assetVersion', 'temax3');
     }
 }

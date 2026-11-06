@@ -1068,7 +1068,7 @@ img {
 }
 
 .main-menu .navigation > li:first-child{
-  margin-left: 80px !important;
+  margin-left: 80px;
 }
 
 .main-menu .navigation > li > a{
