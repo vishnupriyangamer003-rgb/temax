@@ -341,7 +341,7 @@
                 <div class="col-lg-4 col-md-12 col-sm-12 image-column">
                     <div class="image-box temax-production-image">
                         <div class="image-shape" style="background-image: url({{ asset('assets/images/shape/shape-15.png') }});"></div>
-                        <figure class="image"><img src="{{ asset('assets/images/temax/production-unit-2.jpg') }}?v={{ file_exists(base_path('../assets/images/temax/production-unit-2.jpg')) ? filemtime(base_path('../assets/images/temax/production-unit-2.jpg')) : '2' }}" alt="TEMAX founder &amp; leader at work"></figure>
+                        <figure class="image"><img src="{{ asset('assets/images/temax/production-unit-2.jpg') }}?v={{ file_exists(base_path('../assets/images/temax/production-unit-2.jpg')) ? filemtime(base_path('../assets/images/temax/production-unit-2.jpg')) : '2' }}" alt="Molten metal glowing inside a high-temperature furnace at a TEMAX-equipped plant"></figure>
                     </div>
                 </div>
                 <div class="col-lg-4 col-md-12 col-sm-12 right-column">
@@ -521,6 +521,28 @@
 
         .about-style-three.alternat-2 .temax-about-gallery .rotate-text::before {
             display: none;
+        }
+
+        /* Why Choose Us title — bold weight + dark colour so it always reads clearly */
+        .temax-production-section .sec-title h6 {
+            color: #0d2030;
+            font-weight: 700;
+            letter-spacing: 0.1em;
+        }
+
+        .temax-production-section .sec-title h2 {
+            color: #0d2030;
+            font-weight: 700;
+        }
+
+        .temax-production-section .sec-title h2 span {
+            color: #0d2030;
+            font-weight: 700;
+        }
+
+        .temax-production-section .sec-title p {
+            color: #33414d;
+            font-weight: 500;
         }
 
         .temax-production-section .temax-production-image {
