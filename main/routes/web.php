@@ -51,6 +51,8 @@ Route::post('/enquiry', [EnquiryController::class, 'store'])
 |--------------------------------------------------------------------------
 */
 
+Route::redirect('/admin', '/ktgadmin');
+
 Route::prefix('ktgadmin')->name('admin.')->group(function () {
     Route::get('login', [AdminAuthController::class, 'showLogin'])->name('login');
     Route::post('login', [AdminAuthController::class, 'login'])->middleware('throttle:5,1')->name('login.attempt');
