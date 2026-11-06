@@ -9501,9 +9501,17 @@ div#mCSB_1_container{
   padding: 112px 0px 105px 0px;
 }
 
+.project-block-two{
+  width: 100%;
+}
+
 .project-block-two .inner-box{
   position: relative;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  height: 460px;
   overflow: hidden;
   margin-bottom: 30px;
 }
@@ -9531,14 +9539,16 @@ div#mCSB_1_container{
   height: 100%;
   left: 0px;
   bottom: 0px;
-  background: -webkit-linear-gradient(90deg, rgba(24,25,29,1) 0%, rgba(24,25,29,0.1) 50%);
+  background: linear-gradient(180deg, rgba(24,25,29,0.15) 0%, rgba(24,25,29,0.45) 40%, rgba(24,25,29,0.92) 80%, rgba(24,25,29,0.98) 100%);
 }
 
 .project-block-two .inner-box .upper-box{
   position: relative;
   display: block;
-  padding: 322px 30px 23px 30px;
+  padding: 24px 30px 18px 30px;
   border-bottom: 4px solid #fff;
+  margin-top: auto;
+  z-index: 2;
 }
 
 .project-block-two .inner-box .upper-box::before{
@@ -9554,7 +9564,12 @@ div#mCSB_1_container{
 .project-block-two .inner-box .upper-box h3{
   font-size: 24px;
   line-height: 32px;
-  max-width: 260px;
+  max-width: 100%;
+  min-height: 64px;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
 .project-block-two .inner-box .upper-box h3 a{
@@ -9568,10 +9583,13 @@ div#mCSB_1_container{
 
 .project-block-two .inner-box .lower-box{
   position: relative;
-  padding: 16px 30px 9px 30px;
+  padding: 16px 30px 16px 30px;
   display: flex;
   align-items: center;
   justify-content: space-between;
+  height: 60px;
+  flex-shrink: 0;
+  z-index: 2;
 }
 
 .project-block-two .inner-box .lower-box h6{
@@ -12899,7 +12917,7 @@ div#mCSB_1_container{
 }
 
 .project-style-three .project-block-two .inner-box .bg-layer::before{
-  background: -webkit-linear-gradient(90deg, rgba(25,47,66,1) 0%, rgba(25,47,66,0.1) 50%);
+  background: linear-gradient(180deg, rgba(25,47,66,0.15) 0%, rgba(25,47,66,0.45) 40%, rgba(25,47,66,0.92) 80%, rgba(25,47,66,0.98) 100%);
 }
 
 .sortable-masonry .filter-tabs{
