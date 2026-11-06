@@ -227,9 +227,39 @@
             text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85);
         }
 
-        @media (max-width: 991px) {
+        /* Device-based Navigation Spacing */
+        @media only screen and (min-width: 1400px) {
+            .main-menu .navigation > li:first-child {
+                margin-left: 80px !important;
+            }
+        }
+
+        @media only screen and (min-width: 1201px) and (max-width: 1399px) {
+            .main-menu .navigation > li:first-child {
+                margin-left: 40px !important;
+            }
+            .main-menu .navigation > li {
+                margin: 0 14px;
+            }
+        }
+
+        @media only screen and (min-width: 992px) and (max-width: 1200px) {
+            .main-menu .navigation > li:first-child {
+                margin-left: 20px !important;
+            }
+            .main-menu .navigation > li {
+                margin: 0 10px;
+            }
+        }
+
+        @media only screen and (max-width: 991px) {
             .main-header .header-logo {
                 display: none;
+            }
+
+            .main-menu .navigation > li:first-child,
+            .mobile-menu .navigation > li:first-child {
+                margin-left: 0px !important;
             }
         }
 
