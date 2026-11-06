@@ -1,5 +1,8 @@
 @extends('layouts.app')
 
+@section('title', 'TEMAX - Leader in Furnace Camera Systems & High-Temperature Monitoring in India')
+@section('meta_description', 'TEMAX manufactures high-temperature furnace camera systems, camera cooling systems, auto retraction systems and thermal imaging cameras for cement, thermal and glass industries in India.')
+
 @php
     $serviceIcons = [
         'flaticon-zoom',

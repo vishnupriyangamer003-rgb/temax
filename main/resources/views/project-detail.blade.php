@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', $project->title . ' - TEMAX Projects')
+@section('meta_description', \Illuminate\Support\Str::limit(strip_tags($project->text), 160))
 
 @section('content')
 

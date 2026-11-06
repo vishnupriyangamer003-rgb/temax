@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Our Services - Furnace Camera Systems, Cooling, Retraction & Thermal | TEMAX')
+@section('meta_description', 'Explore TEMAX services including furnace camera systems, SS 316 camera cooling systems, pneumatic auto retraction, thermal imaging, retrofits, upgrades and customized industrial monitoring solutions.')
 
 @section('content')
 

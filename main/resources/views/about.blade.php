@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'About TEMAX - Furnace Camera Manufacturer Since 1996, Karur')
+@section('meta_description', 'Learn about TEMAX, established in 1996 in Karur, Tamil Nadu. 90% Indian manufacturing of industrial furnace camera systems with local spares and immediate technical support.')
 
 @section('content')
 

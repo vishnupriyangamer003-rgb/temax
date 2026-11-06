@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', $service->title . ' - TEMAX Services')
+@section('meta_description', \Illuminate\Support\Str::limit(strip_tags($service->summary ?: $service->lead), 160))
 
 @section('content')
 

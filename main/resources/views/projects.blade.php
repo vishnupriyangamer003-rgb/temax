@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Projects & Installations - TEMAX Furnace Camera Systems Across India')
+@section('meta_description', 'View successful TEMAX installations across cement plants, 600MW thermal utility plants, captive power plants and glass furnaces across India.')
 
 @section('content')
 

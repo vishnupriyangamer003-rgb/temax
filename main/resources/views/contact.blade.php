@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('title', 'Contact TEMAX - Furnace Camera Enquiries, Karur | sales@temax.in')
+@section('meta_description', 'Contact TEMAX in Karur, Tamil Nadu. Reach our technical sales team for furnace camera quotes, site visits, cooling systems and custom engineering: +91 4324 226787, sales@temax.in')
 
 @section('content')
 
