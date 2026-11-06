@@ -44,12 +44,12 @@
             @foreach ($categories as $category)
                 <div class="product-cat-block" id="cat-{{ \Illuminate\Support\Str::slug($category->title) }}">
                     <div class="row clearfix align-items-center">
-                        <div class="col-lg-5 col-md-12 col-sm-12 image-column {{ $loop->index % 2 === 1 ? 'order-lg-2' : '' }}">
+                        <div class="col-lg-6 col-md-12 col-sm-12 image-column {{ $loop->index % 2 === 1 ? 'order-lg-2' : '' }}">
                             <figure class="image-box">
                                 <img src="{{ asset($category->image ?: 'assets/images/service/service-1.jpg') }}" alt="{{ $category->title }}">
                             </figure>
                         </div>
-                        <div class="col-lg-7 col-md-12 col-sm-12 content-column {{ $loop->index % 2 === 1 ? 'order-lg-1' : '' }}">
+                        <div class="col-lg-6 col-md-12 col-sm-12 content-column {{ $loop->index % 2 === 1 ? 'order-lg-1' : '' }}">
                             <div class="content-box">
                                 <div class="sec-title mb_25">
                                     <h6>Product Range</h6>
@@ -105,13 +105,16 @@
             position: relative;
             display: block;
             overflow: hidden;
+            border-radius: 8px;
         }
 
         .product-cat-block .image-box img {
             display: block;
             width: 100%;
-            height: 340px;
+            height: 100%;
+            min-height: 380px;
             object-fit: cover;
+            border-radius: 8px;
         }
 
         .product-cat-block .cat-desc {
@@ -119,44 +122,55 @@
         }
 
         .product-items {
-            margin: 0 0 10px;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px 24px;
+            margin: 0 0 20px;
             padding: 0;
             list-style: none;
+        }
+
+        @media (max-width: 767px) {
+            .product-items {
+                grid-template-columns: 1fr;
+                gap: 8px;
+            }
         }
 
         .product-items li {
             position: relative;
             display: block;
-            padding: 14px 0;
+            padding: 10px 0 10px 30px;
             border-bottom: 1px solid #edf0f4;
         }
 
         .product-items li .item-icon {
             position: absolute;
             left: 0;
-            top: 16px;
-            font-size: 18px;
+            top: 12px;
+            font-size: 16px;
             color: var(--theme-color);
         }
 
         .product-items li .item-inner {
-            padding-left: 34px;
+            padding-left: 0;
         }
 
         .product-items li h4 {
             display: block;
-            font-size: 18px;
-            line-height: 26px;
+            font-size: 16px;
+            line-height: 22px;
             font-family: var(--title-font);
             font-weight: 600;
             color: var(--title-color);
-            margin: 0 0 4px;
+            margin: 0 0 3px;
         }
 
         .product-items li p {
             display: block;
             margin: 0;
-            font-size: 15px;
+            font-size: 13.5px;
+            line-height: 19px;
             color: #6b7280;
         }
     </style>
