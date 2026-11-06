@@ -64,43 +64,41 @@
     <meta name="twitter:image" content="{{ $ogImage }}">
 
     <!-- Schema.org JSON-LD Structured Data for Search Engines -->
+    @php
+        $schemaData = [
+            '@context' => 'https://schema.org',
+            '@type' => 'LocalBusiness',
+            'name' => setting('site_name', 'TEMAX'),
+            'image' => $ogImage,
+            'url' => url('/'),
+            'telephone' => setting('phone', '+91 4324 226787'),
+            'email' => setting('email', 'sales@temax.in'),
+            'priceRange' => '$$',
+            'address' => [
+                '@type' => 'PostalAddress',
+                'streetAddress' => '2E, Apple Paradise, 4/25, Kovai Road, Reddipalaiam',
+                'addressLocality' => 'Karur',
+                'addressRegion' => 'Tamil Nadu',
+                'postalCode' => '639002',
+                'addressCountry' => 'IN',
+            ],
+            'geo' => [
+                '@type' => 'GeoCoordinates',
+                'latitude' => 10.9601,
+                'longitude' => 78.0766,
+            ],
+            'openingHoursSpecification' => [
+                [
+                    '@type' => 'OpeningHoursSpecification',
+                    'dayOfWeek' => ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday'],
+                    'opens' => '09:00',
+                    'closes' => '18:00',
+                ],
+            ],
+        ];
+    @endphp
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "LocalBusiness",
-      "name": "{{ setting('site_name', 'TEMAX') }}",
-      "image": "{{ $ogImage }}",
-      "url": "{{ url('/') }}",
-      "telephone": "{{ setting('phone', '+91 4324 226787') }}",
-      "email": "{{ setting('email', 'sales@temax.in') }}",
-      "priceRange": "$$",
-      "address": {
-        "@type": "PostalAddress",
-        "streetAddress": "2E, Apple Paradise, 4/25, Kovai Road, Reddipalaiam",
-        "addressLocality": "Karur",
-        "addressRegion": "Tamil Nadu",
-        "postalCode": "639002",
-        "addressCountry": "IN"
-      },
-      "geo": {
-        "@type": "GeoCoordinates",
-        "latitude": 10.9601,
-        "longitude": 78.0766
-      },
-      "openingHoursSpecification": {
-        "@type": "OpeningHoursSpecification",
-        "dayOfWeek": [
-          "Monday",
-          "Tuesday",
-          "Wednesday",
-          "Thursday",
-          "Friday",
-          "Saturday"
-        ],
-        "opens": "09:00",
-        "closes": "18:00"
-      }
-    }
+    {!! json_encode($schemaData, JSON_UNESCAPED_SLASHES | JSON_PRETTY_PRINT) !!}
     </script>
 
     @if (trim(setting('google_site_verification')))
