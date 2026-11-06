@@ -308,69 +308,70 @@
     <!-- company-section end -->
 
 
-    <!-- chooseus-style-two -->
-    <section class="chooseus-style-two temax-production-section">
+    @if(isset($testimonials) && $testimonials->count())
+    <!-- testimonial-section -->
+    <section class="testimonial-section">
+        <div class="pattern-layer" style="background-image: url({{ asset('assets/images/shape/shape-13.png') }});"></div>
         <div class="auto-container">
-            <div class="sec-title mb_25 centred">
-                <h6>Why Choose Us</h6>
-                <h2>Top Reasons to <span>[Choose]</span> Us</h2>
-                <p class="mt_12">Three decades of furnace viewing expertise.</p>
-            </div>
-            <div class="row align-items-center">
-                <div class="col-lg-4 col-md-12 col-sm-12 left-column">
+            <div class="row clearfix">
+                <div class="col-lg-6 col-md-12 col-sm-12 left-column">
                     <div class="left-content">
-                        <div class="chooseus-block-two">
-                            <div class="inner-box">
-                                <div class="icon-box"><i class="flaticon-manufacturing"></i></div>
-                                <h3><i class="flaticon-thunder-bolt"></i>Furnace Camera Specialists</h3>
-                                <p>Three decades of high-temperature viewing
-                                    experience across cement, thermal and glass
-                                    plants in India.</p>
-                            </div>
-                        </div>
-                        <div class="chooseus-block-two">
-                            <div class="inner-box">
-                                <div class="icon-box"><i class="flaticon-manufacturing-1"></i></div>
-                                <h3><i class="flaticon-thunder-bolt"></i>Locally Available Spares</h3>
-                                <p>Economical, locally available spares keep
-                                    your running costs down — with immediate
-                                    support when you need it.</p>
+                        <figure class="image"><img src="{{ asset('assets/images/resource/men-1.png') }}" alt="TEMAX Client Reviews"></figure>
+                        <div class="shape" style="background-image: url({{ asset('assets/images/shape/shape-12.png') }});"></div>
+                        <div class="rating-box">
+                            <h5>5.0</h5>
+                            <div class="inner">
+                                <ul class="rating"> 
+                                    <li><i class="flaticon-star"></i></li>
+                                    <li><i class="flaticon-star"></i></li>
+                                    <li><i class="flaticon-star"></i></li>
+                                    <li><i class="flaticon-star"></i></li>
+                                    <li><i class="flaticon-star"></i></li>
+                                </ul>
+                                <h6>From 100+ Plants</h6>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-12 col-sm-12 image-column">
-                    <div class="image-box temax-production-image">
-                        <div class="image-shape" style="background-image: url({{ asset('assets/images/shape/shape-15.png') }});"></div>
-                        <figure class="image"><img src="{{ asset('assets/images/temax/production-unit-2.jpg') }}?v={{ file_exists(base_path('../assets/images/temax/production-unit-2.jpg')) ? filemtime(base_path('../assets/images/temax/production-unit-2.jpg')) : '2' }}" alt="Molten metal glowing inside a high-temperature furnace at a TEMAX-equipped plant"></figure>
-                    </div>
-                </div>
-                <div class="col-lg-4 col-md-12 col-sm-12 right-column">
-                    <div class="right-content align-3">
-                        <div class="chooseus-block-two">
-                            <div class="inner-box">
-                                <div class="icon-box"><i class="flaticon-engineer"></i></div>
-                                <h3><i class="flaticon-thunder-bolt"></i>90% Made in India</h3>
-                                <p>Main modules only imported — everything
-                                    else built and tested at our Karur
-                                    production unit.</p>
-                            </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 right-column">
+                    <div class="right-content">
+                        <div class="sec-title light mb_25">
+                            <h6>{{ setting('testimonials_subtitle', 'Testimonials') }}</h6>
+                            <h2>{!! setting('testimonials_title', 'What our customers <br> say about us') !!}</h2>
                         </div>
-                        <div class="chooseus-block-two">
-                            <div class="inner-box">
-                                <div class="icon-box"><i class="flaticon-test"></i></div>
-                                <h3><i class="flaticon-thunder-bolt"></i>Built for 2000&nbsp;°C</h3>
-                                <p>Air and water cooled camera systems rated
-                                    for the toughest furnace environments,
-                                    customised on demand.</p>
+                        <div class="tabs-box">
+                            <div class="tabs-content">
+                                @foreach($testimonials as $index => $item)
+                                    <div class="tab {{ $index === 0 ? 'active-tab' : '' }}" id="about-testimonial-tab-{{ $item->id }}">
+                                        <div class="testimonial-content">
+                                            <div class="icon-box"><img src="{{ asset('assets/images/icons/icon-7.png') }}" alt="Quote"></div>
+                                            @if($item->title)
+                                                <h2>{{ $item->title }}</h2>
+                                            @endif
+                                            <p>{{ $item->content }}</p>
+                                            <h3>{{ $item->name }}</h3>
+                                            @if($item->designation || $item->company)
+                                                <span class="designation">{{ $item->designation }}{{ $item->designation && $item->company ? ' — ' : '' }}{{ $item->company }}</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                @endforeach
                             </div>
+                            <ul class="tab-btns tab-buttons clearfix">
+                                @foreach($testimonials as $index => $item)
+                                    <li class="tab-btn {{ $index === 0 ? 'active-btn' : '' }}" data-tab="#about-testimonial-tab-{{ $item->id }}">
+                                        <img src="{{ asset($item->avatar ?: 'assets/images/resource/testimonial-' . (($index % 5) + 1) . '.png') }}" alt="{{ $item->name }}">
+                                    </li>
+                                @endforeach
+                            </ul>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- chooseus-style-two end -->
+    <!-- testimonial-section end -->
+    @endif
 
 
     <!-- features-section -->
@@ -908,6 +909,75 @@
             .company-section.temax-company-redesign .card-heading {
                 font-size: 21px;
             }
+        }
+
+        /* Testimonial Section Adjustments */
+        .testimonial-section {
+            padding: 10px 0;
+        }
+
+        .testimonial-section .right-content .sec-title h2 {
+            font-size: 34px;
+            line-height: 44px;
+            margin-bottom: 24px;
+        }
+
+        .testimonial-section .right-content .testimonial-content .icon-box {
+            width: 76px;
+            height: 76px;
+            line-height: 76px;
+            margin-bottom: 24px;
+            background: #fff;
+            border-radius: 50%;
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+        }
+
+        .testimonial-section .right-content .testimonial-content .icon-box img {
+            max-width: 36px;
+        }
+
+        .testimonial-section .right-content .testimonial-content h2 {
+            font-size: 26px;
+            line-height: 34px;
+            margin-bottom: 16px;
+            max-width: 100%;
+            color: #fff;
+        }
+
+        .testimonial-section .right-content .testimonial-content p {
+            font-size: 17px;
+            line-height: 29px;
+            color: #cbd5e1;
+        }
+
+        .testimonial-section .right-content .testimonial-content h3 {
+            font-size: 20px;
+            color: #fff;
+            margin-top: 18px;
+        }
+
+        .testimonial-section .right-content .testimonial-content .designation {
+            font-size: 13.5px;
+            color: var(--theme-color);
+            letter-spacing: 0.5px;
+            margin-top: 4px;
+        }
+
+        .testimonial-section .right-content .tab-btns {
+            margin-top: 32px;
+        }
+
+        .testimonial-section .right-content .tab-btns li {
+            width: 64px;
+            height: 64px;
+            overflow: hidden;
+        }
+
+        .testimonial-section .right-content .tab-btns li img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 50%;
         }
     </style>
 @endpush
