@@ -1,4 +1,4 @@
-DirectoryIndex index.html index.php
+DirectoryIndex index.php
 
 <IfModule mod_rewrite.c>
     <IfModule mod_negotiation.c>
@@ -14,8 +14,8 @@ DirectoryIndex index.html index.php
     RewriteCond %{REQUEST_URI} (.+)/$
     RewriteRule ^ %1 [L,R=301]
 
-    # In live preview mode: send all route requests strictly to index.html
+    # Send all route requests to the Laravel front controller
     RewriteCond %{REQUEST_FILENAME} !-d
     RewriteCond %{REQUEST_FILENAME} !-f
-    RewriteRule ^ index.html [L]
+    RewriteRule ^ index.php [L]
 </IfModule>

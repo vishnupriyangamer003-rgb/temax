@@ -146,6 +146,34 @@
             white-space: nowrap;
         }
 
+        /* Page title banner typography — broad white font with dark outline */
+        .page-title .content-box h1 {
+            font-weight: 800;
+            color: #ffffff !important;
+            -webkit-text-stroke: 1.5px #0b1a26;
+            paint-order: stroke fill;
+            text-shadow:
+                -1.5px -1.5px 0 #0b1a26,
+                 1.5px -1.5px 0 #0b1a26,
+                -1.5px  1.5px 0 #0b1a26,
+                 1.5px  1.5px 0 #0b1a26,
+                 0 4px 15px rgba(0, 0, 0, 0.75);
+            letter-spacing: 0.5px;
+        }
+
+        .page-title .content-box .bread-crumb li a {
+            color: #ffffff !important;
+            font-weight: 600;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85);
+        }
+
+        .page-title .content-box .bread-crumb li i,
+        .page-title .content-box .bread-crumb li span {
+            color: var(--theme-color) !important;
+            font-weight: 600;
+            text-shadow: 0 1px 3px rgba(0, 0, 0, 0.85);
+        }
+
         @media (max-width: 991px) {
             .main-header .header-logo {
                 display: none;
