@@ -638,8 +638,20 @@
             padding: 32px 28px;
             background-color: #f0f4f8;
             border-radius: 12px;
-            border: 1px solid #e2e8f0;
-            overflow: hidden;
+        }
+
+        .about-style-three.alternat-2 .content-box .award-box h4,
+        .about-style-three .content-box .award-box h4 {
+            position: absolute;
+            display: inline-block;
+            font-size: 20px;
+            line-height: 28px;
+            color: #cdc7bf;
+            text-transform: uppercase;
+            left: -20px;
+            top: 29px;
+            transform: rotate(-45deg);
+            z-index: 2;
         }
 
         .about-style-three.alternat-2 .content-box .award-box .award-image {
