@@ -22,6 +22,7 @@ class SettingController extends Controller
             'projects_subtitle', 'projects_title',
             'testimonials_subtitle', 'testimonials_title',
             'clients_subtitle', 'clients_title', 'clients_tagline',
+            'cta_slogan', 'cta_btn_text',
             // SEO / meta tags
             'meta_title', 'meta_keywords', 'meta_author', 'meta_robots', 'canonical_url',
             'og_title', 'og_description', 'og_image', 'twitter_card', 'twitter_site',
@@ -63,6 +64,8 @@ class SettingController extends Controller
             'clients_subtitle'      => 'Customers & Partners',
             'clients_title'         => 'Our Valued <span>[Customers]</span>',
             'clients_tagline'       => 'Delivering high-temperature vision, reliability, and precision across heavy industries.',
+            'cta_slogan'            => 'Pioneering High-Temperature Furnace &amp; Kiln Viewing Systems Since 1996 — Precision Engineered in India.',
+            'cta_btn_text'          => 'Contact Us',
             // SEO / meta tags
             'meta_title'       => 'TEMAX - Furnace Camera Manufacturer for Cement, Thermal & Glass Industries',
             'meta_keywords'    => 'furnace camera, kiln camera, thermal camera, cement plant camera, glass furnace camera, auto retraction system, TEMAX',

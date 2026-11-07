@@ -82,6 +82,18 @@
                 <input type="text" name="settings[clients_tagline]" value="{{ old('settings.clients_tagline', $values['clients_tagline'] ?? 'Delivering quality, innovation, and precision.') }}" style="width:100%; padding:9px 12px; border:1px solid var(--border); border-radius:6px; font-size:14px;">
             </div>
 
+            <h4 style="font-size:15px; color:var(--primary); margin:28px 0 16px; border-bottom:1px solid var(--border); padding-bottom:8px;">Bottom Slogan Banner (Above Footer)</h4>
+
+            <div style="margin-bottom:16px;">
+                <label style="display:block; font-weight:600; font-size:13px; margin-bottom:6px;">Company Slogan (One sentence)</label>
+                <input type="text" name="settings[cta_slogan]" value="{{ old('settings.cta_slogan', $values['cta_slogan'] ?? 'Pioneering High-Temperature Furnace &amp; Kiln Viewing Systems Since 1996 — Precision Engineered in India.') }}" style="width:100%; padding:9px 12px; border:1px solid var(--border); border-radius:6px; font-size:14px;">
+            </div>
+
+            <div style="margin-bottom:16px;">
+                <label style="display:block; font-weight:600; font-size:13px; margin-bottom:6px;">Button Text</label>
+                <input type="text" name="settings[cta_btn_text]" value="{{ old('settings.cta_btn_text', $values['cta_btn_text'] ?? 'Contact Us') }}" style="width:100%; padding:9px 12px; border:1px solid var(--border); border-radius:6px; font-size:14px;">
+            </div>
+
             <h4 style="font-size:15px; color:var(--primary); margin:28px 0 16px; border-bottom:1px solid var(--border); padding-bottom:8px;">SEO & Social Meta</h4>
 
             <div style="margin-bottom:16px;">
