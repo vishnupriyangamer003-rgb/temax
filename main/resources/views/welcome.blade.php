@@ -729,7 +729,7 @@
                         $col1 = $clients->slice(0, $half);
                         $col2 = $clients->slice($half);
                     @endphp
-                    <div class="col-lg-5 col-md-12 col-sm-12 clients-column">
+                    <div class="col-xxl-5 col-xl-4 col-lg-4 col-md-12 col-sm-12 clients-column">
                         <div class="clients-box clearfix">
                             @foreach($col1 as $c)
                                 <figure class="clients-logo">
@@ -742,16 +742,16 @@
                             @endforeach
                         </div>
                     </div>
-                    <div class="col-lg-2 col-md-12 col-sm-12 content-column">
+                    <div class="col-xxl-2 col-xl-4 col-lg-4 col-md-12 col-sm-12 content-column">
                         <div class="content-box">
                             <h3>Strategic 
                                 <span>Partnerships</span> 
                                 with 100+ 
                                 <span>Global Leaders</span></h3>
-                            <a href="{{ route('contact') }}" class="theme-btn btn-one"><i class="flaticon-right-arrow"></i><span>Contact Us</span></a>
+                            <a href="{{ route('contact') }}" class="theme-btn btn-one text-nowrap"><i class="flaticon-right-arrow"></i><span>Contact Us</span></a>
                         </div>
                     </div>
-                    <div class="col-lg-5 col-md-12 col-sm-12 clients-column">
+                    <div class="col-xxl-5 col-xl-4 col-lg-4 col-md-12 col-sm-12 clients-column">
                         <div class="clients-box clearfix">
                             @foreach($col2 as $c)
                                 <figure class="clients-logo">
@@ -1599,13 +1599,45 @@
         }
 
         .clients-section .content-box {
-            padding: 30px 15px;
+            padding: 24px 10px;
+            text-align: center;
         }
 
         .clients-section .content-box h3 {
             font-size: 22px;
             line-height: 30px;
             margin-bottom: 20px;
+        }
+
+        .clients-section .content-box .theme-btn {
+            display: inline-flex !important;
+            align-items: center !important;
+            justify-content: center !important;
+            white-space: nowrap !important;
+            flex-wrap: nowrap !important;
+            text-wrap: nowrap !important;
+            width: auto !important;
+            min-width: 150px;
+            max-width: 100%;
+            padding: 13px 22px !important;
+            font-size: 14px !important;
+            line-height: 20px !important;
+            letter-spacing: 0.5px;
+            gap: 8px !important;
+            border-radius: 4px;
+        }
+
+        .clients-section .content-box .theme-btn span {
+            white-space: nowrap !important;
+            text-wrap: nowrap !important;
+            display: inline-block !important;
+            flex-shrink: 0;
+        }
+
+        .clients-section .content-box .theme-btn i {
+            font-size: 17px !important;
+            flex-shrink: 0;
+            top: 0 !important;
         }
 
         @media (max-width: 991px) {

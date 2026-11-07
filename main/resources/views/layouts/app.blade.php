@@ -199,6 +199,16 @@
             white-space: nowrap;
         }
 
+        /* Ensure theme buttons never wrap into multi-line text */
+        .theme-btn {
+            white-space: nowrap !important;
+            flex-wrap: nowrap !important;
+        }
+
+        .theme-btn span {
+            white-space: nowrap !important;
+        }
+
         /* Page title banner typography — broad white font with dark outline */
         .page-title .content-box h1 {
             font-weight: 800;
