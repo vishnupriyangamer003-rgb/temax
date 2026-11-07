@@ -32,8 +32,12 @@
                 </div>
             </div>
             <div>
+                <small style="color:var(--text-muted); text-transform:uppercase; font-size:12px; font-weight:600;">Plant / Location</small>
+                <div style="font-size:16px; font-weight:600; margin-top:4px;">{{ $enquiry->location ?: '—' }}</div>
+            </div>
+            <div>
                 <small style="color:var(--text-muted); text-transform:uppercase; font-size:12px; font-weight:600;">Service Required</small>
-                <div style="font-size:16px; font-weight:600; margin-top:4px;">{{ $enquiry->service_required ?: 'General Enquiry' }}</div>
+                <div style="font-size:16px; font-weight:600; margin-top:4px;">{{ $enquiry->service ?: 'General Enquiry' }}</div>
             </div>
             <div>
                 <small style="color:var(--text-muted); text-transform:uppercase; font-size:12px; font-weight:600;">Received At</small>

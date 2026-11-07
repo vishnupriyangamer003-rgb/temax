@@ -73,7 +73,7 @@
                 </div>
                 <div>
                     <label style="display:block; font-weight:600; font-size:13px; margin-bottom:6px;">Clients Title (HTML allowed)</label>
-                    <input type="text" name="settings[clients_title]" value="{{ old('settings.clients_title', $values['clients_title'] ?? 'Our Valued <span>[Customers]</span>') }}" style="width:100%; padding:9px 12px; border:1px solid var(--border); border-radius:6px; font-size:14px;">
+                    <input type="text" name="settings[clients_title]" value="{{ old('settings.clients_title', $values['clients_title'] ?? 'Our Valued <span>Customers</span>') }}" style="width:100%; padding:9px 12px; border:1px solid var(--border); border-radius:6px; font-size:14px;">
                 </div>
             </div>
 

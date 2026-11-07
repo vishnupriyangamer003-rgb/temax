@@ -92,7 +92,7 @@
                     <div class="content-box">
                         <div class="sec-title mb_35">
                             <h6>Message Us</h6>
-                            <h2>Have Questions? <span>[Message]</span> Us</h2>
+                            <h2>Have Questions? <span>Message</span> Us</h2>
                         </div>
                         <div class="form-inner">
                             <div id="form-flash" class="form-flash" style="display:none;"></div>
