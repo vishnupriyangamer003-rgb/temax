@@ -295,7 +295,7 @@
                             <h5>Proudly Made in India.</h5>
                         </div>
                         <div class="image-box">
-                            <figure class="image clearfix"><img src="{{ asset('assets/images/temax/production-unit-2.jpg') }}?v={{ file_exists(base_path('../assets/images/temax/production-unit-2.jpg')) ? filemtime(base_path('../assets/images/temax/production-unit-2.jpg')) : '2' }}" alt="TEMAX production unit"></figure>
+                            <figure class="image clearfix"><img src="{{ asset('assets/images/temax/production-unit-2.png') }}?v={{ file_exists(base_path('../assets/images/temax/production-unit-2.png')) ? filemtime(base_path('../assets/images/temax/production-unit-2.png')) : '2' }}" alt="TEMAX production unit"></figure>
                             <div class="image-content">
                                 <div class="text-box">
                                     <h2>30<span>+</span></h2>
@@ -1487,12 +1487,58 @@
             box-shadow: 0 12px 32px rgba(15, 30, 45, 0.14);
         }
 
-        @media (max-width: 991px) {
+        @media (max-width: 1199px) {
+            .about-section .inner-content .image-box {
+                margin-left: 30px !important;
+            }
             .about-section .inner-content .image-box .image img {
                 max-width: 100% !important;
                 float: none !important;
                 height: auto !important;
                 width: 100%;
+            }
+            .about-section .inner-content .award-box {
+                left: -15px;
+                top: 40px;
+                z-index: 3;
+            }
+        }
+
+        @media (max-width: 991px) {
+            .about-section .inner-content .image-box {
+                margin-left: 0 !important;
+                margin-top: 30px;
+            }
+            .about-section .inner-content .image-box .image img {
+                max-width: 100% !important;
+                float: none !important;
+                height: auto !important;
+                width: 100%;
+            }
+            .about-section .inner-content .award-box {
+                left: 15px;
+                top: 20px;
+                z-index: 3;
+            }
+        }
+
+        @media (max-width: 575px) {
+            .about-section .inner-content .award-box {
+                top: 15px;
+                left: 15px;
+                padding: 14px 14px;
+                width: 160px;
+            }
+            .about-section .inner-content .award-box h5 {
+                font-size: 14px;
+                line-height: 18px;
+            }
+            .about-section .inner-content .image-box .image-content {
+                bottom: 15px;
+                left: 15px;
+                width: calc(100% - 30px);
+                max-width: 320px;
+                padding: 14px 18px;
             }
         }
         /* Clients Section Enhancement */
