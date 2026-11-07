@@ -71,7 +71,7 @@
         <div class="outer-container">
             <div class="sec-title centred mb_45 pl_15 pr_15">
                 <h6>History</h6>
-                <h2>A <span>[Timeline]</span> of Furnace <br>&amp; Camera Innovation</h2>
+                <h2>A <span>Timeline</span> of Furnace <br>&amp; Camera Innovation</h2>
             </div>
             <div class="tabs-box">
                 <div class="tabs-content">
@@ -165,7 +165,7 @@
                     <div class="col-lg-7 col-md-12 col-sm-12">
                         <div class="sec-title light mb_0">
                             <h6>Company</h6>
-                            <h2>Driven by Innovation, <br><span>[Built on Trust]</span></h2>
+                            <h2>Driven by Innovation, <br><span>Built on Trust</span></h2>
                         </div>
                     </div>
                     <div class="col-lg-5 col-md-12 col-sm-12">

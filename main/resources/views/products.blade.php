@@ -16,7 +16,7 @@
         <div class="auto-container">
             <div class="sec-title mb_45 centred">
                 <h6>Products</h6>
-                <h2>Explore Our <span>[Product]</span> Range</h2>
+                <h2>Explore Our <span>Product</span> Range</h2>
                 <p class="mt_12">High-temperature viewing systems for every plant need.</p>
             </div>
             <div class="row clearfix">

@@ -70,7 +70,7 @@
                             <div class="bg-color"></div>
                             <div class="video-bg" style="background-image: url({{ asset('assets/images/temax/kiln-camera.jpg') }});"></div>
                         </div>
-                        <h2>Experts <br>in <span>[Furnace Cameras]</span></h2>
+                        <h2>Experts <br>in <span>Furnace Cameras</span></h2>
                         <p>High-temperature imaging <br>for cement, thermal &amp; glass.</p>
                     </div>
                 </div>
@@ -390,7 +390,7 @@
         <div class="auto-container">
             <div class="sec-title mb_45">
                 <h6>Industries Served</h6>
-                <h2>Serving Diverse <span>[Sectors]</span></h2>
+                <h2>Serving Diverse <span>Sectors</span></h2>
                 <a href="{{ route('projects') }}"><i class="flaticon-right-arrow"></i><span>All Projects</span></a>
             </div>
             <div class="inner-container">
@@ -555,7 +555,7 @@
                     <div class="left-content pr_100">
                         <div class="sec-title light mb_45">
                             <h6>How we Work</h6>
-                            <h2>From Enquiry to <span>[Installation]</span></h2>
+                            <h2>From Enquiry to <span>Installation</span></h2>
                             <p class="mt_12">Design, build and install — all under one roof.</p>
                         </div>
                         <div class="inner-box">
@@ -614,7 +614,7 @@
         <div class="auto-container">
             <div class="sec-title centred mb_45">
                 <h6>Why Choose Us</h6>
-                <h2>Top Reasons to <span>[Choose]</span> Us</h2>
+                <h2>Top Reasons to <span>Choose</span> Us</h2>
                 <p class="mt_12">Three decades of furnace viewing expertise.</p>
             </div>
             <div class="row clearfix">
@@ -719,7 +719,7 @@
         <div class="auto-container">
             <div class="sec-title mb_45">
                 <h6>{{ setting('clients_subtitle', 'Customers') }}</h6>
-                <h2>{!! setting('clients_title', 'Our Valued <span>[Customers]</span>') !!}</h2>
+                <h2>{!! setting('clients_title', 'Our Valued <span>Customers</span>') !!}</h2>
                 <p class="mt_12">{{ setting('clients_tagline', 'Delivering quality, innovation, and precision.') }}</p>
             </div>
             <div class="inner-container">

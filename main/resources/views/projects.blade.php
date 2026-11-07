@@ -51,7 +51,7 @@
             @else
                 <div class="sec-title centred mb_45">
                     <h6>Our Track Record</h6>
-                    <h2>Projects Coming <span>[Soon]</span></h2>
+                    <h2>Projects Coming <span>Soon</span></h2>
                     <p class="mt_12">New installations are being added to this section.</p>
                 </div>
             @endif

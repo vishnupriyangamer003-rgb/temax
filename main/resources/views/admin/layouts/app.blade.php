@@ -236,6 +236,35 @@
             border: 1px solid #fecaca;
         }
 
+        /* Badges */
+        .badge {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 3px 8px;
+            border-radius: 6px;
+        }
+
+        .badge-success {
+            background: #dcfce7;
+            color: #15803d;
+        }
+
+        .badge-danger {
+            background: #fee2e2;
+            color: #b91c1c;
+        }
+
+        .badge-warning {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .badge-info {
+            background: #e0f2fe;
+            color: #0369a1;
+        }
+
         /* Cards */
         .card {
             background: var(--card-bg);
@@ -262,6 +291,12 @@
 
         .card-body {
             padding: 24px;
+            overflow-x: auto;
+            -webkit-overflow-scrolling: touch;
+        }
+
+        .card-body table {
+            min-width: 680px;
         }
 
         /* Buttons */
@@ -298,6 +333,16 @@
             background: #cbd5e1;
         }
 
+        .btn-danger {
+            background: #fee2e2;
+            color: #b91c1c;
+        }
+
+        .btn-danger:hover {
+            background: #fecaca;
+            color: #991b1b;
+        }
+
         .btn-sm {
             padding: 6px 12px;
             font-size: 13px;
@@ -315,12 +360,49 @@
                 position: relative;
             }
 
+            .sidebar-brand {
+                padding: 16px 20px;
+            }
+
+            .sidebar-menu {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 6px;
+                padding: 12px 16px;
+            }
+
+            .sidebar-menu li {
+                margin-bottom: 0;
+            }
+
+            .sidebar-menu a {
+                padding: 8px 12px;
+                font-size: 13px;
+                border-radius: 6px;
+            }
+
+            .sidebar-footer {
+                display: none;
+            }
+
             .admin-header {
                 padding: 14px 20px;
+                flex-wrap: wrap;
+                gap: 12px;
+            }
+
+            .admin-header h1 {
+                font-size: 18px;
             }
 
             .admin-body {
-                padding: 20px;
+                padding: 16px;
+            }
+        }
+
+        @media (max-width: 600px) {
+            div[style*="grid-template-columns"] {
+                grid-template-columns: 1fr !important;
             }
         }
     </style>

@@ -193,10 +193,17 @@
             object-fit: contain;
         }
 
-        /* Prevent bracketed accent headings from breaking mid-phrase */
-        .sec-title h2 span,
-        .sec-title h2 .text-nowrap {
-            white-space: nowrap;
+        html, body {
+            overflow-x: hidden;
+            max-width: 100%;
+        }
+
+        /* Accent headings */
+        @media only screen and (min-width: 576px) {
+            .sec-title h2 span,
+            .sec-title h2 .text-nowrap {
+                white-space: nowrap;
+            }
         }
 
         /* Ensure theme buttons never wrap into multi-line text */

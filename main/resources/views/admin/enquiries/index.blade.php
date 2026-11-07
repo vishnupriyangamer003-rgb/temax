@@ -40,7 +40,7 @@
                                     <div>{{ $enquiry->phone }}</div>
                                     <small style="color:var(--text-muted);">{{ $enquiry->email }}</small>
                                 </td>
-                                <td style="padding:14px 16px;">{{ $enquiry->service_required ?: '—' }}</td>
+                                <td style="padding:14px 16px;">{{ $enquiry->service ?: '—' }}</td>
                                 <td style="padding:14px 16px;">{{ $enquiry->created_at->format('M d, Y h:i A') }}</td>
                                 <td style="padding:14px 16px;">
                                     <span style="font-size:12px; font-weight:600; padding:3px 8px; border-radius:6px; background:#e0f2fe; color:#0369a1;">
