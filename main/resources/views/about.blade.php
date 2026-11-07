@@ -308,72 +308,6 @@
     <!-- company-section end -->
 
 
-    @if(isset($testimonials) && $testimonials->count())
-    <!-- testimonial-section -->
-    <section class="testimonial-section">
-        <div class="pattern-layer" style="background-image: url({{ asset('assets/images/shape/shape-13.png') }});"></div>
-        <div class="auto-container">
-            <div class="row clearfix">
-                <div class="col-lg-6 col-md-12 col-sm-12 left-column">
-                    <div class="left-content">
-                        <figure class="image"><img src="{{ asset('assets/images/resource/men-1.png') }}" alt="TEMAX Client Reviews"></figure>
-                        <div class="shape" style="background-image: url({{ asset('assets/images/shape/shape-12.png') }});"></div>
-                        <div class="rating-box">
-                            <h5>5.0</h5>
-                            <div class="inner">
-                                <ul class="rating"> 
-                                    <li><i class="flaticon-star"></i></li>
-                                    <li><i class="flaticon-star"></i></li>
-                                    <li><i class="flaticon-star"></i></li>
-                                    <li><i class="flaticon-star"></i></li>
-                                    <li><i class="flaticon-star"></i></li>
-                                </ul>
-                                <h6>From 100+ Plants</h6>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-md-12 col-sm-12 right-column">
-                    <div class="right-content">
-                        <div class="sec-title light mb_25">
-                            <h6>{{ setting('testimonials_subtitle', 'Testimonials') }}</h6>
-                            <h2>{!! setting('testimonials_title', 'What our customers <br> say about us') !!}</h2>
-                        </div>
-                        <div class="tabs-box">
-                            <div class="tabs-content">
-                                @foreach($testimonials as $index => $item)
-                                    <div class="tab {{ $index === 0 ? 'active-tab' : '' }}" id="about-testimonial-tab-{{ $item->id }}">
-                                        <div class="testimonial-content">
-                                            <div class="icon-box"><img src="{{ asset('assets/images/icons/icon-7.png') }}" alt="Quote"></div>
-                                            @if($item->title)
-                                                <h2>{{ $item->title }}</h2>
-                                            @endif
-                                            <p>{{ $item->content }}</p>
-                                            <h3>{{ $item->name }}</h3>
-                                            @if($item->designation || $item->company)
-                                                <span class="designation">{{ $item->designation }}{{ $item->designation && $item->company ? ' — ' : '' }}{{ $item->company }}</span>
-                                            @endif
-                                        </div>
-                                    </div>
-                                @endforeach
-                            </div>
-                            <ul class="tab-btns tab-buttons clearfix">
-                                @foreach($testimonials as $index => $item)
-                                    <li class="tab-btn {{ $index === 0 ? 'active-btn' : '' }}" data-tab="#about-testimonial-tab-{{ $item->id }}">
-                                        <img src="{{ asset($item->avatar ?: 'assets/images/resource/testimonial-' . (($index % 5) + 1) . '.png') }}" alt="{{ $item->name }}">
-                                    </li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- testimonial-section end -->
-    @endif
-
-
     <!-- features-section -->
     <section class="features-section">
         <div class="bg-layer" style="background-image: url({{ asset('assets/images/background/feature-bg.jpg') }});"></div>
@@ -381,7 +315,7 @@
             <div class="title-box mb_50">
                 <div class="sec-title">
                     <h6>Features</h6>
-                    <h2>Highlighted Service <span>[Features]</span></h2>
+                    <h2>Highlighted <span>Service</span></h2>
                     <p class="mt_12">Discover our high-temperature viewing systems.</p>
                 </div>
                 <div class="rotate-text">
@@ -446,6 +380,71 @@
         </div>
     </section>
     <!-- features-section end -->
+
+    @if(isset($testimonials) && $testimonials->count())
+    <!-- testimonial-section -->
+    <section class="testimonial-section">
+        <div class="pattern-layer" style="background-image: url({{ asset('assets/images/shape/shape-13.png') }});"></div>
+        <div class="auto-container">
+            <div class="row clearfix">
+                <div class="col-lg-6 col-md-12 col-sm-12 left-column">
+                    <div class="left-content">
+                        <figure class="image"><img src="{{ asset('assets/images/resource/men-1.png') }}" alt="TEMAX Client Reviews"></figure>
+                        <div class="shape" style="background-image: url({{ asset('assets/images/shape/shape-12.png') }});"></div>
+                        <div class="rating-box">
+                            <h5>5.0</h5>
+                            <div class="inner">
+                                <ul class="rating"> 
+                                    <li><i class="flaticon-star"></i></li>
+                                    <li><i class="flaticon-star"></i></li>
+                                    <li><i class="flaticon-star"></i></li>
+                                    <li><i class="flaticon-star"></i></li>
+                                    <li><i class="flaticon-star"></i></li>
+                                </ul>
+                                <h6>From 100+ Plants</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-12 col-sm-12 right-column">
+                    <div class="right-content">
+                        <div class="sec-title light mb_25">
+                            <h6>{{ setting('testimonials_subtitle', 'Testimonials') }}</h6>
+                            <h2>{!! setting('testimonials_title', 'What our customers <br> say about us') !!}</h2>
+                        </div>
+                        <div class="tabs-box">
+                            <div class="tabs-content">
+                                @foreach($testimonials as $index => $item)
+                                    <div class="tab {{ $index === 0 ? 'active-tab' : '' }}" id="about-testimonial-tab-{{ $item->id }}">
+                                        <div class="testimonial-content">
+                                            <div class="icon-box"><img src="{{ asset('assets/images/icons/icon-7.png') }}" alt="Quote"></div>
+                                            @if($item->title)
+                                                <h2>{{ $item->title }}</h2>
+                                            @endif
+                                            <p>{{ $item->content }}</p>
+                                            <h3>{{ $item->name }}</h3>
+                                            @if($item->designation || $item->company)
+                                                <span class="designation">{{ $item->designation }}{{ $item->designation && $item->company ? ' — ' : '' }}{{ $item->company }}</span>
+                                            @endif
+                                        </div>
+                                    </div>
+                                @endforeach
+                            </div>
+                            <ul class="tab-btns tab-buttons clearfix">
+                                @foreach($testimonials as $index => $item)
+                                    <li class="tab-btn {{ $index === 0 ? 'active-btn' : '' }}" data-tab="#about-testimonial-tab-{{ $item->id }}">
+                                        <img src="{{ asset($item->avatar ?: 'assets/images/resource/testimonial-' . (($index % 5) + 1) . '.png') }}" alt="{{ $item->name }}">
+                                    </li>
+                                @endforeach
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- testimonial-section end -->
+    @endif
 
     @include('partials.cta')
 
