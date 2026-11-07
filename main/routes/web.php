@@ -43,40 +43,10 @@ Route::get('/projects/{id}', [ProjectController::class, 'show'])->name('projects
 Route::get('/contact', function () {
     session(['temax_form_loaded_at' => time()]);
 
-    $n1 = rand(2, 9);
-    $n2 = rand(1, 9);
-    $answer = $n1 + $n2;
-    $token = bin2hex(random_bytes(16));
-
-    session([
-        'temax_captcha_answer' => $answer,
-        'temax_captcha_token'  => $token,
-    ]);
-
     return view('contact', [
-        'services'        => \App\Models\Service::active()->ordered()->get(),
-        'captchaQuestion' => "{$n1} + {$n2}",
-        'captchaToken'    => $token,
+        'services' => \App\Models\Service::active()->ordered()->get(),
     ]);
 })->name('contact');
-
-Route::get('/captcha/refresh', function () {
-    $n1 = rand(2, 9);
-    $n2 = rand(1, 9);
-    $answer = $n1 + $n2;
-    $token = bin2hex(random_bytes(16));
-
-    session([
-        'temax_captcha_answer' => $answer,
-        'temax_captcha_token'  => $token,
-    ]);
-
-    return response()->json([
-        'ok'       => true,
-        'question' => "{$n1} + {$n2}",
-        'token'    => $token,
-    ]);
-})->name('captcha.refresh');
 
 Route::post('/enquiry', [EnquiryController::class, 'store'])
     ->middleware('throttle:10,1')

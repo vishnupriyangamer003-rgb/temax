@@ -37,16 +37,7 @@ class EnquiryController extends Controller
             return $this->respond($request, false, 'Please verify that you are human by checking the security checkbox.');
         }
 
-        // 4. Anti-spam Math Challenge Verification
-        $expectedAnswer = session('temax_captcha_answer');
-        if ($expectedAnswer !== null) {
-            $providedAnswer = $request->input('captcha_answer');
-            if ($providedAnswer === null || trim((string) $providedAnswer) === '' || (int) $providedAnswer !== (int) $expectedAnswer) {
-                return $this->respond($request, false, 'Incorrect security answer. Please solve the simple math check and try again.');
-            }
-        }
-
-        // 5. Standard Field Validation
+        // 4. Standard Field Validation
         $data = $request->validate([
             'name'     => ['required', 'string', 'min:2', 'max:100'],
             'phone'    => ['required', 'string', 'regex:/^[0-9+\s\-()]{10,25}$/'],
