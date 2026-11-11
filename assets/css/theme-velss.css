@@ -262,3 +262,34 @@ body .wow {
 .vh-reason h3 a:hover { color: var(--theme-color); }
 .vh-reason p { margin: 0; }
 @media (max-width: 991px) { .vh-reason { height: auto; } .vh-reasons { padding: 48px 0; } }
+
+/* 14) Hero slider: simple auto-sliding image banner ----------------------- */
+.vh-slider { position: relative; height: 560px; overflow: hidden; background: var(--secondary-color); }
+.vh-slides, .vh-slide { position: absolute; inset: 0; }
+.vh-slide { display: flex; align-items: center; background-size: cover; background-position: center; opacity: 0; visibility: hidden; transition: opacity .8s ease, visibility .8s; }
+.vh-slide.is-active { opacity: 1; visibility: visible; z-index: 1; }
+.vh-slide-overlay { position: absolute; inset: 0; background: linear-gradient(90deg, rgba(13, 32, 47, .82), rgba(13, 32, 47, .35)); }
+.vh-slide .auto-container { position: relative; z-index: 2; width: 100%; }
+.vh-slide-text { max-width: 620px; color: #fff; }
+.vh-slide-text h1, .vh-slide-text h2 { color: #fff; font-size: 46px; line-height: 54px; font-weight: 700; margin-bottom: 16px; }
+.vh-slide-text h1 span, .vh-slide-text h2 span { color: var(--theme-color); }
+.vh-slide-text p { color: #e6ebef; font-size: 18px; line-height: 28px; margin-bottom: 26px; }
+.vh-nav { position: absolute; top: 50%; z-index: 3; transform: translateY(-50%); width: 44px; height: 44px; border: 0; border-radius: 50%; background: rgba(255, 255, 255, .85); color: var(--title-color); font-size: 16px; line-height: 44px; cursor: pointer; }
+.vh-nav:hover { background: var(--theme-color); color: #fff; }
+.vh-prev { left: 16px; } .vh-next { right: 16px; }
+.vh-dots { position: absolute; left: 0; right: 0; bottom: 18px; z-index: 3; display: flex; justify-content: center; gap: 10px; }
+.vh-dots button { width: 12px; height: 12px; padding: 0; border: 2px solid #fff; border-radius: 50%; background: transparent; cursor: pointer; }
+.vh-dots button.is-active { background: var(--theme-color); border-color: var(--theme-color); }
+.vh-intro { padding-top: 56px; }
+@media (max-width: 991px) {
+  .vh-slider { height: 480px; }
+  .vh-slide-text h1, .vh-slide-text h2 { font-size: 36px; line-height: 44px; }
+}
+@media (max-width: 575px) {
+  .vh-slider { height: 440px; }
+  .vh-slide-overlay { background: rgba(13, 32, 47, .65); }
+  .vh-slide-text h1, .vh-slide-text h2 { font-size: 28px; line-height: 36px; }
+  .vh-slide-text p { font-size: 15px; line-height: 24px; margin-bottom: 18px; }
+  .vh-nav { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .vh-slide { transition: none; } }

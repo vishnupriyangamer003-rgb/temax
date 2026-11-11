@@ -43,51 +43,45 @@
 
 @section('content')
 
-    <!-- hero (Velss layout: full-width banner with centred welcome text) -->
-    <section class="vh-hero" id="home-hero">
-        <div class="vh-hero-bg" style="background-image: url({{ asset('assets/images/temax/kiln-camera.jpg') }});"></div>
-        <div class="vh-hero-overlay"></div>
-        <div class="auto-container">
-            <div class="vh-hero-text">
-                <h1>Experts in <span>Furnace Cameras</span></h1>
-                <p>High-temperature imaging for cement, thermal &amp; glass — live, continuous furnace viewing from TEMAX, built in Karur since 1996.</p>
-                <div class="vh-hero-actions">
-                    <a href="{{ route('services') }}" class="theme-btn btn-one"><i class="flaticon-right-arrow"></i><span>Our Services</span></a>
-                    <a href="{{ route('contact') }}" class="theme-btn btn-two"><i class="flaticon-mail"></i><span>Get a Quote</span></a>
-                </div>
-            </div>
-        </div>
-    </section>
-    <!-- hero end -->
-
-    <!-- highlights (the three former hero slides, kept as links) -->
-    <section class="vh-highlights">
-        <div class="auto-container">
-            <div class="row clearfix">
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <a class="vh-card" href="{{ route('services') }}">
-                        <h3>See Inside Your Furnace</h3>
+    <!-- hero slider: simple auto-sliding image banner -->
+    <section class="vh-slider" id="home-hero" aria-roledescription="carousel" aria-label="TEMAX highlights">
+        <div class="vh-slides">
+            <div class="vh-slide is-active" style="background-image: url({{ asset('assets/images/temax/kiln-camera.jpg') }});">
+                <div class="vh-slide-overlay"></div>
+                <div class="auto-container">
+                    <div class="vh-slide-text">
+                        <h1>See <span>Inside Your Furnace</span></h1>
                         <p>Live, continuous furnace viewing — TEMAX camera systems built for cement, thermal and glass plants since 1996.</p>
-                        <span class="vh-more"><i class="flaticon-right-arrow"></i> Read More</span>
-                    </a>
+                        <a href="{{ route('services') }}" class="theme-btn btn-one"><i class="flaticon-right-arrow"></i><span>Read More</span></a>
+                    </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <a class="vh-card" href="{{ route('products') }}">
-                        <h3>Cooling &amp; Retraction Systems</h3>
+            </div>
+            <div class="vh-slide" style="background-image: url({{ asset('assets/images/temax/dispatch.jpg') }});">
+                <div class="vh-slide-overlay"></div>
+                <div class="auto-container">
+                    <div class="vh-slide-text">
+                        <h2>Cooling &amp; <span>Retraction Systems</span></h2>
                         <p>SS 316 cooling and pneumatic auto retraction protect camera and operator in environments up to 2000&nbsp;°C.</p>
-                        <span class="vh-more"><i class="flaticon-right-arrow"></i> Read More</span>
-                    </a>
+                        <a href="{{ route('products') }}" class="theme-btn btn-one"><i class="flaticon-right-arrow"></i><span>Read More</span></a>
+                    </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12">
-                    <a class="vh-card" href="{{ route('projects') }}">
-                        <h3>Thermal Kiln Shell Monitoring</h3>
+            </div>
+            <div class="vh-slide" style="background-image: url({{ asset('assets/images/temax/thermal-camera.jpg') }});">
+                <div class="vh-slide-overlay"></div>
+                <div class="auto-container">
+                    <div class="vh-slide-text">
+                        <h2>Thermal <span>Kiln Shell Monitoring</span></h2>
                         <p>Temperature-reading thermal cameras track hot spots and coating loss across the entire kiln length.</p>
-                        <span class="vh-more"><i class="flaticon-right-arrow"></i> Read More</span>
-                    </a>
+                        <a href="{{ route('projects') }}" class="theme-btn btn-one"><i class="flaticon-right-arrow"></i><span>Read More</span></a>
+                    </div>
                 </div>
             </div>
         </div>
+        <button type="button" class="vh-nav vh-prev" aria-label="Previous slide">&#10094;</button>
+        <button type="button" class="vh-nav vh-next" aria-label="Next slide">&#10095;</button>
+        <div class="vh-dots" role="tablist" aria-label="Choose slide"></div>
     </section>
+    <!-- hero slider end -->
 
     <!-- intro-section (Identity / Stability / Technology) -->
     <section class="vh-intro">
@@ -1238,4 +1232,57 @@
             }
         }
     </style>
+@endpush
+
+@push('scripts')
+    <script>
+        (function () {
+            var root = document.getElementById('home-hero');
+            if (!root) return;
+            var slides = root.querySelectorAll('.vh-slide');
+            var dotsBox = root.querySelector('.vh-dots');
+            if (slides.length < 2) return;
+            var idx = 0, timer = null, DELAY = 5000;
+            var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+            Array.prototype.forEach.call(slides, function (s, i) {
+                var b = document.createElement('button');
+                b.type = 'button';
+                b.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+                b.addEventListener('click', function () { go(i); restart(); });
+                dotsBox.appendChild(b);
+            });
+            var dots = dotsBox.querySelectorAll('button');
+
+            function go(n) {
+                idx = (n + slides.length) % slides.length;
+                Array.prototype.forEach.call(slides, function (s, i) {
+                    s.classList.toggle('is-active', i === idx);
+                });
+                Array.prototype.forEach.call(dots, function (d, i) {
+                    d.classList.toggle('is-active', i === idx);
+                });
+            }
+            function start() { if (!reduce) timer = setInterval(function () { go(idx + 1); }, DELAY); }
+            function stop() { if (timer) { clearInterval(timer); timer = null; } }
+            function restart() { stop(); start(); }
+
+            root.querySelector('.vh-prev').addEventListener('click', function () { go(idx - 1); restart(); });
+            root.querySelector('.vh-next').addEventListener('click', function () { go(idx + 1); restart(); });
+            root.addEventListener('mouseenter', stop);
+            root.addEventListener('mouseleave', start);
+            document.addEventListener('visibilitychange', function () { document.hidden ? stop() : (stop(), start()); });
+
+            var sx = null;
+            root.addEventListener('touchstart', function (e) { sx = e.touches[0].clientX; }, { passive: true });
+            root.addEventListener('touchend', function (e) {
+                if (sx === null) return;
+                var dx = e.changedTouches[0].clientX - sx; sx = null;
+                if (Math.abs(dx) > 40) { go(idx + (dx < 0 ? 1 : -1)); restart(); }
+            }, { passive: true });
+
+            go(0);
+            start();
+        })();
+    </script>
 @endpush
