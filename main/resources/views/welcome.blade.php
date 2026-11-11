@@ -169,77 +169,44 @@
     </section>
     <!-- service-section end -->
 
-    <!-- industries-section -->
-    <section class="industries-section temax-industries-section">
-        <div class="bg-layer" style="background-image: url({{ asset('assets/images/background/industries-bg.png') }});"></div>
+    <!-- industries-section (Velss layout: centred title, simple cards) -->
+    <section class="vh-industries">
         <div class="auto-container">
-            <div class="sec-title mb_45">
+            <div class="vh-title text-center">
                 <h6>Industries Served</h6>
                 <h2>Serving Diverse <span>Sectors</span></h2>
-                <a href="{{ route('projects') }}"><i class="flaticon-right-arrow"></i><span>All Projects</span></a>
+                <p>Every industry, tailored furnace camera solutions.</p>
             </div>
-            <div class="inner-container">
-                <div class="tabs-box">
-                    <div class="row clearfix align-items-start">
-                        <div class="col-lg-6 col-md-12 col-sm-12 big-column">
-                            <div class="tab-btn-box">
-                                <ul class="tab-btns tab-buttons clearfix">
-                                    @foreach ($industries as $index => $industry)
-                                        <li class="tab-btn {{ $index === 0 ? 'active-btn' : '' }}" data-tab="#ind-tab-{{ $index + 1 }}">{{ $industry['name'] }}</li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                            <div class="single-box">
-                                <div class="inner-box">
-                                    <figure class="image-box"><img src="{{ asset('assets/images/temax/power-600mw.jpg') }}" alt="600MW power plant camera system"></figure>
-                                    <div class="lower-content">
-                                        <div class="shape" style="background-image: url({{ asset('assets/images/shape/shape-7.png') }});"></div>
-                                        <h2>600<span>MW</span></h2>
-                                        <h5>Utility Power Plant <br>Camera System.</h5>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-6 col-md-12 col-sm-12 content-column">
-                            <div class="tabs-content">
-                                @foreach ($industries as $index => $industry)
-                                    <div class="tab {{ $index === 0 ? 'active-tab' : '' }}" id="ind-tab-{{ $index + 1 }}">
-                                        <div class="content-box">
-                                            <h6>Industry {{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}</h6>
-                                            <h3>{{ $industry['name'] }}</h3>
-                                            <p>{{ $industry['text'] }}</p>
-                                            <ul class="list-item clearfix">
-                                                @foreach ($industry['points'] as $point)
-                                                    <li>{!! $point !!}</li>
-                                                @endforeach
-                                                <li><a href="{{ route('projects') }}">and More....</a></li>
-                                            </ul>
-                                            <div class="link-box">
-                                                <a href="{{ route('projects') }}"><i class="flaticon-right-arrow"></i><span>Find More About
-                                                    <br>Industry</span></a>
-                                            </div>
-                                        </div>
-                                    </div>
+            <div class="row clearfix">
+                @foreach ($industries as $index => $industry)
+                    <div class="col-lg-4 col-md-6 col-sm-12">
+                        <div class="vh-industry">
+                            <span class="vh-industry-no">Industry {{ str_pad($index + 1, 2, '0', STR_PAD_LEFT) }}</span>
+                            <h3>{{ $industry['name'] }}</h3>
+                            <p>{{ $industry['text'] }}</p>
+                            <ul class="vh-ticks">
+                                @foreach ($industry['points'] as $point)
+                                    <li>{!! $point !!}</li>
                                 @endforeach
-                            </div>
+                                <li><a href="{{ route('projects') }}">and More....</a></li>
+                            </ul>
+                            <a href="{{ route('projects') }}" class="vh-link">Find More About Industry <i class="flaticon-right-arrow"></i></a>
                         </div>
                     </div>
-                </div>
+                @endforeach
             </div>
-            <div class="lower-box">
-                <div class="text-box">
-                    <h2>Every Industry,</h2>
-                    <h3>Tailored Furnace Camera Solutions.</h3>
-                </div>
-                <div class="right-column">
-                    <div class="link-box">
-                        <a href="{{ route('contact') }}"><i class="flaticon-calendar"></i><span>Make an <br>Appointment</span></a>
-                    </div>
-                    <div class="btn-box">
-                        <a href="tel:{{ preg_replace('/[^0-9+]/', '', setting('phone')) }}" class="theme-btn btn-three"><i class="flaticon-phone"></i><span>{{ setting('phone_display', setting('phone')) }}</span></a>
+            <div class="vh-feature-strip">
+                <img src="{{ asset('assets/images/temax/power-600mw.jpg') }}" alt="600MW power plant camera system">
+                <div class="vh-feature-strip-text">
+                    <h3>600<span>MW</span> Utility Power Plant Camera System.</h3>
+                    <p>Every Industry, Tailored Furnace Camera Solutions.</p>
+                    <div class="vh-hero-actions">
+                        <a href="{{ route('contact') }}" class="theme-btn btn-one"><i class="flaticon-calendar"></i><span>Make an Appointment</span></a>
+                        <a href="tel:{{ preg_replace('/[^0-9+]/', '', setting('phone')) }}" class="theme-btn btn-two"><i class="flaticon-phone"></i><span>{{ setting('phone_display', setting('phone')) }}</span></a>
                     </div>
                 </div>
             </div>
+            <div class="text-center vh-all"><a href="{{ route('projects') }}" class="theme-btn btn-one"><i class="flaticon-right-arrow"></i><span>All Projects</span></a></div>
         </div>
     </section>
     <!-- industries-section end -->
