@@ -427,6 +427,13 @@
 
     <!-- main-js -->
     <script src="{{ asset('assets/js/script.js') }}?v={{ $assetVersion }}"></script>
+    <script>
+        /* mobile drawer: Services sub menu starts expanded (tap the arrow to collapse) */
+        jQuery(function ($) {
+            $(".mobile-menu li.dropdown > ul").show();
+            $(".mobile-menu li.dropdown > .dropdown-btn").addClass("open");
+        });
+    </script>
 
     @stack('scripts')
 
