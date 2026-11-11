@@ -195,7 +195,6 @@
                     <h3>600<span>MW</span> Utility Power Plant Camera System.</h3>
                     <p>Every Industry, Tailored Furnace Camera Solutions.</p>
                     <div class="vh-hero-actions">
-                        <a href="{{ route('contact') }}" class="theme-btn btn-one"><i class="flaticon-calendar"></i><span>Make an Appointment</span></a>
                         <a href="tel:{{ preg_replace('/[^0-9+]/', '', setting('phone')) }}" class="theme-btn btn-two"><i class="flaticon-phone"></i><span>{{ setting('phone_display', setting('phone')) }}</span></a>
                     </div>
                 </div>
