@@ -127,9 +127,10 @@
                     <a href="{{ route('about') }}" class="theme-btn btn-one"><i class="flaticon-right-arrow"></i><span>Read More</span></a>
                 </div>
                 <div class="col-lg-6 col-md-12 col-sm-12">
-                    <div class="vh-frame">
-                        <img src="{{ asset('assets/images/temax/production-unit-2.png') }}?v={{ file_exists(base_path('../assets/images/temax/production-unit-2.png')) ? filemtime(base_path('../assets/images/temax/production-unit-2.png')) : '2' }}" alt="TEMAX production unit">
-                    </div>
+                    <div class="vh-collage">
+                        <img class="vh-collage-main" src="{{ asset('assets/images/temax/kiln-2016.png') }}" alt="TEMAX furnace camera on a rotary kiln" loading="lazy">
+                        <img src="{{ asset('assets/images/temax/cement-cooler.png') }}" alt="TEMAX cement cooler camera" loading="lazy">
+                        <img src="{{ asset('assets/images/temax/camera-furnace.jpg') }}" alt="TEMAX furnace camera unit" loading="lazy">
                 </div>
             </div>
         </div>

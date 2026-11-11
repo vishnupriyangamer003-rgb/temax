@@ -322,3 +322,9 @@ body .wow {
   .vh-feature-strip img { flex-basis: auto; width: 100%; height: 200px; }
   .vh-feature-strip-text h3 { font-size: 22px; line-height: 30px; }
 }
+
+/* 16) About: industrial image collage (replaces the single framed photo) --- */
+.vh-collage { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.vh-collage img { display: block; width: 100%; height: 190px; object-fit: cover; border-radius: var(--ts-radius); border: 2px solid var(--ts-border); }
+.vh-collage .vh-collage-main { grid-column: 1 / -1; height: 280px; border-color: var(--theme-color); }
+@media (max-width: 575px) { .vh-collage img { height: 130px; } .vh-collage .vh-collage-main { height: 200px; } }
