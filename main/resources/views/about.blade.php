@@ -31,12 +31,12 @@
         <div class="auto-container">
             <div class="vh-title text-center"><h2>Key facts</h2></div>
             <div class="row clearfix">
-                <div class="col-lg-4 col-sm-6"><div class="va-fact"><i class="flaticon-factory-1"></i><strong>1996</strong><span>Founded in Karur, Tamil Nadu</span></div></div>
-                <div class="col-lg-4 col-sm-6"><div class="va-fact"><i class="flaticon-trophy"></i><strong>30+</strong><span>Years of experience</span></div></div>
-                <div class="col-lg-4 col-sm-6"><div class="va-fact"><i class="flaticon-manufacturing"></i><strong>90%</strong><span>Made in India</span></div></div>
-                <div class="col-lg-4 col-sm-6"><div class="va-fact"><i class="flaticon-engineer"></i><strong>100+</strong><span>Plants served</span></div></div>
-                <div class="col-lg-4 col-sm-6"><div class="va-fact"><i class="flaticon-manufacturing-1"></i><strong>2000&nbsp;°C</strong><span>Operating environment rating</span></div></div>
-                <div class="col-lg-4 col-sm-6"><div class="va-fact"><i class="flaticon-zoom"></i><strong>1080p</strong><span>HD image, 960+ TV lines</span></div></div>
+                <div class="col-lg-4 col-6"><div class="va-fact"><i class="flaticon-factory-1"></i><strong>1996</strong><span>Founded in Karur, Tamil Nadu</span></div></div>
+                <div class="col-lg-4 col-6"><div class="va-fact"><i class="flaticon-trophy"></i><strong>30+</strong><span>Years of experience</span></div></div>
+                <div class="col-lg-4 col-6"><div class="va-fact"><i class="flaticon-manufacturing"></i><strong>90%</strong><span>Made in India</span></div></div>
+                <div class="col-lg-4 col-6"><div class="va-fact"><i class="flaticon-engineer"></i><strong>100+</strong><span>Plants served</span></div></div>
+                <div class="col-lg-4 col-6"><div class="va-fact"><i class="flaticon-manufacturing-1"></i><strong>2000&nbsp;°C</strong><span>Operating environment rating</span></div></div>
+                <div class="col-lg-4 col-6"><div class="va-fact"><i class="flaticon-zoom"></i><strong>1080p</strong><span>HD image, 960+ TV lines</span></div></div>
             </div>
         </div>
     </section>
