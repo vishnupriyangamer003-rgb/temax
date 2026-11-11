@@ -1,0 +1,173 @@
+/* ==========================================================================
+   TEMAX simplified theme layer (public site only)
+   Loaded LAST, after style.css / responsive.css. Never loaded by /ktgadmin.
+   Direction (from the Velss reference): flat, business-like, readable.
+   Structure: 1) tokens  2) base  3) buttons  4) section titles
+              5) page title  6) cards/forms/tables  7) footer
+   ========================================================================== */
+
+/* 1) Tokens ---------------------------------------------------------------- */
+:root {
+  --ts-radius: 4px;
+  --ts-border: #e4e9ec;
+  --ts-surface: #ffffff;
+  --ts-surface-alt: #f6f8f9;
+  --ts-shadow: 0 1px 3px rgba(13, 32, 47, .08);
+  --ts-text: #4a4f52;
+}
+
+/* 2) Base ------------------------------------------------------------------ */
+body {
+  font-size: 16px;
+  line-height: 26px;
+  color: var(--ts-text);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: var(--title-color);
+  letter-spacing: 0;
+}
+
+a { transition: color .2s ease; }
+
+/* 3) Buttons: flat, no sliding fill ---------------------------------------- */
+.theme-btn {
+  padding: 12px 24px;
+  font-size: 14px;
+  border-radius: var(--ts-radius);
+  text-transform: none;
+  transition: background-color .2s ease, color .2s ease;
+}
+.theme-btn::before { display: none; }
+.theme-btn.btn-one,
+.theme-btn { background-color: var(--theme-color); color: #fff; }
+.theme-btn:hover { background-color: var(--secondary-color); color: #fff; }
+.theme-btn i,
+.theme-btn:hover i { color: #fff; font-size: 18px; top: 1px; }
+.theme-btn.btn-two { background-color: #fff; color: var(--title-color); border: 1px solid var(--ts-border); }
+.theme-btn.btn-two:hover { background-color: var(--secondary-color); color: #fff; }
+
+/* 4) Section titles: calmer sizes ------------------------------------------ */
+.sec-title h6 { font-size: 14px; border-bottom-width: 1px; }
+.sec-title h2 { font-size: 36px; line-height: 44px; }
+
+@media (max-width: 767px) {
+  .sec-title h2 { font-size: 26px; line-height: 34px; }
+}
+
+/* 4b) Header: flat white bar (no grey side panel, no hover motion) -------- */
+body .main-header .bg-color,
+body .sticky-header .bg-color { display: none; }
+body .main-header .outer-container { border-bottom: 1px solid var(--ts-border); }
+body .sticky-header { box-shadow: var(--ts-shadow); }
+body .main-menu .navigation > li > a { font-size: 16px; font-weight: 600; }
+body .main-header .theme-btn { padding: 12px 22px; }
+body .main-header .menu-right-content { gap: 20px; }
+
+/* 5) Page title: flat dark band, white heading, simple breadcrumb ---------
+   (body prefix beats the inline <style> in layouts/app.blade.php) */
+body .page-title {
+  padding: 48px 0;
+  background-color: var(--secondary-color);
+  border-bottom: 0;
+}
+body .page-title .bg-layer,
+body .page-title .based-content { display: none; }
+body .page-title .outer-container { padding: 0 15px; }
+@media (min-width: 1200px) {
+  body .page-title .outer-container { max-width: 1200px; margin: 0 auto; }
+}
+body .page-title .content-box h1 {
+  font-size: 34px;
+  line-height: 42px;
+  margin-bottom: 8px;
+  font-weight: 700;
+  letter-spacing: 0;
+  -webkit-text-stroke: 0;
+  paint-order: normal;
+  text-shadow: none;
+}
+body .page-title { text-align: left; }
+body .page-title .content-box .bread-crumb { font-size: 15px; justify-content: flex-start; margin-bottom: 0; }
+body .page-title .content-box .bread-crumb li a,
+body .page-title .content-box .bread-crumb li i,
+body .page-title .content-box .bread-crumb li span { text-shadow: none; font-weight: 500; }
+body .page-title .content-box .bread-crumb li:last-child span { text-decoration: none; }
+
+@media (max-width: 767px) {
+  body .page-title { padding: 32px 0; }
+  body .page-title .content-box h1 { font-size: 26px; line-height: 34px; }
+}
+
+/* 6) Cards, forms, tables -------------------------------------------------- */
+.form-control,
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"],
+.form-group textarea,
+.form-group select {
+  border: 1px solid var(--ts-border);
+  border-radius: var(--ts-radius);
+  box-shadow: none;
+}
+.form-control:focus,
+.form-group input:focus,
+.form-group textarea:focus,
+.form-group select:focus {
+  border-color: var(--theme-color);
+  outline: 0;
+  box-shadow: 0 0 0 2px rgba(240, 87, 26, .15);
+}
+
+.table { border-color: var(--ts-border); }
+.table thead th { background: var(--ts-surface-alt); color: var(--title-color); font-weight: 600; }
+
+/* 7) Footer: flat dark ----------------------------------------------------- */
+.main-footer .footer-bottom { border-top: 1px solid rgba(255, 255, 255, .1); }
+.main-footer .footer-widget .widget-title h3 { font-size: 20px; line-height: 28px; }
+
+/* 8) Home hero: drop the side panel, calmer headline ----------------------
+   Slider, links and all copy stay; only decoration/scale changes. */
+body .banner-top-section .based-content,
+body .banner-section .pattern-layer { display: none; }
+body .banner-top-section .outer-container {
+  padding-left: 15px;
+  padding-right: 15px;
+}
+@media (min-width: 1200px) {
+  body .banner-top-section .outer-container { max-width: 1200px; margin: 0 auto; }
+}
+body .banner-top-section .inner-box { padding: 64px 0; }
+body .banner-top-section .inner-box h2 {
+  font-size: 64px;
+  line-height: 72px;
+  max-width: 800px;
+}
+@media (max-width: 767px) {
+  body .banner-top-section .inner-box { padding: 40px 0; }
+  body .banner-top-section .inner-box h2 { font-size: 36px; line-height: 44px; }
+}
+
+/* 9) No scroll-reveal motion: content is visible immediately -------------- */
+body .wow {
+  visibility: visible !important;
+  opacity: 1 !important;
+  animation: none !important;
+  transform: none !important;
+}
+
+/* 10) Top toolbar (Velss): phone left, email right -------------------------- */
+.toolbar-top-area { background: var(--secondary-color); color: #fff; font-size: 14px; line-height: 20px; }
+.toolbar-top-area .toolbar-inner { display: flex; justify-content: space-between; align-items: center; padding: 8px 0; gap: 16px; }
+.toolbar-top-area a { color: #fff; display: inline-flex; align-items: center; gap: 8px; }
+.toolbar-top-area a:hover { color: var(--theme-color); }
+@media (max-width: 991px) { .toolbar-top-area { display: none; } }
+
+/* 11) Footer (Velss layout) ------------------------------------------------ */
+.main-footer .about-widget .footer-logo { margin-bottom: 20px; }
+.main-footer .about-widget .footer-logo img { max-width: 200px; height: auto; }
+.main-footer .widget-section { padding: 56px 0 24px; }
+.main-footer .about-widget .footer-logo img { background: #fff; padding: 8px 14px; border-radius: 4px; box-sizing: content-box; }
+.main-footer .about-widget .list-item li { color: #c9d1d8; display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
+.main-footer .about-widget .list-item li i { color: var(--theme-color); }
+.main-footer .about-widget .list-item li span { color: #c9d1d8; }

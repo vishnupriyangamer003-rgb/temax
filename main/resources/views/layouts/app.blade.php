@@ -130,6 +130,7 @@
     <link href="{{ asset('assets/css/odometer.css') }}?v={{ $assetVersion }}" rel="stylesheet">
     <link href="{{ asset('assets/css/style.css') }}?v={{ $assetVersion }}" rel="stylesheet">
     <link href="{{ asset('assets/css/responsive.css') }}?v={{ $assetVersion }}" rel="stylesheet">
+    <link href="{{ asset('assets/css/theme-velss.css') }}?v={{ $assetVersion }}" rel="stylesheet">
 
     <style>
         .loader-wrap {
@@ -362,103 +363,7 @@
             $navServices = $navServices ?? \App\Models\Service::active()->ordered()->limit(8)->get(['slug', 'title', 'summary']);
         @endphp
 
-        <!-- main header -->
-        <header class="main-header">
-            <div class="bg-color"></div>
-            <!-- header-lower -->
-            <div class="header-lower">
-                <div class="outer-container">
-                    <div class="outer-box">
-                        <div class="left-column">
-                            <figure class="header-logo">
-                                <a href="{{ route('home') }}">
-                                    <img src="{{ asset('assets/images/temax/logo.png') }}?v={{ file_exists(base_path('../assets/images/temax/logo.png')) ? filemtime(base_path('../assets/images/temax/logo.png')) : '2' }}" alt="{{ setting('site_name', 'TEMAX') }}">
-                                </a>
-                            </figure>
-                            <div class="menu-area">
-                                <!--Mobile Navigation Toggler-->
-                                <div class="mobile-nav-toggler">
-                                    <i class="icon-bar"></i>
-                                    <i class="icon-bar"></i>
-                                    <i class="icon-bar"></i>
-                                </div>
-                                <nav class="main-menu navbar-expand-md navbar-light clearfix">
-                                    <div class="collapse navbar-collapse show clearfix" id="navbarSupportedContent">
-                                        <ul class="navigation clearfix">
-                                            <li class="{{ request()->routeIs('home') ? 'current' : '' }}">
-                                                <a href="{{ route('home') }}">Home</a>
-                                            </li>
-                                            <li class="{{ request()->routeIs('about') ? 'current' : '' }}">
-                                                <a href="{{ route('about') }}">About</a>
-                                            </li>
-                                            <li class="dropdown {{ request()->routeIs('services*') ? 'current' : '' }}">
-                                                <a href="{{ route('services') }}">Services</a>
-                                                <ul>
-                                                    @foreach ($navServices as $service)
-                                                        <li><a href="{{ route('services.show', $service->slug) }}">{{ $service->title }}</a></li>
-                                                    @endforeach
-                                                </ul>
-                                            </li>
-                                            <li class="{{ request()->routeIs('products*') ? 'current' : '' }}">
-                                                <a href="{{ route('products') }}">Products</a>
-                                            </li>
-                                            <li class="{{ request()->routeIs('projects*') ? 'current' : '' }}">
-                                                <a href="{{ route('projects') }}">Projects</a>
-                                            </li>
-                                            <li class="{{ request()->routeIs('contact') ? 'current' : '' }}">
-                                                <a href="{{ route('contact') }}">Contact</a>
-                                            </li>
-                                        </ul>
-                                    </div>
-                                </nav>
-                            </div>
-                        </div>
-                        <ul class="menu-right-content">
-                            <li class="contact-link">
-                                <a href="tel:{{ preg_replace('/[^0-9+]/', '', setting('phone')) }}">
-                                    <i class="flaticon-headphones"></i><span>{{ setting('phone_display', setting('phone')) }}</span>
-                                </a>
-                            </li>
-                            <li class="btn-box">
-                                <a href="{{ route('contact') }}" class="theme-btn btn-one"><i class="flaticon-mail"></i><span>Get a Quote</span></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-
-            <!--sticky Header-->
-            <div class="sticky-header">
-                <div class="bg-color"></div>
-                <div class="outer-container">
-                    <div class="outer-box">
-                        <div class="left-column">
-                            <figure class="header-logo">
-                                <a href="{{ route('home') }}">
-                                    <img src="{{ asset('assets/images/temax/logo.png') }}?v={{ file_exists(base_path('../assets/images/temax/logo.png')) ? filemtime(base_path('../assets/images/temax/logo.png')) : '2' }}" alt="{{ setting('site_name', 'TEMAX') }}">
-                                </a>
-                            </figure>
-                            <div class="menu-area">
-                                <nav class="main-menu clearfix">
-                                    <!--Keep This Empty / Menu will come through Javascript-->
-                                </nav>
-                            </div>
-                        </div>
-                        <ul class="menu-right-content">
-                            <li class="contact-link">
-                                <a href="tel:{{ preg_replace('/[^0-9+]/', '', setting('phone')) }}">
-                                    <i class="flaticon-headphones"></i><span>{{ setting('phone_display', setting('phone')) }}</span>
-                                </a>
-                            </li>
-                            <li class="btn-box">
-                                <a href="{{ route('contact') }}" class="theme-btn btn-one"><i class="flaticon-mail"></i><span>Get a Quote</span></a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </header>
-        <!-- main-header end -->
+        @include('partials.header')
 
         <!-- Mobile Menu  -->
         <div class="mobile-menu">
@@ -492,95 +397,7 @@
             @yield('content')
         </main>
 
-        <!-- main-footer -->
-        <footer class="main-footer">
-            <div class="widget-section">
-                <div class="auto-container">
-                    <div class="row clearfix">
-                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
-                            <div class="footer-widget support-widget">
-                                <div class="widget-title">
-                                    <h3>Let's Build Something Great Together</h3>
-                                </div>
-                                <div class="widget-content">
-                                    <ul class="list-item mb_25 clearfix">
-                                        <li><i class="flaticon-approved"></i><span>90% Manufacturing in India</span></li>
-                                        <li><i class="flaticon-approved"></i><span>All Spares Available Locally</span></li>
-                                        <li><i class="flaticon-approved"></i><span>Immediate Support</span></li>
-                                    </ul>
-                                    <div class="link-box">
-                                        <div class="icon-box"><i class="flaticon-chat"></i></div>
-                                        <a href="{{ route('contact') }}"><span>Free <br>Consultation</span><i class="flaticon-right-arrow"></i></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
-                            <div class="footer-widget links-widget">
-                                <div class="widget-title">
-                                    <h3>Useful Links</h3>
-                                </div>
-                                <div class="widget-content">
-                                    <ul class="links-list clearfix">
-                                        <li><a href="{{ route('about') }}"><i class="flaticon-right"></i><span>About Us</span></a></li>
-                                        <li><a href="{{ route('products') }}"><i class="flaticon-right"></i><span>Products</span></a></li>
-                                        <li><a href="{{ route('projects') }}"><i class="flaticon-right"></i><span>Projects</span></a></li>
-                                        <li><a href="{{ route('services') }}"><i class="flaticon-right"></i><span>Services</span></a></li>
-                                        <li><a href="{{ route('contact') }}"><i class="flaticon-right"></i><span>Contact Us</span></a></li>
-                                        <li><a href="{{ route('admin.login') }}"><i class="flaticon-right"></i><span>Admin Login</span></a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
-                            <div class="footer-widget links-widget">
-                                <div class="widget-title">
-                                    <h3>Services</h3>
-                                </div>
-                                <div class="widget-content">
-                                    <ul class="links-list clearfix">
-                                        @foreach ($navServices as $service)
-                                            <li>
-                                                <a href="{{ route('services.show', $service->slug) }}">
-                                                    <i class="flaticon-right"></i><span>{{ $service->title }}</span>
-                                                </a>
-                                            </li>
-                                        @endforeach
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
-                            <div class="footer-widget contact-widget">
-                                <div class="widget-title">
-                                    <h3>Contact</h3>
-                                </div>
-                                <div class="widget-content">
-                                    <p>{{ setting('address') }}</p>
-                                    <div class="phone"><a href="tel:{{ preg_replace('/[^0-9+]/', '', setting('phone')) }}">{{ setting('phone_display', setting('phone')) }}</a></div>
-                                    @if (setting('phone2'))
-                                        @foreach (array_filter(array_map('trim', explode(',', setting('phone2')))) as $p2)
-                                            <div class="phone"><a href="tel:{{ preg_replace('/[^0-9+]/', '', $p2) }}">{{ format_phone($p2) }}</a></div>
-                                        @endforeach
-                                    @endif
-                                    <div class="email"><a href="mailto:{{ setting('email') }}">{{ setting('email') }}</a></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <div class="auto-container">
-                    <div class="bottom-inner">
-                        <div class="copyright">
-                            <p>{!! setting('copyright_text', 'Copyright &copy; ' . date('Y') . ' <a href="' . route('home') . '">' . setting('site_name', 'TEMAX') . '</a>. All rights reserved.') !!}</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-        <!-- main-footer end -->
+        @include('partials.footer')
 
         <!--Scroll to top-->
         <div class="scroll-to-top">

@@ -1,6 +1,5 @@
-{{-- Inner page banner: title + breadcrumb + logo/stat strip (Metallic "page-title" section) --}}
+{{-- Inner page banner (Velss "Breadcrumbs" band): title + breadcrumb --}}
 <section class="page-title">
-    <div class="bg-layer" style="background-image: url({{ asset('assets/images/background/page-title.jpg') }});"></div>
     <div class="outer-container">
         <div class="content-box">
             <h1>{{ $pageTitle }}</h1>
@@ -10,21 +9,5 @@
                 <li><span>{{ $pageTitle }}</span></li>
             </ul>
         </div>
-    </div>
-    <div class="based-content">
-        <div class="inner">
-            <div class="logo-box">
-                <figure class="logo">
-                    <a href="{{ route('home') }}"><img src="{{ asset('assets/images/temax/logo.png') }}?v={{ file_exists(base_path('../assets/images/temax/logo.png')) ? filemtime(base_path('../assets/images/temax/logo.png')) : '2' }}" alt="{{ setting('site_name', 'TEMAX') }}"></a>
-                </figure>
-                <h5>Based In <br>Karur, India.</h5>
-            </div>
-            <div class="single-item">
-                <div class="shape" style="background-image: url({{ asset('assets/images/shape/shape-1.png') }});"></div>
-                <h2>1996</h2>
-                <h5>Founded &amp; Serving <br>Since.</h5>
-            </div>
-        </div>
-        <span class="rotate-text">Established Since, 1996</span>
     </div>
 </section>
