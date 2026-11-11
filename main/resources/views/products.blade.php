@@ -9,7 +9,34 @@
 
     @php
         $totalProducts = $categories->sum(fn ($c) => $c->items->count());
-        $catIcons = ['flaticon-zoom', 'flaticon-steel', 'flaticon-pistons', 'flaticon-thunder-bolt'];
+        $itemImages = [
+            'furnace camera tube' => 'kiln-camera.jpg',
+            'inclined 90' => 'camera-tube.jpg',
+            '15 feet furnace camera' => 'dispatch.jpg',
+            'fixed camera for cement' => 'production-unit.jpg',
+            'under grate' => 'under-grate.jpg',
+            'cowl shell' => 'kiln-camera-ui.jpg',
+            'retrofit camera' => 'retrofit-camera.jpg',
+            'specialised furnace' => 'custom-camera.png',
+            'ss 316 cooling' => 'cooling-system.jpg',
+            'auto retraction' => 'auto-retraction.png',
+            'sensor panel' => 'camera-furnace.jpg',
+            'control panel' => 'control-panel.jpg',
+            'air cooling' => 'cooling-system.jpg',
+            'cyclone' => 'kiln-camera-ui.jpg',
+            'captive power' => 'captive-power.jpg',
+            '600mw' => 'power-600mw.jpg',
+            'glass melting' => 'glass-furnace.png',
+            'cement cooler' => 'cement-cooler.png',
+            'thermal' => 'thermal-camera.jpg',
+        ];
+        $imageFor = function ($name, $fallback) use ($itemImages) {
+            $n = \Illuminate\Support\Str::lower($name);
+            foreach ($itemImages as $key => $file) {
+                if (str_contains($n, $key)) { return 'assets/images/temax/' . $file; }
+            }
+            return $fallback ?: 'assets/images/service/service-1.jpg';
+        };
     @endphp
 
     <!-- products portfolio: search + category filter + card grid -->
@@ -41,7 +68,7 @@
                     @foreach ($category->items as $item)
                         <div class="col-xl-3 col-md-6 col-sm-12 vp-col" data-cat="cat-{{ $category->id }}" data-text="{{ \Illuminate\Support\Str::lower($item->name . ' ' . $item->description . ' ' . $category->title) }}">
                             <article class="vp-card">
-                                <div class="vp-card-icon" aria-hidden="true"><i class="{{ $catIcons[$loop->parent->index % count($catIcons)] }}"></i></div>
+                                <figure class="vp-card-img"><img src="{{ asset($imageFor($item->name, $category->image)) }}" alt="{{ $item->name }}" loading="lazy"></figure>
                                 <div class="vp-card-body">
                                     <span class="vp-card-tag">{{ $category->title }}</span>
                                     <h3>{{ $item->name }}</h3>
