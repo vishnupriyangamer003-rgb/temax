@@ -138,7 +138,7 @@
     </section>
     <!-- about-section end -->
 
-    <!-- service-section (Velss layout: icon + title + text rows) -->
+    <!-- service-section (business cards: dark text panel + photo + icon label) -->
     <section class="vh-services">
         <div class="auto-container">
             <div class="vh-title text-center">
@@ -146,16 +146,19 @@
                 <h2>{!! setting('services_title', 'Our services &amp; solutions') !!}</h2>
                 <p>Furnace cameras, cooling, retraction and thermal systems.</p>
             </div>
-            <div class="vh-service-list">
+            <div class="vh-biz-grid">
                 @foreach ($homeServices as $service)
-                    <a class="vh-service-row" href="{{ route('services.show', $service->slug) }}">
-                        <div class="vh-service-icon"><i class="{{ $serviceIcons[$loop->index % count($serviceIcons)] }}"></i></div>
-                        <div class="vh-service-body">
-                            <h3>{{ $service->title }}</h3>
-                            <p>{{ \Illuminate\Support\Str::limit($service->summary, 160) }}</p>
+                    <article class="vh-biz">
+                        <div class="vh-biz-text">
+                            <h3><a href="{{ route('services.show', $service->slug) }}">{{ $service->title }}</a></h3>
+                            <p>{{ \Illuminate\Support\Str::limit($service->summary, 120) }}</p>
+                            <a href="{{ route('services.show', $service->slug) }}" class="vh-biz-btn">Learn more</a>
                         </div>
-                        <span class="vh-service-go"><i class="flaticon-right-arrow"></i></span>
-                    </a>
+                        <div class="vh-biz-media">
+                            <img src="{{ asset($service->image ?: 'assets/images/resource/block-bg.jpg') }}" alt="{{ $service->title }}" loading="lazy">
+                            <span class="vh-biz-label"><i class="{{ $serviceIcons[$loop->index % count($serviceIcons)] }}"></i><span>{{ $service->title }}</span></span>
+                        </div>
+                    </article>
                 @endforeach
             </div>
             <div class="text-center vh-all"><a href="{{ route('services') }}" class="theme-btn btn-one"><i class="flaticon-right-arrow"></i><span>All Services</span></a></div>
