@@ -34,27 +34,6 @@
                             @endif
                         </div>
 
-                        @if ($service->items->count())
-                            <div class="content-two mb_45">
-                                <div class="text-box">
-                                    <h3>{{ $service->items_title ?: 'Key Features' }}</h3>
-                                    <p>{{ $service->summary }}</p>
-                                </div>
-                                <div class="two-item-carousel owl-carousel owl-theme nav-style-one">
-                                    @foreach ($service->items as $item)
-                                        <div class="product-block-one">
-                                            <div class="inner-box">
-                                                <div class="light-icon"><img src="{{ asset('assets/images/icons/icon-18.png') }}" alt=""></div>
-                                                <h3>{{ $item->title }}</h3>
-                                                <p>{{ $item->text }}</p>
-                                                <div class="icon-box"><i class="{{ $itemIcons[$loop->index % count($itemIcons)] }}"></i></div>
-                                            </div>
-                                        </div>
-                                    @endforeach
-                                </div>
-                            </div>
-                        @endif
-
                         @if (!empty($service->points) && count($service->points))
                             <div class="content-three pb_20">
                                 <div class="text-box">
