@@ -48,7 +48,7 @@
             </div>
 
             <div style="margin-bottom:20px;">
-                <label style="display:block; font-weight:600; font-size:14px; margin-bottom:6px;">Upload Photos (can select multiple)</label>
+                <label style="display:block; font-weight:600; font-size:14px; margin-bottom:6px;">Project Photo (the first photo is the cover shown on the website)</label>
                 @if ($project && $project->images->count())
                     <div style="display:flex; gap:10px; flex-wrap:wrap; margin-bottom:12px;">
                         @foreach ($project->images as $img)

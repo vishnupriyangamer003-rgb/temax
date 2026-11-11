@@ -53,16 +53,53 @@
                 <textarea name="settings[address]" rows="2" style="width:100%; padding:9px 12px; border:1px solid var(--border); border-radius:6px; font-size:14px;">{{ old('settings.address', $values['address'] ?? '') }}</textarea>
             </div>
 
-            <h4 style="font-size:15px; color:var(--primary); margin:28px 0 16px; border-bottom:1px solid var(--border); padding-bottom:8px;">Homepage Sections (Testimonials & Clients)</h4>
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:16px;">
+                <div>
+                    <label style="display:block; font-weight:600; font-size:13px; margin-bottom:6px;">Phone shown on site</label>
+                    <input type="text" name="settings[phone_display]" value="{{ old('settings.phone_display', $values['phone_display'] ?? '') }}" style="width:100%; padding:9px 12px; border:1px solid var(--border); border-radius:6px; font-size:14px;">
+                </div>
+                <div>
+                    <label style="display:block; font-weight:600; font-size:13px; margin-bottom:6px;">Short Address (map card)</label>
+                    <input type="text" name="settings[address_short]" value="{{ old('settings.address_short', $values['address_short'] ?? '') }}" style="width:100%; padding:9px 12px; border:1px solid var(--border); border-radius:6px; font-size:14px;">
+                </div>
+            </div>
+
+            <div style="margin-bottom:16px;">
+                <label style="display:block; font-weight:600; font-size:13px; margin-bottom:6px;">Working Hours (Contact page)</label>
+                <input type="text" name="settings[working_hours]" value="{{ old('settings.working_hours', $values['working_hours'] ?? '') }}" style="width:100%; padding:9px 12px; border:1px solid var(--border); border-radius:6px; font-size:14px;">
+            </div>
+
+            <div style="margin-bottom:16px;">
+                <label style="display:block; font-weight:600; font-size:13px; margin-bottom:6px;">Google Map Embed URL (Contact page map)</label>
+                <input type="text" name="settings[map_embed]" value="{{ old('settings.map_embed', $values['map_embed'] ?? '') }}" style="width:100%; padding:9px 12px; border:1px solid var(--border); border-radius:6px; font-size:14px;">
+            </div>
+
+            <div style="margin-bottom:16px;">
+                <label style="display:block; font-weight:600; font-size:13px; margin-bottom:6px;">Footer About Text</label>
+                <textarea name="settings[footer_about]" rows="2" style="width:100%; padding:9px 12px; border:1px solid var(--border); border-radius:6px; font-size:14px;">{{ old('settings.footer_about', $values['footer_about'] ?? '') }}</textarea>
+            </div>
+
+            <h4 style="font-size:15px; color:var(--primary); margin:28px 0 16px; border-bottom:1px solid var(--border); padding-bottom:8px;">Homepage Section Headings (Services, Projects &amp; Clients)</h4>
 
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:16px;">
                 <div>
-                    <label style="display:block; font-weight:600; font-size:13px; margin-bottom:6px;">Testimonials Subtitle</label>
-                    <input type="text" name="settings[testimonials_subtitle]" value="{{ old('settings.testimonials_subtitle', $values['testimonials_subtitle'] ?? 'Testimonials') }}" style="width:100%; padding:9px 12px; border:1px solid var(--border); border-radius:6px; font-size:14px;">
+                    <label style="display:block; font-weight:600; font-size:13px; margin-bottom:6px;">Services Subtitle</label>
+                    <input type="text" name="settings[services_subtitle]" value="{{ old('settings.services_subtitle', $values['services_subtitle'] ?? '') }}" style="width:100%; padding:9px 12px; border:1px solid var(--border); border-radius:6px; font-size:14px;">
                 </div>
                 <div>
-                    <label style="display:block; font-weight:600; font-size:13px; margin-bottom:6px;">Testimonials Title (HTML allowed)</label>
-                    <input type="text" name="settings[testimonials_title]" value="{{ old('settings.testimonials_title', $values['testimonials_title'] ?? 'What our customers <br> say about us') }}" style="width:100%; padding:9px 12px; border:1px solid var(--border); border-radius:6px; font-size:14px;">
+                    <label style="display:block; font-weight:600; font-size:13px; margin-bottom:6px;">Services Title (HTML allowed)</label>
+                    <input type="text" name="settings[services_title]" value="{{ old('settings.services_title', $values['services_title'] ?? '') }}" style="width:100%; padding:9px 12px; border:1px solid var(--border); border-radius:6px; font-size:14px;">
+                </div>
+            </div>
+
+            <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:16px;">
+                <div>
+                    <label style="display:block; font-weight:600; font-size:13px; margin-bottom:6px;">Projects Subtitle</label>
+                    <input type="text" name="settings[projects_subtitle]" value="{{ old('settings.projects_subtitle', $values['projects_subtitle'] ?? '') }}" style="width:100%; padding:9px 12px; border:1px solid var(--border); border-radius:6px; font-size:14px;">
+                </div>
+                <div>
+                    <label style="display:block; font-weight:600; font-size:13px; margin-bottom:6px;">Projects Title (HTML allowed)</label>
+                    <input type="text" name="settings[projects_title]" value="{{ old('settings.projects_title', $values['projects_title'] ?? '') }}" style="width:100%; padding:9px 12px; border:1px solid var(--border); border-radius:6px; font-size:14px;">
                 </div>
             </div>
 

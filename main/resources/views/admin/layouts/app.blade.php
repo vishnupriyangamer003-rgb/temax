@@ -445,12 +445,6 @@
                 </a>
             </li>
             <li>
-                <a href="{{ route('admin.testimonials.index') }}" class="{{ request()->routeIs('admin.testimonials*') ? 'active' : '' }}">
-                    <i class="fas fa-comments"></i>
-                    <span>Testimonials</span>
-                </a>
-            </li>
-            <li>
                 <a href="{{ route('admin.clients.index') }}" class="{{ request()->routeIs('admin.clients*') ? 'active' : '' }}">
                     <i class="fas fa-building"></i>
                     <span>Clients & Brands</span>

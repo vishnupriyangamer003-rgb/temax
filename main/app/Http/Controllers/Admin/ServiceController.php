@@ -119,23 +119,28 @@ class ServiceController extends Controller
 
             $service->save();
 
-            // Feature lines: "Title | description" (or just "Title").
-            $service->items()->delete();
-            foreach ($this->pairs($request->input('items_text')) as $index => [$title, $text]) {
-                $service->items()->create([
-                    'title'      => $title,
-                    'text'       => $text,
-                    'sort_order' => $index,
-                ]);
+            // Feature lines: "Title | description" (or just "Title"). The website no longer
+            // shows them and the form has no field, so only rewrite when the field is sent.
+            if ($request->has('items_text')) {
+                $service->items()->delete();
+                foreach ($this->pairs($request->input('items_text')) as $index => [$title, $text]) {
+                    $service->items()->create([
+                        'title'      => $title,
+                        'text'       => $text,
+                        'sort_order' => $index,
+                    ]);
+                }
             }
 
-            $service->steps()->delete();
-            foreach ($this->pairs($request->input('steps_text')) as $index => [$title, $text]) {
-                $service->steps()->create([
-                    'title'      => $title,
-                    'text'       => $text,
-                    'sort_order' => $index,
-                ]);
+            if ($request->has('steps_text')) {
+                $service->steps()->delete();
+                foreach ($this->pairs($request->input('steps_text')) as $index => [$title, $text]) {
+                    $service->steps()->create([
+                        'title'      => $title,
+                        'text'       => $text,
+                        'sort_order' => $index,
+                    ]);
+                }
             }
         });
     }

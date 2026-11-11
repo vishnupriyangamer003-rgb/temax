@@ -43,11 +43,6 @@
             </div>
 
             <div style="margin-bottom:20px;">
-                <label style="display:block; font-weight:600; font-size:14px; margin-bottom:6px;">Key Features (one per line: Title | Description)</label>
-                <textarea name="items_text" rows="5" placeholder="HD image quality | 960 and 1080 TV lines" style="width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:6px; font-size:14px; font-family:monospace;">{{ old('items_text', $itemsText ?? '') }}</textarea>
-            </div>
-
-            <div style="margin-bottom:20px;">
                 <label style="display:block; font-weight:600; font-size:14px; margin-bottom:6px;">Specifications / Bullet Points (one per line)</label>
                 <textarea name="intro_text" rows="4" placeholder="Image sensor: 1/3 Sony Color CCD Sensor" style="width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:6px; font-size:14px; font-family:monospace;">{{ old('intro_text', $introText ?? '') }}</textarea>
             </div>
