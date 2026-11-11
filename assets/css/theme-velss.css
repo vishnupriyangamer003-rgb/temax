@@ -328,3 +328,12 @@ body .wow {
 .vh-collage img { display: block; width: 100%; height: 190px; object-fit: cover; border-radius: var(--ts-radius); border: 2px solid var(--ts-border); }
 .vh-collage .vh-collage-main { grid-column: 1 / -1; height: 280px; border-color: var(--theme-color); }
 @media (max-width: 575px) { .vh-collage img { height: 130px; } .vh-collage .vh-collage-main { height: 200px; } }
+
+/* 17) Page background: light grey instead of blank white side margins ------ */
+:root { --ts-page-bg: #eef2f5; }
+body { background: var(--ts-page-bg); }
+.boxed_wrapper { background: var(--ts-page-bg); }
+.vh-services { background: #fff; }
+.vh-service-row:nth-child(even) { background: var(--ts-page-bg); }
+.form-inner, .form-inner .form-group input, .form-inner .form-group textarea, .form-inner .form-group .nice-select, .form-inner .form-group select { background-color: #fff; }
+.contact-style-three .content-column .content-box { background-color: #fff; }
