@@ -64,25 +64,10 @@
         </div>
     </section>
 
-    <!-- story cards (Company / Mission / Vision / History) -->
+    <!-- story cards (Mission / Vision / History) -->
     <section class="va-stories">
         <div class="auto-container">
             <article class="va-story">
-                <figure class="va-shape"><img src="{{ asset('assets/images/temax/production-unit.jpg') }}" alt="TEMAX production unit" loading="lazy"></figure>
-                <div class="va-story-body">
-                    <h3>Our Company</h3>
-                    <p>A furnace camera manufacturer based in Karur, Tamil Nadu — building high-temperature imaging systems for cement, thermal and glass plants since 1996.</p>
-                    <h4>What we build</h4>
-                    <ul class="vh-ticks">
-                        <li>Furnace Camera Systems</li>
-                        <li>Cooling &amp; Retraction Systems</li>
-                        <li>Thermal Camera Systems</li>
-                    </ul>
-                    <a href="{{ route('services') }}" class="vh-link">Read More <i class="flaticon-right-arrow"></i></a>
-                </div>
-            </article>
-
-            <article class="va-story va-story-rev">
                 <figure class="va-shape"><img src="{{ asset('assets/images/temax/control-panel.jpg') }}" alt="TEMAX control panel" loading="lazy"></figure>
                 <div class="va-story-body">
                     <h3>Our Mission</h3>
@@ -95,7 +80,7 @@
                 </div>
             </article>
 
-            <article class="va-story">
+            <article class="va-story va-story-rev">
                 <figure class="va-shape"><img src="{{ asset('assets/images/temax/camera-tube.jpg') }}" alt="TEMAX furnace camera tube" loading="lazy"></figure>
                 <div class="va-story-body">
                     <h3>Our Vision</h3>
@@ -108,7 +93,7 @@
                 </div>
             </article>
 
-            <article class="va-story va-story-rev">
+            <article class="va-story">
                 <figure class="va-shape"><img src="{{ asset('assets/images/temax/production-tube.jpg') }}" alt="TEMAX team building furnace cameras" loading="lazy"></figure>
                 <div class="va-story-body">
                     <h3>A timeline of furnace &amp; camera innovation</h3>
