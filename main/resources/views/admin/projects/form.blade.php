@@ -64,7 +64,7 @@
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:24px;">
                 <div>
                     <label style="display:block; font-weight:600; font-size:14px; margin-bottom:6px;">Sort Order</label>
-                    <input type="number" name="sort_order" value="{{ old('sort_order', $project->sort_order ?? 0) }}" style="width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:6px; font-size:15px;">
+                    <input type="number" name="sort_order" value="{{ old('sort_order', $project->sort_order ?? (\App\Models\Project::max("sort_order") + 1)) }}" style="width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:6px; font-size:15px;">
                 </div>
                 <div style="display:flex; align-items:center; padding-top:24px;">
                     <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">

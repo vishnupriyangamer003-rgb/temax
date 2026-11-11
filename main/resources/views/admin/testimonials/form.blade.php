@@ -71,7 +71,7 @@
                 <div class="form-group">
                     <label class="form-label" for="sort_order">Sort Order</label>
                     <input type="number" name="sort_order" id="sort_order" class="form-control" min="0"
-                           value="{{ old('sort_order', $testimonial->sort_order ?? 0) }}">
+                           value="{{ old('sort_order', $testimonial->sort_order ?? (\App\Models\Testimonial::max("sort_order") + 1)) }}">
                 </div>
 
                 <div class="form-group" style="padding-top:28px;">
