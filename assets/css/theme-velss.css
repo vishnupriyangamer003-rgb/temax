@@ -532,3 +532,19 @@ body { background: var(--ts-page-bg); }
   .vp-grid--hover .vp-card-link:hover { color: #fff; }
 }
 .related-project { margin-top: 20px; }
+
+/* 26) Contact info cards: simple white cards, icon, title, details --------- */
+.vc-info { padding: 56px 0 40px; }
+.vc-card { height: 100%; margin: 0; padding: 30px 28px 28px; text-align: center; background: #fff; border-top: 3px solid var(--theme-color); border-radius: 4px; box-shadow: 0 2px 10px rgba(13, 32, 47, .08); transition: box-shadow .2s ease; }
+.vc-card:hover { box-shadow: 0 6px 20px rgba(13, 32, 47, .16); }
+.vc-icon { width: 60px; height: 60px; margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: #fff1ea; color: var(--theme-color); font-size: 22px; }
+.vc-card h3 { font-size: 21px; line-height: 28px; margin-bottom: 4px; }
+.vc-sub { margin: 0 0 14px; font-size: 14px; color: #6b7780; }
+.vc-card address { margin: 0; font-style: normal; font-size: 16px; line-height: 26px; color: var(--title-color); }
+.vc-links { list-style: none; margin: 0; padding: 0; }
+.vc-links li { margin-bottom: 6px; font-size: 16px; line-height: 24px; color: var(--title-color); }
+.vc-links a { color: var(--title-color); font-weight: 600; }
+.vc-links a:hover { color: var(--theme-color); }
+.vc-closed { color: #6b7780; }
+@media (max-width: 767px) { .vc-info { padding: 40px 0 16px; } }
+.vc-info .row > div { margin-bottom: 24px; }

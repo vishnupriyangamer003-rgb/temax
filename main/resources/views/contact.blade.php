@@ -7,70 +7,49 @@
 
     @include('partials.page-title', ['pageTitle' => 'Contact Us'])
 
-    <!-- contact-style-two -->
-    <section class="contact-style-two">
+    <!-- contact info cards -->
+    <section class="vc-info">
         <div class="auto-container">
-            <div class="tabs-box">
-                <div class="tabs-content">
-                    <div class="tab active-tab" id="contact-office">
-                        <div class="row clearfix">
-                            <div class="col-lg-4 col-md-6 col-sm-12 info-block">
-                                <div class="info-block-one">
-                                    <div class="inner-box">
-                                        <div class="shape" style="background-image: url({{ asset('assets/images/shape/shape-24.png') }});"></div>
-                                        <div class="title-box">
-                                            <h3>Location</h3>
-                                            <h6>Conveniently located to meet.</h6>
-                                        </div>
-                                        <div class="text-box">
-                                            <p>{{ setting('address') }}</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-12 info-block">
-                                <div class="info-block-one">
-                                    <div class="inner-box">
-                                        <div class="shape" style="background-image: url({{ asset('assets/images/shape/shape-24.png') }});"></div>
-                                        <div class="title-box">
-                                            <h3>Reach Us</h3>
-                                            <h6>Call or email for assistance.</h6>
-                                        </div>
-                                        <div class="text-box">
-                                            <p>
-                                                <a href="tel:{{ preg_replace('/[^0-9+]/', '', setting('phone')) }}">{{ setting('phone_display', setting('phone')) }}</a><br>
-                                                @if (setting('phone2'))
-                                                    @foreach (array_filter(array_map('trim', explode(',', setting('phone2')))) as $p2)
-                                                        <a href="tel:{{ preg_replace('/[^0-9+]/', '', $p2) }}">{{ format_phone($p2) }}</a><br>
-                                                    @endforeach
-                                                @endif
-                                                <a href="mailto:{{ setting('email') }}">{{ setting('email') }}</a>
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="col-lg-4 col-md-6 col-sm-12 info-block">
-                                <div class="info-block-one">
-                                    <div class="inner-box">
-                                        <div class="shape" style="background-image: url({{ asset('assets/images/shape/shape-24.png') }});"></div>
-                                        <div class="title-box">
-                                            <h3>Business Hours</h3>
-                                            <h6>Connect during office hours.</h6>
-                                        </div>
-                                        <div class="text-box">
-                                            <p>{{ setting('working_hours') }}<br> <span class="text">Sun: Closed</span></p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
+            <div class="row clearfix">
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="vc-card">
+                        <div class="vc-icon"><i class="fas fa-map-marker-alt"></i></div>
+                        <h3>Location</h3>
+                        <p class="vc-sub">Conveniently located to meet.</p>
+                        <address>{{ setting('address') }}</address>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="vc-card">
+                        <div class="vc-icon"><i class="fas fa-phone-alt"></i></div>
+                        <h3>Reach Us</h3>
+                        <p class="vc-sub">Call or email for assistance.</p>
+                        <ul class="vc-links">
+                            <li><a href="tel:{{ preg_replace('/[^0-9+]/', '', setting('phone')) }}">{{ setting('phone_display', setting('phone')) }}</a></li>
+                            @if (setting('phone2'))
+                                @foreach (array_filter(array_map('trim', explode(',', setting('phone2')))) as $p2)
+                                    <li><a href="tel:{{ preg_replace('/[^0-9+]/', '', $p2) }}">{{ format_phone($p2) }}</a></li>
+                                @endforeach
+                            @endif
+                            <li><a href="mailto:{{ setting('email') }}">{{ setting('email') }}</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="vc-card">
+                        <div class="vc-icon"><i class="far fa-clock"></i></div>
+                        <h3>Business Hours</h3>
+                        <p class="vc-sub">Connect during office hours.</p>
+                        <ul class="vc-links vc-hours">
+                            <li>{{ setting('working_hours') }}</li>
+                            <li class="vc-closed">Sun: Closed</li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <!-- contact-style-two end -->
+    <!-- contact info cards end -->
 
     <!-- map section: full-width map with overlay card -->
     <section class="vm-section">
