@@ -276,8 +276,9 @@ body .wow {
 .vh-slide-text p { color: #e6ebef; font-size: 18px; line-height: 28px; margin-bottom: 26px; }
 .vh-nav { position: absolute; top: 50%; z-index: 3; transform: translateY(-50%); width: 44px; height: 44px; border: 0; border-radius: 50%; background: rgba(255, 255, 255, .85); color: var(--title-color); font-size: 16px; line-height: 44px; cursor: pointer; }
 .vh-nav:hover { background: var(--theme-color); color: #fff; }
-.vh-nav { top: auto; bottom: 18px; transform: none; }
-.vh-prev { left: 16px; } .vh-next { left: 68px; right: auto; }
+.vh-nav { right: 16px; left: auto; }
+.vh-prev { top: calc(50% - 50px); bottom: auto; transform: none; }
+.vh-next { top: calc(50% + 6px); bottom: auto; transform: none; }
 .vh-dots { position: absolute; left: 0; right: 0; bottom: 18px; z-index: 3; display: flex; justify-content: center; gap: 10px; }
 .vh-dots button { width: 12px; height: 12px; padding: 0; border: 2px solid #fff; border-radius: 50%; background: transparent; cursor: pointer; }
 .vh-dots button.is-active { background: var(--theme-color); border-color: var(--theme-color); }
