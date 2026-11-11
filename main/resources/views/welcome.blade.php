@@ -131,6 +131,7 @@
                         <img class="vh-collage-main" src="{{ asset('assets/images/temax/kiln-2016.png') }}" alt="TEMAX furnace camera on a rotary kiln" loading="lazy">
                         <img src="{{ asset('assets/images/temax/cement-cooler.png') }}" alt="TEMAX cement cooler camera" loading="lazy">
                         <img src="{{ asset('assets/images/temax/camera-furnace.jpg') }}" alt="TEMAX furnace camera unit" loading="lazy">
+                    </div>
                 </div>
             </div>
         </div>
