@@ -34,23 +34,6 @@
                             </div>
                         </div>
                         <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
-                            <div class="footer-widget contact-widget">
-                                <div class="widget-title">
-                                    <h3>Contact Information</h3>
-                                </div>
-                                <div class="widget-content">
-                                    <p>{{ setting('address') }}</p>
-                                    <div class="phone"><a href="tel:{{ preg_replace('/[^0-9+]/', '', setting('phone')) }}">{{ setting('phone_display', setting('phone')) }}</a></div>
-                                    @if (setting('phone2'))
-                                        @foreach (array_filter(array_map('trim', explode(',', setting('phone2')))) as $p2)
-                                            <div class="phone"><a href="tel:{{ preg_replace('/[^0-9+]/', '', $p2) }}">{{ format_phone($p2) }}</a></div>
-                                        @endforeach
-                                    @endif
-                                    <div class="email"><a href="mailto:{{ setting('email') }}">{{ setting('email') }}</a></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
                             <div class="footer-widget links-widget">
                                 <div class="widget-title">
                                     <h3>Our Services</h3>
@@ -65,6 +48,23 @@
                                             </li>
                                         @endforeach
                                     </ul>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-12 footer-column">
+                            <div class="footer-widget contact-widget">
+                                <div class="widget-title">
+                                    <h3>Contact Information</h3>
+                                </div>
+                                <div class="widget-content">
+                                    <p>{{ setting('address') }}</p>
+                                    <div class="phone"><a href="tel:{{ preg_replace('/[^0-9+]/', '', setting('phone')) }}">{{ setting('phone_display', setting('phone')) }}</a></div>
+                                    @if (setting('phone2'))
+                                        @foreach (array_filter(array_map('trim', explode(',', setting('phone2')))) as $p2)
+                                            <div class="phone"><a href="tel:{{ preg_replace('/[^0-9+]/', '', $p2) }}">{{ format_phone($p2) }}</a></div>
+                                        @endforeach
+                                    @endif
+                                    <div class="email"><a href="mailto:{{ setting('email') }}">{{ setting('email') }}</a></div>
                                 </div>
                             </div>
                         </div>
