@@ -43,212 +43,75 @@
 
 @section('content')
 
-    <!-- banner-section -->
-    <section class="banner-section p_relative">
-        <div class="pattern-layer" style="background-image: url({{ asset('assets/images/shape/shape-2.png') }});"></div>
-        <div class="banner-top-section">
-            <div class="outer-container">
-                <div class="based-content">
-                    <div class="inner">
-                        <div class="logo-box">
-                            <figure class="logo">
-                                <a href="{{ route('home') }}"><img src="{{ asset('assets/images/temax/logo.png') }}?v={{ file_exists(base_path('../assets/images/temax/logo.png')) ? filemtime(base_path('../assets/images/temax/logo.png')) : '2' }}" alt="{{ setting('site_name', 'TEMAX') }}"></a>
-                            </figure>
-                            <h5>Based In <br>Karur, India.</h5>
-                        </div>
-                        <div class="single-item">
-                            <div class="shape" style="background-image: url({{ asset('assets/images/shape/shape-1.png') }});"></div>
-                            <h2>30<span>+</span></h2>
-                            <h5>Years in Furnace <br>Camera Systems.</h5>
-                        </div>
-                    </div>
-                    <span class="rotate-text">Established Since, 1996</span>
+    <!-- hero (Velss layout: full-width banner with centred welcome text) -->
+    <section class="vh-hero" id="home-hero">
+        <div class="vh-hero-bg" style="background-image: url({{ asset('assets/images/temax/kiln-camera.jpg') }});"></div>
+        <div class="vh-hero-overlay"></div>
+        <div class="auto-container">
+            <div class="vh-hero-text">
+                <h1>Experts in <span>Furnace Cameras</span></h1>
+                <p>High-temperature imaging for cement, thermal &amp; glass — live, continuous furnace viewing from TEMAX, built in Karur since 1996.</p>
+                <div class="vh-hero-actions">
+                    <a href="{{ route('services') }}" class="theme-btn btn-one"><i class="flaticon-right-arrow"></i><span>Our Services</span></a>
+                    <a href="{{ route('contact') }}" class="theme-btn btn-two"><i class="flaticon-mail"></i><span>Get a Quote</span></a>
                 </div>
-                <div class="inner-box">
-                    <div class="content-box">
-                        <div class="video-box">
-                            <div class="bg-color"></div>
-                            <div class="video-bg" style="background-image: url({{ asset('assets/images/temax/kiln-camera.jpg') }});"></div>
-                        </div>
-                        <h2>Experts <br>in <span>Furnace Cameras</span></h2>
-                        <p>High-temperature imaging <br>for cement, thermal &amp; glass.</p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="banner-carousel owl-theme owl-carousel owl-dots-none">
-            <div class="slide-item p_relative">
-                <div class="pattern-layer-2" style="background-image: url({{ asset('assets/images/shape/shape-3.png') }});"></div>
-                <div class="bg-layer" style="background-image: url({{ asset('assets/images/temax/kiln-camera.jpg') }});"></div>
-                <div class="outer-container clearfix">
-                    <div class="content-box">
-                        <figure class="image-layer rotate-me"><img src="{{ asset('assets/images/resource/megnat-1.png') }}" alt=""></figure>
-                        <div class="inner-box">
-                            <h2>See <span>Inside Your <br>Furnace.</span></h2>
-                            <p>Live, continuous furnace viewing — TEMAX
-                                camera systems built for cement, thermal
-                                and glass plants since 1996.</p>
-                            <div class="btn-box"><a href="{{ route('services') }}" class="theme-btn btn-one"><i class="flaticon-right-arrow"></i><span>Read More</span></a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="slide-item p_relative">
-                <div class="pattern-layer-2" style="background-image: url({{ asset('assets/images/shape/shape-3.png') }});"></div>
-                <div class="bg-layer" style="background-image: url({{ asset('assets/images/temax/dispatch.jpg') }});"></div>
-                <div class="outer-container clearfix">
-                    <div class="content-box">
-                        <figure class="image-layer rotate-me"><img src="{{ asset('assets/images/resource/megnat-1.png') }}" alt=""></figure>
-                        <div class="inner-box">
-                            <h2>Cooling &amp; <span>Retraction <br>Systems.</span></h2>
-                            <p>SS 316 cooling and pneumatic auto
-                                retraction protect camera and operator
-                                in environments up to 2000&nbsp;°C.</p>
-                            <div class="btn-box"><a href="{{ route('products') }}" class="theme-btn btn-one"><i class="flaticon-right-arrow"></i><span>Read More</span></a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="slide-item p_relative">
-                <div class="pattern-layer-2" style="background-image: url({{ asset('assets/images/shape/shape-3.png') }});"></div>
-                <div class="bg-layer" style="background-image: url({{ asset('assets/images/temax/thermal-camera.jpg') }});"></div>
-                <div class="outer-container clearfix">
-                    <div class="content-box">
-                        <figure class="image-layer rotate-me"><img src="{{ asset('assets/images/resource/megnat-1.png') }}" alt=""></figure>
-                        <div class="inner-box">
-                            <h2>Thermal <span>Kiln Shell <br>Monitoring.</span></h2>
-                            <p>Temperature-reading thermal cameras track
-                                hot spots and coating loss across the
-                                entire kiln length.</p>
-                            <div class="btn-box"><a href="{{ route('projects') }}" class="theme-btn btn-one"><i class="flaticon-right-arrow"></i><span>Read More</span></a></div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div class="banner-right-content">
-            <div class="inner-box">
-                <div class="mail-box">
-                    <a href="mailto:{{ setting('email') }}"><i class="flaticon-share"></i><span>{{ setting('email') }}</span></a>
-                </div>
-                @php
-                    $bannerSocials = array_filter([
-                        'facebook'  => setting('facebook'),
-                        'twitter'   => setting('twitter'),
-                        'instagram' => setting('instagram'),
-                        'linkedin'  => setting('linkedin'),
-                        'youtube'   => setting('youtube'),
-                    ]);
-                    $bannerSocialIcons = [
-                        'facebook'  => 'flaticon-facebook',
-                        'twitter'   => 'flaticon-twitter',
-                        'instagram' => 'flaticon-instagram-logo',
-                        'linkedin'  => 'flaticon-linkedin',
-                        'youtube'   => 'flaticon-youtube',
-                    ];
-                @endphp
-                @if (!empty($bannerSocials))
-                    <ul class="social-links">
-                        <li><h5>On Socials</h5></li>
-                        @foreach ($bannerSocials as $network => $socialUrl)
-                            <li><a href="{{ $socialUrl }}" target="_blank" rel="noopener" aria-label="{{ ucfirst($network) }}"><i class="{{ $bannerSocialIcons[$network] }}"></i></a></li>
-                        @endforeach
-                    </ul>
-                @endif
             </div>
         </div>
     </section>
-    <!-- banner-section end -->
+    <!-- hero end -->
 
-    <!-- intro-section -->
-    <section class="intro-section pt_75">
-        <div class="outer-container p_relative pl_75 pr_75">
+    <!-- highlights (the three former hero slides, kept as links) -->
+    <section class="vh-highlights">
+        <div class="auto-container">
             <div class="row clearfix">
-                <div class="col-lg-4 col-md-6 col-sm-12 intro-block">
-                    <div class="intro-block-one">
-                        <div class="inner-box">
-                            <div class="content-box">
-                                <div class="icon-box">
-                                    <div class="icon"><img src="{{ asset('assets/images/icons/icon-2.png') }}" alt=""></div>
-                                    <div class="overlay-icon"><img src="{{ asset('assets/images/icons/icon-1.png') }}" alt=""></div>
-                                </div>
-                                <div class="text-box">
-                                    <h6>Our</h6>
-                                    <h3>Identity</h3>
-                                    <p>Furnace Cameras <br>Since 1996.</p>
-                                </div>
-                            </div>
-                            <div class="image-box">
-                                <span class="rotate-text">&nbsp;About&nbsp;us&nbsp;</span>
-                                <div class="bar-box">
-                                    <div class="bar bar-1"></div>
-                                    <div class="bar bar-2"></div>
-                                    <div class="bar bar-3"></div>
-                                </div>
-                                <figure class="image"><img src="{{ asset('assets/images/resource/intro-1.png') }}" alt="TEMAX identity"></figure>
-                                <div class="link-box">
-                                    <a href="{{ route('about') }}"><i class="flaticon-right-arrow"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <a class="vh-card" href="{{ route('services') }}">
+                        <h3>See Inside Your Furnace</h3>
+                        <p>Live, continuous furnace viewing — TEMAX camera systems built for cement, thermal and glass plants since 1996.</p>
+                        <span class="vh-more"><i class="flaticon-right-arrow"></i> Read More</span>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <a class="vh-card" href="{{ route('products') }}">
+                        <h3>Cooling &amp; Retraction Systems</h3>
+                        <p>SS 316 cooling and pneumatic auto retraction protect camera and operator in environments up to 2000&nbsp;°C.</p>
+                        <span class="vh-more"><i class="flaticon-right-arrow"></i> Read More</span>
+                    </a>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <a class="vh-card" href="{{ route('projects') }}">
+                        <h3>Thermal Kiln Shell Monitoring</h3>
+                        <p>Temperature-reading thermal cameras track hot spots and coating loss across the entire kiln length.</p>
+                        <span class="vh-more"><i class="flaticon-right-arrow"></i> Read More</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- intro-section (Identity / Stability / Technology) -->
+    <section class="vh-intro">
+        <div class="auto-container">
+            <div class="row clearfix">
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="vh-feature">
+                        <h6>Our</h6><h3>Identity</h3>
+                        <p>Furnace Cameras Since 1996.</p>
+                        <a href="{{ route('about') }}" aria-label="About us"><i class="flaticon-right-arrow"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 intro-block">
-                    <div class="intro-block-one">
-                        <div class="inner-box">
-                            <div class="content-box">
-                                <div class="icon-box">
-                                    <div class="icon"><img src="{{ asset('assets/images/icons/icon-4.png') }}" alt=""></div>
-                                    <div class="overlay-icon"><img src="{{ asset('assets/images/icons/icon-3.png') }}" alt=""></div>
-                                </div>
-                                <div class="text-box">
-                                    <h6>Our</h6>
-                                    <h3>Stability</h3>
-                                    <p>90% Made <br>in India.</p>
-                                </div>
-                            </div>
-                            <div class="image-box">
-                                <span class="rotate-text">Made&nbsp;in&nbsp;India</span>
-                                <div class="bar-box">
-                                    <div class="bar bar-1"></div>
-                                    <div class="bar bar-2"></div>
-                                    <div class="bar bar-3"></div>
-                                </div>
-                                <figure class="image"><img src="{{ asset('assets/images/resource/intro-2.png') }}" alt="Made in India"></figure>
-                                <div class="link-box">
-                                    <a href="{{ route('about') }}"><i class="flaticon-right-arrow"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="vh-feature">
+                        <h6>Our</h6><h3>Stability</h3>
+                        <p>90% Made in India.</p>
+                        <a href="{{ route('about') }}" aria-label="About us"><i class="flaticon-right-arrow"></i></a>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 intro-block">
-                    <div class="intro-block-one">
-                        <div class="inner-box">
-                            <div class="content-box">
-                                <div class="icon-box">
-                                    <div class="icon"><img src="{{ asset('assets/images/icons/icon-5.png') }}" alt=""></div>
-                                    <div class="overlay-icon"><img src="{{ asset('assets/images/icons/icon-6.png') }}" alt=""></div>
-                                </div>
-                                <div class="text-box">
-                                    <h6>Our</h6>
-                                    <h3>Technology</h3>
-                                    <p>HD, Thermal <br>&amp; Custom Builds.</p>
-                                </div>
-                            </div>
-                            <div class="image-box">
-                                <span class="rotate-text">Innovation</span>
-                                <div class="bar-box">
-                                    <div class="bar bar-1"></div>
-                                    <div class="bar bar-2"></div>
-                                    <div class="bar bar-3"></div>
-                                </div>
-                                <figure class="image"><img src="{{ asset('assets/images/resource/intro-3.png') }}" alt="Innovation"></figure>
-                                <div class="link-box">
-                                    <a href="{{ route('products') }}"><i class="flaticon-right-arrow"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="vh-feature">
+                        <h6>Our</h6><h3>Technology</h3>
+                        <p>HD, Thermal &amp; Custom Builds.</p>
+                        <a href="{{ route('products') }}" aria-label="Products"><i class="flaticon-right-arrow"></i></a>
                     </div>
                 </div>
             </div>
@@ -256,57 +119,30 @@
     </section>
     <!-- intro-section end -->
 
-    <!-- about-section -->
-    <section class="about-section pt_120 pb_120">
-        <div class="pattern-layer" style="background-image: url({{ asset('assets/images/shape/shape-4.png') }});"></div>
+    <!-- about-section (Velss layout: text left, framed image right) -->
+    <section class="vh-about">
         <div class="auto-container">
-            <div class="row clearfix">
-                <div class="col-lg-7 col-md-12 col-sm-12 content-column">
-                    <div class="content-box">
-                        <div class="sec-title mb_45">
-                            <h6>About Us</h6>
-                            <h2>Leader in <span class="text-nowrap">[Furnace&nbsp;Camera]</span> Manufacturing</h2>
-                        </div>
-                        <div class="inner-box">
-                            <div class="single-team">
-                                <h3>Engineered in Karur</h3>
-                                <div class="link align-3"><a href="{{ route('about') }}"><i class="flaticon-right-arrow"></i></a></div>
-                                <span class="rotate-text">Founder &amp; Leader</span>
-                                <figure class="image-box"><img src="{{ asset('assets/images/resource/team-1.png') }}" alt="TEMAX founder &amp; leader"></figure>
-                            </div>
-                            <div class="text-box">
-                                <h3>Three Decades of Furnace Viewing</h3>
-                                <p>Since 1996 TEMAX has manufactured high-temperature
-                                    furnace camera systems in Karur, Tamil Nadu — with
-                                    90% of production in India, all spares available
-                                    locally and customisation on demand.</p>
-                                <a href="{{ route('about') }}"><i class="flaticon-right-arrow"></i><span>Read More</span></a>
-                            </div>
-                        </div>
+            <div class="row clearfix align-items-center">
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                    <div class="vh-title">
+                        <h6>About Us</h6>
+                        <h2>Leader in <span class="text-nowrap">[Furnace&nbsp;Camera]</span> Manufacturing</h2>
                     </div>
+                    <h3 class="vh-sub">Three Decades of Furnace Viewing</h3>
+                    <p>Since 1996 TEMAX has manufactured high-temperature
+                        furnace camera systems in Karur, Tamil Nadu — with
+                        90% of production in India, all spares available
+                        locally and customisation on demand.</p>
+                    <ul class="vh-ticks">
+                        <li>Engineered in Karur</li>
+                        <li>Proudly Made in India</li>
+                        <li>30+ Years of Experience</li>
+                    </ul>
+                    <a href="{{ route('about') }}" class="theme-btn btn-one"><i class="flaticon-right-arrow"></i><span>Read More</span></a>
                 </div>
-                <div class="col-lg-5 col-md-12 col-sm-12 inner-column">
-                    <div class="inner-content">
-                        <div class="award-box">
-                            <ul class="icon-list">
-                                <li><i class="flaticon-iso"></i></li>
-                                <li><i class="flaticon-trophy"></i></li>
-                            </ul>
-                            <h5>Proudly Made in India.</h5>
-                        </div>
-                        <div class="image-box">
-                            <figure class="image clearfix"><img src="{{ asset('assets/images/temax/production-unit-2.png') }}?v={{ file_exists(base_path('../assets/images/temax/production-unit-2.png')) ? filemtime(base_path('../assets/images/temax/production-unit-2.png')) : '2' }}" alt="TEMAX production unit"></figure>
-                            <div class="image-content">
-                                <div class="text-box">
-                                    <h2>30<span>+</span></h2>
-                                    <h5>Years of Experience.</h5>
-                                </div>
-                                <div class="video-box">
-                                    <h5>Our&nbsp;Story</h5>
-                                    <a href="{{ route('about') }}"><i class="flaticon-right-arrow"></i></a>
-                                </div>
-                            </div>
-                        </div>
+                <div class="col-lg-6 col-md-12 col-sm-12">
+                    <div class="vh-frame">
+                        <img src="{{ asset('assets/images/temax/production-unit-2.png') }}?v={{ file_exists(base_path('../assets/images/temax/production-unit-2.png')) ? filemtime(base_path('../assets/images/temax/production-unit-2.png')) : '2' }}" alt="TEMAX production unit">
                     </div>
                 </div>
             </div>
@@ -314,72 +150,27 @@
     </section>
     <!-- about-section end -->
 
-    <!-- service-section -->
-    <section class="service-section temax-service-section">
-        <div class="bg-layer" style="background-image: url({{ asset('assets/images/background/service-bg.jpg') }});"></div>
+    <!-- service-section (Velss layout: icon + title + text rows) -->
+    <section class="vh-services">
         <div class="auto-container">
-            <div class="inner-container">
-                <div class="upper-box">
-                    <div class="row align-items-center">
-                        <div class="col-lg-4 col-md-12 col-sm-12 service-left-column">
-                            <div class="single-service-box">
-                                <div class="inner-box">
-                                    <figure class="image"><img src="{{ asset('assets/images/resource/service-1.png') }}" alt="Discover Our Complete Service Range"></figure>
-                                    <div class="lower-content">
-                                        <h3>Discover Our Complete Service Range.</h3>
-                                        <p>Six product lines for high-temperature viewing.</p>
-                                        <a href="{{ route('services') }}"><i class="flaticon-right-arrow"></i><span>All Services</span></a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-lg-8 col-md-12 col-sm-12 service-right-column">
-                            <div class="service-right-inner">
-                                <div class="sec-title">
-                                    <h6>{!! setting('services_subtitle', 'What we offer') !!}</h6>
-                                    <h2>{!! setting('services_title', 'Our services &amp; solutions') !!}</h2>
-                                    <p class="mt_12">Furnace cameras, cooling, retraction and thermal systems.</p>
-                                </div>
-                                <div class="count-box align-3">
-                                    <div class="shape" style="background-image: url({{ asset('assets/images/shape/shape-5.png') }});"></div>
-                                    <h2>90<span>%</span></h2>
-                                    <h5>Made in India <br>with Precision.</h5>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="lower-box">
-                    <div class="three-item-carousel owl-carousel owl-theme owl-dots-none">
-                        @foreach ($homeServices as $service)
-                            <div class="service-block-three">
-                                <div class="inner-box">
-                                    <div class="shape" style="background-image: url({{ asset('assets/images/shape/shape-19.png') }});"></div>
-                                    <div class="icon-box"><i class="{{ $serviceIcons[$loop->index % count($serviceIcons)] }}"></i></div>
-                                    <h6>Service {{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}</h6>
-                                    <div class="title-box">
-                                        <div class="title-shape"></div>
-                                        <h2><a href="{{ route('services.show', $service->slug) }}">{{ $service->title }}</a></h2>
-                                    </div>
-                                    <p>{{ \Illuminate\Support\Str::limit($service->summary, 110) }}</p>
-                                    <div class="link-box"><a href="{{ route('services.show', $service->slug) }}"><i class="flaticon-right-arrow"></i></a></div>
-                                    <div class="overlay-content">
-                                        <div class="overlay-bg" style="background-image: url({{ asset($service->image ?: 'assets/images/resource/block-bg.jpg') }});"></div>
-                                        <div class="icon-box"><i class="{{ $serviceIcons[$loop->index % count($serviceIcons)] }}"></i></div>
-                                        <h6>Service {{ str_pad($loop->iteration, 2, '0', STR_PAD_LEFT) }}</h6>
-                                        <div class="title-box">
-                                            <div class="title-shape"></div>
-                                            <h2><a href="{{ route('services.show', $service->slug) }}">{{ $service->title }}</a></h2>
-                                        </div>
-                                        <p>{{ \Illuminate\Support\Str::limit($service->summary, 110) }}</p>
-                                        <div class="btn-box"><a href="{{ route('services.show', $service->slug) }}" class="theme-btn btn-three"><i class="flaticon-right-arrow"></i><span>Read More</span></a></div>
-                                    </div>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
+            <div class="vh-title text-center">
+                <h6>{!! setting('services_subtitle', 'What we offer') !!}</h6>
+                <h2>{!! setting('services_title', 'Our services &amp; solutions') !!}</h2>
+                <p>Furnace cameras, cooling, retraction and thermal systems.</p>
             </div>
+            <div class="vh-service-list">
+                @foreach ($homeServices as $service)
+                    <a class="vh-service-row" href="{{ route('services.show', $service->slug) }}">
+                        <div class="vh-service-icon"><i class="{{ $serviceIcons[$loop->index % count($serviceIcons)] }}"></i></div>
+                        <div class="vh-service-body">
+                            <h3>{{ $service->title }}</h3>
+                            <p>{{ \Illuminate\Support\Str::limit($service->summary, 160) }}</p>
+                        </div>
+                        <span class="vh-service-go"><i class="flaticon-right-arrow"></i></span>
+                    </a>
+                @endforeach
+            </div>
+            <div class="text-center vh-all"><a href="{{ route('services') }}" class="theme-btn btn-one"><i class="flaticon-right-arrow"></i><span>All Services</span></a></div>
         </div>
     </section>
     <!-- service-section end -->
@@ -459,85 +250,33 @@
     </section>
     <!-- industries-section end -->
 
-    <!-- project-section -->
-    <section class="project-section">
-        <div class="pattern-layer">
-            <div class="pattern-1" style="background-image: url({{ asset('assets/images/shape/shape-8.png') }});"></div>
-            <div class="pattern-2 float-bob-y" style="background-image: url({{ asset('assets/images/shape/shape-9.png') }});"></div>
-        </div>
+    <!-- project-section (Velss layout: image cards with hover overlay) -->
+    <section class="vh-projects">
         <div class="auto-container">
-            <div class="upper-box mb_50 p_relative">
-                <div class="row align-items-center">
-                    <div class="col-lg-4 col-md-12 col-sm-12 count-column">
-                        <div class="count-box align-3">
-                            <div class="shape" style="background-image: url({{ asset('assets/images/shape/shape-5.png') }});"></div>
-                            <h2>{{ $homeProjects->count() }}<span>+</span></h2>
-                            <h5>Installations Across <br>Multiple Industries.</h5>
-                        </div>
-                    </div>
-                    <div class="col-lg-8 col-md-12 col-sm-12 title-column">
-                        <div class="sec-title">
-                            <h6>{!! setting('projects_subtitle', 'Our track record') !!}</h6>
-                            <h2>{!! setting('projects_title', 'Projects &amp; installations') !!}</h2>
-                            <p class="mt_12">Real TEMAX cameras working in plants across India.</p>
-                        </div>
-                    </div>
-                </div>
+            <div class="vh-title text-center">
+                <h6>{!! setting('projects_subtitle', 'Our track record') !!}</h6>
+                <h2>{!! setting('projects_title', 'Projects &amp; installations') !!}</h2>
+                <p>Real TEMAX cameras working in plants across India.</p>
             </div>
-            <div class="inner-container">
-                <div class="project-tab">
-                    <div class="row clearfix">
-                        <div class="col-lg-2 col-md-12 col-sm-12 btn-column">
-                            <div class="tab-btn-box z_99">
-                                <ul class="tab-btns product-tab-btns clearfix">
-                                    @foreach ($projectGroups as $groupName => $groupProjects)
-                                        <li class="p-tab-btn {{ $loop->first ? 'active-btn' : '' }}" data-tab="#proj-{{ \Illuminate\Support\Str::slug($groupName) }}"><h6>{{ $groupName }}</h6></li>
-                                    @endforeach
-                                </ul>
+            <div class="row clearfix">
+                @forelse ($homeProjects->take(4) as $project)
+                    <div class="col-lg-3 col-md-6 col-sm-12">
+                        <a class="vh-project" href="{{ route('projects.show', $project->id) }}">
+                            <div class="vh-project-img" style="background-image: url({{ asset(optional($project->images->first())->path ?: 'assets/images/project/project-1.jpg') }});"></div>
+                            <h3 class="vh-project-title">{{ $project->title }}</h3>
+                            <div class="vh-project-hover">
+                                <span class="category">{{ $project->type ?: 'Project' }}</span>
+                                <h3>{{ $project->title }}</h3>
+                                <p>{{ \Illuminate\Support\Str::limit($project->text, 90) }}</p>
+                                <small>{{ $project->place }}</small>
                             </div>
-                        </div>
-                        <div class="col-lg-9 col-md-12 col-sm-12 content-column">
-                            <div class="p-tabs-content">
-                                @foreach ($projectGroups as $groupName => $groupProjects)
-                                    <div class="p-tab {{ $loop->first ? 'active-tab' : '' }}" id="proj-{{ \Illuminate\Support\Str::slug($groupName) }}">
-                                        <div class="single-item-carousel owl-carousel owl-theme nav-style-one">
-                                            @forelse ($groupProjects as $project)
-                                                <div class="project-block-one">
-                                                    <div class="inner-box">
-                                                        <div class="bg-layer" style="background-image: url({{ asset(optional($project->images->first())->path ?: 'assets/images/project/project-1.jpg') }});"></div>
-                                                        <span class="category">{{ $project->type ?: 'Project' }}</span>
-                                                        <div class="content-box">
-                                                            <h3>{{ $project->title }}</h3>
-                                                            <p>{{ \Illuminate\Support\Str::limit($project->text, 90) }}</p>
-                                                            <h6>Location</h6>
-                                                            <span class="text">{{ $project->place }}</span>
-                                                            <a href="{{ route('projects.show', $project->id) }}"><i class="flaticon-right-arrow"></i></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            @empty
-                                                <div class="project-block-one">
-                                                    <div class="inner-box">
-                                                        <div class="bg-layer" style="background-image: url({{ asset('assets/images/project/project-1.jpg') }});"></div>
-                                                        <span class="category">TEMAX</span>
-                                                        <div class="content-box">
-                                                            <h3>Projects Coming Soon</h3>
-                                                            <p>New installations are being added to this section.</p>
-                                                            <h6>Contact</h6>
-                                                            <span class="text">{{ setting('email') }}</span>
-                                                            <a href="{{ route('contact') }}"><i class="flaticon-right-arrow"></i></a>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            @endforelse
-                                        </div>
-                                    </div>
-                                @endforeach
-                            </div>
-                        </div>
+                        </a>
                     </div>
-                </div>
+                @empty
+                    <div class="col-12 text-center"><p>New installations are being added to this section. <a href="{{ route('contact') }}">Contact us</a>.</p></div>
+                @endforelse
             </div>
+            <div class="text-center vh-all"><a href="{{ route('projects') }}" class="theme-btn btn-one"><i class="flaticon-right-arrow"></i><span>All Projects</span></a></div>
         </div>
     </section>
     <!-- project-section end -->
@@ -714,57 +453,20 @@
     <!-- chooseus-section end -->
 
     @if(isset($clients) && $clients->count())
-    <!-- clients-section -->
-    <section class="clients-section centred">
+    <!-- clients-section (Velss layout: single logo strip) -->
+    <section class="vh-clients">
         <div class="auto-container">
-            <div class="sec-title mb_45">
+            <div class="vh-title text-center">
                 <h6>{{ setting('clients_subtitle', 'Customers') }}</h6>
                 <h2>{!! setting('clients_title', 'Our Valued <span>Customers</span>') !!}</h2>
-                <p class="mt_12">{{ setting('clients_tagline', 'Delivering quality, innovation, and precision.') }}</p>
+                <p>{{ setting('clients_tagline', 'Delivering quality, innovation, and precision.') }}</p>
             </div>
-            <div class="inner-container">
-                <div class="row align-items-center">
-                    @php
-                        $half = ceil($clients->count() / 2);
-                        $col1 = $clients->slice(0, $half);
-                        $col2 = $clients->slice($half);
-                    @endphp
-                    <div class="col-xxl-5 col-xl-4 col-lg-4 col-md-12 col-sm-12 clients-column">
-                        <div class="clients-box clearfix">
-                            @foreach($col1 as $c)
-                                <figure class="clients-logo">
-                                    @if($loop->iteration <= 2)<div class="border-bottom"></div>@endif
-                                    <div class="border-right"></div>
-                                    <a href="{{ $c->url ?: 'javascript:void(0);' }}" title="{{ $c->name }}" {{ $c->url ? 'target="_blank" rel="noopener"' : '' }}>
-                                        <img src="{{ asset($c->logo) }}" alt="{{ $c->name }}">
-                                    </a>
-                                </figure>
-                            @endforeach
-                        </div>
-                    </div>
-                    <div class="col-xxl-2 col-xl-4 col-lg-4 col-md-12 col-sm-12 content-column">
-                        <div class="content-box">
-                            <h3>Strategic 
-                                <span>Partnerships</span> 
-                                with 100+ 
-                                <span>Global Leaders</span></h3>
-                            <a href="{{ route('contact') }}" class="theme-btn btn-one text-nowrap"><i class="flaticon-right-arrow"></i><span>Contact Us</span></a>
-                        </div>
-                    </div>
-                    <div class="col-xxl-5 col-xl-4 col-lg-4 col-md-12 col-sm-12 clients-column">
-                        <div class="clients-box clearfix">
-                            @foreach($col2 as $c)
-                                <figure class="clients-logo">
-                                    @if($loop->iteration <= 2)<div class="border-bottom"></div>@endif
-                                    <div class="border-left"></div>
-                                    <a href="{{ $c->url ?: 'javascript:void(0);' }}" title="{{ $c->name }}" {{ $c->url ? 'target="_blank" rel="noopener"' : '' }}>
-                                        <img src="{{ asset($c->logo) }}" alt="{{ $c->name }}">
-                                    </a>
-                                </figure>
-                            @endforeach
-                        </div>
-                    </div>
-                </div>
+            <div class="vh-logos">
+                @foreach($clients as $c)
+                    <a href="{{ $c->url ?: 'javascript:void(0);' }}" title="{{ $c->name }}" {{ $c->url ? 'target="_blank" rel="noopener"' : '' }}>
+                        <img src="{{ asset($c->logo) }}" alt="{{ $c->name }}">
+                    </a>
+                @endforeach
             </div>
         </div>
     </section>

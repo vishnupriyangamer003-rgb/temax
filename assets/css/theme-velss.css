@@ -171,3 +171,84 @@ body .wow {
 .main-footer .about-widget .list-item li { color: #c9d1d8; display: flex; align-items: center; gap: 8px; margin-bottom: 8px; }
 .main-footer .about-widget .list-item li i { color: var(--theme-color); }
 .main-footer .about-widget .list-item li span { color: #c9d1d8; }
+
+/* 12) Home page (Velss layout) --------------------------------------------- */
+.vh-title { margin-bottom: 36px; }
+.vh-title h6 { display: inline-block; font-size: 14px; text-transform: uppercase; color: var(--theme-color); margin-bottom: 10px; letter-spacing: .5px; }
+.vh-title h2 { font-size: 34px; line-height: 42px; margin-bottom: 10px; }
+.vh-title h2 span { color: var(--theme-color); font-weight: 400; }
+.vh-title p { margin: 0; }
+.vh-all { margin-top: 32px; }
+.vh-services, .vh-projects, .vh-clients, .vh-about { padding: 70px 0; }
+.vh-services { background: var(--ts-surface-alt); }
+
+/* hero */
+.vh-hero { position: relative; min-height: 560px; display: flex; align-items: center; overflow: hidden; }
+.vh-hero-bg { position: absolute; inset: 0; background-size: cover; background-position: center; }
+.vh-hero-overlay { position: absolute; inset: 0; background: rgba(13, 32, 47, .72); }
+.vh-hero .auto-container { position: relative; z-index: 2; width: 100%; }
+.vh-hero-text { max-width: 760px; margin: 0 auto; text-align: center; color: #fff; padding: 60px 0; }
+.vh-hero-text h1 { color: #fff; font-size: 52px; line-height: 60px; text-transform: uppercase; font-weight: 800; margin-bottom: 18px; }
+.vh-hero-text h1 span { color: var(--theme-color); }
+.vh-hero-text p { color: #e6ebef; font-size: 18px; line-height: 30px; margin-bottom: 28px; }
+.vh-hero-actions { display: flex; gap: 14px; justify-content: center; flex-wrap: wrap; }
+.vh-hero-actions .btn-two { background: transparent; border-color: #fff; color: #fff; }
+.vh-hero-actions .btn-two:hover { background: #fff; color: var(--title-color); }
+
+/* highlights + intro cards */
+.vh-highlights { margin-top: -50px; position: relative; z-index: 3; }
+.vh-card, .vh-feature { display: block; height: 100%; background: #fff; border: 1px solid var(--ts-border); border-top: 3px solid var(--theme-color); border-radius: var(--ts-radius); padding: 26px; margin-bottom: 24px; box-shadow: var(--ts-shadow); color: var(--ts-text); }
+.vh-card h3, .vh-feature h3 { font-size: 21px; line-height: 28px; margin-bottom: 10px; }
+.vh-card:hover h3 { color: var(--theme-color); }
+.vh-more { color: var(--theme-color); font-weight: 600; font-size: 14px; }
+.vh-intro { padding: 50px 0 20px; }
+.vh-feature h6 { color: var(--theme-color); text-transform: uppercase; font-size: 13px; margin: 0; }
+.vh-feature a { color: var(--theme-color); font-size: 22px; }
+
+/* about */
+.vh-about .vh-sub { font-size: 22px; margin: 6px 0 12px; }
+.vh-ticks { list-style: none; padding: 0; margin: 18px 0 24px; }
+.vh-ticks li { position: relative; padding-left: 26px; margin-bottom: 6px; font-weight: 500; }
+.vh-ticks li::before { content: "\f00c"; font-family: "Font Awesome 5 Free", "Font Awesome 6 Free"; font-weight: 900; position: absolute; left: 0; color: var(--theme-color); }
+.vh-frame { position: relative; padding: 12px; border: 2px solid var(--theme-color); border-radius: var(--ts-radius); }
+.vh-frame img { display: block; width: 100%; height: auto; border-radius: 2px; }
+
+/* services rows */
+.vh-service-list { display: flex; flex-direction: column; gap: 0; border: 1px solid var(--ts-border); border-radius: var(--ts-radius); overflow: hidden; background: #fff; }
+.vh-service-row { display: flex; align-items: center; gap: 24px; padding: 22px 26px; color: var(--ts-text); border-bottom: 1px solid var(--ts-border); }
+.vh-service-row:last-child { border-bottom: 0; }
+.vh-service-row:nth-child(even) { background: var(--ts-surface-alt); }
+.vh-service-row:hover { background: #fff4ee; }
+.vh-service-icon { flex: 0 0 64px; height: 64px; display: flex; align-items: center; justify-content: center; border-radius: 50%; background: var(--theme-color); color: #fff; font-size: 30px; }
+.vh-service-body { flex: 1; min-width: 0; }
+.vh-service-body h3 { font-size: 20px; line-height: 28px; margin-bottom: 4px; }
+.vh-service-body p { margin: 0; }
+.vh-service-go { color: var(--theme-color); font-size: 22px; }
+
+/* projects */
+.vh-project { position: relative; display: block; height: 260px; margin-bottom: 24px; overflow: hidden; border-radius: var(--ts-radius); background: var(--secondary-color); }
+.vh-project-img { position: absolute; inset: 0; background-size: cover; background-position: center; }
+.vh-project-title { position: absolute; left: 0; right: 0; bottom: 0; margin: 0; padding: 14px 16px; font-size: 16px; line-height: 22px; color: #fff; background: linear-gradient(transparent, rgba(13, 32, 47, .9)); }
+.vh-project-hover { position: absolute; inset: 0; padding: 20px; background: rgba(13, 32, 47, .92); color: #dfe5ea; opacity: 0; transition: opacity .2s ease; display: flex; flex-direction: column; justify-content: center; }
+.vh-project:hover .vh-project-hover, .vh-project:focus .vh-project-hover { opacity: 1; }
+.vh-project-hover h3 { color: #fff; font-size: 18px; line-height: 24px; margin: 6px 0; }
+.vh-project-hover .category { color: var(--theme-color); font-size: 13px; text-transform: uppercase; font-weight: 600; }
+.vh-project-hover p { color: #dfe5ea; font-size: 14px; line-height: 22px; margin: 0 0 8px; }
+.vh-project-hover small { color: #aab4bc; }
+
+/* clients */
+.vh-logos { display: flex; flex-wrap: wrap; gap: 28px 40px; justify-content: center; align-items: center; }
+.vh-logos img { height: 64px; width: auto; max-width: 160px; object-fit: contain; filter: grayscale(1); opacity: .8; transition: opacity .2s ease, filter .2s ease; }
+.vh-logos a:hover img { filter: none; opacity: 1; }
+
+@media (max-width: 767px) {
+  .vh-hero { min-height: 440px; }
+  .vh-hero-text h1 { font-size: 32px; line-height: 40px; }
+  .vh-hero-text p { font-size: 16px; line-height: 26px; }
+  .vh-title h2 { font-size: 26px; line-height: 34px; }
+  .vh-services, .vh-projects, .vh-clients, .vh-about { padding: 48px 0; }
+  .vh-service-row { gap: 14px; padding: 16px; }
+  .vh-service-icon { flex-basis: 48px; height: 48px; font-size: 22px; }
+  .vh-project { height: 220px; }
+}
+@media (max-width: 991px) { .vh-card, .vh-feature { height: auto; } }
