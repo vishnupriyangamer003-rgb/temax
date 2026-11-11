@@ -6,124 +6,103 @@
 @section('content')
 
     @php
-        $typeIndex = [];
-        foreach ($types as $i => $type) {
-            $typeIndex[$type] = $i + 1;
-        }
-
         $countByType = $projects->groupBy('type');
     @endphp
 
     @include('partials.page-title', ['pageTitle' => 'Projects'])
 
-    <!-- project-style-three -->
-    <section class="project-style-three">
+    <!-- projects portfolio: category filter + card grid (same style as Products) -->
+    <section class="vp-section">
         <div class="auto-container">
             @if ($projects->count())
-                <div class="sortable-masonry">
-                    <div class="filters centred">
-                        <ul class="filter-tabs filter-btns mb_55">
-                            <li class="active filter" data-role="button" data-filter=".all"><i class="flaticon-nut"></i><span>All [{{ $projects->count() }}]</span></li>
-                            @foreach ($types as $type)
-                                <li class="filter" data-role="button" data-filter=".cat-{{ $typeIndex[$type] }}"><span>{{ $type }} [{{ $countByType[$type]->count() ?? 0 }}]</span></li>
-                            @endforeach
-                        </ul>
-                    </div>
-                    <div class="items-container row clearfix">
-                        @foreach ($projects as $project)
-                            <div class="col-lg-4 col-md-6 col-sm-12 masonry-item small-column all {{ isset($typeIndex[$project->type]) ? 'cat-' . $typeIndex[$project->type] : '' }}">
-                                <div class="project-block-two">
-                                    <div class="inner-box">
-                                        <div class="bg-layer" style="background-image: url({{ asset(optional($project->images->first())->path ?: 'assets/images/project/project-1.jpg') }});"></div>
-                                        <div class="upper-box">
-                                            <h3><a href="{{ route('projects.show', $project->id) }}">{{ $project->title }}</a></h3>
-                                        </div>
-                                        <div class="lower-box">
-                                            <h6><i class="flaticon-nut"></i><span>{{ $project->type ?: 'Project' }}</span></h6>
-                                            <div class="link"><a href="{{ route('projects.show', $project->id) }}"><i class="flaticon-right-arrow"></i></a></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+                <div class="vh-title">
+                    <h6>Our Track Record</h6>
+                    <h2>Projects &amp; <span>Installations</span></h2>
+                    <p>Real TEMAX cameras working in plants across India.</p>
+                </div>
+
+                <div class="vp-bar" id="vp-bar">
+                    <label class="vp-search">
+                        <span class="visually-hidden">Search projects</span>
+                        <input type="search" id="vp-search" placeholder="Search projects..." autocomplete="off">
+                    </label>
+                    <div class="vp-chips" role="group" aria-label="Filter by industry">
+                        <button type="button" class="vp-chip is-active" data-cat="all">All <small>{{ $projects->count() }}</small></button>
+                        @foreach ($types as $type)
+                            <button type="button" class="vp-chip" data-cat="type-{{ \Illuminate\Support\Str::slug($type) }}">{{ $type }} <small>{{ $countByType[$type]->count() ?? 0 }}</small></button>
                         @endforeach
                     </div>
                 </div>
+
+                <p class="vp-count" aria-live="polite"><span id="vp-shown">{{ $projects->count() }}</span> of {{ $projects->count() }} projects</p>
+
+                <div class="row clearfix vp-grid">
+                    @foreach ($projects as $project)
+                        <div class="col-xl-4 col-md-6 col-sm-12 vp-col" data-cat="type-{{ \Illuminate\Support\Str::slug($project->type) }}" data-text="{{ \Illuminate\Support\Str::lower($project->title . ' ' . $project->text . ' ' . $project->place . ' ' . $project->type) }}">
+                            <article class="vp-card">
+                                <a class="vp-card-img vp-card-img-lg" href="{{ route('projects.show', $project->id) }}" tabindex="-1" aria-hidden="true">
+                                    <img src="{{ asset(optional($project->images->first())->path ?: 'assets/images/project/project-1.jpg') }}" alt="{{ $project->title }}" loading="lazy">
+                                </a>
+                                <div class="vp-card-body">
+                                    <span class="vp-card-tag">{{ $project->type ?: 'Project' }}</span>
+                                    <h3><a href="{{ route('projects.show', $project->id) }}">{{ $project->title }}</a></h3>
+                                    @if ($project->place)
+                                        <p class="vp-card-place"><i class="flaticon-nut"></i> {{ $project->place }}</p>
+                                    @endif
+                                    <p>{{ \Illuminate\Support\Str::limit($project->text, 110) }}</p>
+                                    <a href="{{ route('projects.show', $project->id) }}" class="vp-card-link">View project <i class="flaticon-right-arrow"></i></a>
+                                </div>
+                            </article>
+                        </div>
+                    @endforeach
+                </div>
+
+                <p class="vp-empty" id="vp-empty" hidden>No projects match your search.</p>
             @else
-                <div class="sec-title centred mb_45">
+                <div class="vh-title text-center">
                     <h6>Our Track Record</h6>
                     <h2>Projects Coming <span>Soon</span></h2>
-                    <p class="mt_12">New installations are being added to this section.</p>
+                    <p>New installations are being added to this section.</p>
                 </div>
             @endif
         </div>
     </section>
-    <!-- project-style-three end -->
 
     @include('partials.cta')
 
 @endsection
 
-@push('styles')
-    <style>
-        .project-block-two {
-            width: 100%;
-        }
+@push('scripts')
+    <script>
+        (function () {
+            var bar = document.getElementById('vp-bar');
+            if (!bar) return;
+            var input = document.getElementById('vp-search');
+            var chips = bar.querySelectorAll('.vp-chip');
+            var cols = document.querySelectorAll('.vp-col');
+            var shown = document.getElementById('vp-shown');
+            var empty = document.getElementById('vp-empty');
+            var cat = 'all';
 
-        .project-block-two .inner-box {
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-end;
-            width: 100%;
-            height: 460px;
-            overflow: hidden;
-            margin-bottom: 30px;
-            border-radius: 4px;
-        }
-
-        .project-block-two .inner-box .upper-box {
-            padding: 24px 30px 18px 30px;
-            border-bottom: 4px solid #fff;
-            margin-top: auto;
-            z-index: 2;
-        }
-
-        .project-block-two .inner-box .upper-box h3 {
-            font-size: 24px;
-            line-height: 32px;
-            max-width: 100%;
-            min-height: 64px;
-            display: -webkit-box;
-            -webkit-line-clamp: 2;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
-        }
-
-        .project-block-two .inner-box .lower-box {
-            padding: 16px 30px 16px 30px;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 60px;
-            flex-shrink: 0;
-            z-index: 2;
-        }
-
-        @media only screen and (max-width: 767px) {
-            .project-block-two .inner-box {
-                height: 390px;
+            function apply() {
+                var q = input.value.trim().toLowerCase(), n = 0;
+                Array.prototype.forEach.call(cols, function (c) {
+                    var ok = (cat === 'all' || c.getAttribute('data-cat') === cat) &&
+                             (q === '' || c.getAttribute('data-text').indexOf(q) !== -1);
+                    c.hidden = !ok;
+                    if (ok) n++;
+                });
+                shown.textContent = n;
+                empty.hidden = n !== 0;
             }
-            .project-block-two .inner-box .upper-box {
-                padding: 20px 20px 16px 20px;
-            }
-            .project-block-two .inner-box .upper-box h3 {
-                font-size: 20px;
-                line-height: 28px;
-                min-height: 56px;
-            }
-            .project-block-two .inner-box .lower-box {
-                padding: 12px 20px;
-                height: 54px;
-            }
-        }
-    </style>
+            Array.prototype.forEach.call(chips, function (chip) {
+                chip.addEventListener('click', function () {
+                    cat = chip.getAttribute('data-cat');
+                    Array.prototype.forEach.call(chips, function (c) { c.classList.toggle('is-active', c === chip); });
+                    apply();
+                });
+            });
+            input.addEventListener('input', apply);
+        })();
+    </script>
 @endpush

@@ -505,3 +505,10 @@ body { background: var(--ts-page-bg); }
 }
 .vm-section { padding: 0; }
 .contact-style-two { padding-bottom: 50px; }
+
+/* 24) Projects page reuses the portfolio card (section 22) with larger photos */
+.vp-card-img-lg { display: block; height: 220px; }
+.vp-card-place { margin: 0 0 8px; font-size: 14px; font-weight: 600; color: var(--title-color); }
+.vp-card-place i { color: var(--theme-color); margin-right: 4px; }
+.vp-card-body h3 a { color: var(--title-color); }
+.vp-card-body h3 a:hover { color: var(--theme-color); }
