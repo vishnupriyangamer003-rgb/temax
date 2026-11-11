@@ -8,7 +8,6 @@
     @php
         $images = $project->images->values();
         $cover = $images->first()->path ?? 'assets/images/project/project-1.jpg';
-        $gallery = $images->slice(1)->values();
     @endphp
 
     @include('partials.page-title', ['pageTitle' => 'Project Details'])
@@ -64,24 +63,6 @@
                     </div>
                 </div>
             </div>
-
-            @if ($gallery->count())
-                <div class="lower-box pb_40">
-                    <div class="text-box centred">
-                        <h3>Project Gallery</h3>
-                        <p>Images from this TEMAX installation.</p>
-                    </div>
-                    <div class="row clearfix">
-                        @foreach ($gallery as $image)
-                            <div class="col-lg-6 col-md-12 col-sm-12 single-column">
-                                <div class="single-item">
-                                    <figure class="image-box"><img src="{{ asset($image->path) }}" alt="{{ $project->title }}"></figure>
-                                </div>
-                            </div>
-                        @endforeach
-                    </div>
-                </div>
-            @endif
 
             @if ($others->count())
                 <div class="related-project">
