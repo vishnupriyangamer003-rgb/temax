@@ -255,7 +255,7 @@ body .wow {
 
 /* 13) Why Choose Us: dark strip, icon + title + text columns ----------------------- */
 .vh-reasons { padding: 70px 0; background: var(--secondary-color); }
-.vh-reasons .vh-title h2  /* heading span keeps accent */
+.vh-reasons .vh-title h2 { color: #fff; }
 .vh-reasons .vh-title p { color: #c9d1d8; }
 .vh-reason { height: 100%; margin-bottom: 28px; padding: 4px 10px 0 18px; border-left: 2px solid rgba(255, 255, 255, .18); background: transparent; }
 .vh-reason > i { display: block; font-size: 38px; line-height: 1; color: var(--theme-color); margin-bottom: 14px; }
