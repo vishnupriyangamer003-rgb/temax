@@ -85,22 +85,29 @@
 
             @if ($others->count())
                 <div class="related-project">
-                    <h2>Related Projects</h2>
-                    <div class="row clearfix">
+                    <div class="vh-title">
+                        <h6>More installations</h6>
+                        <h2>Related <span>Projects</span></h2>
+                    </div>
+                    <div class="row clearfix vp-grid vp-grid--hover">
                         @foreach ($others as $other)
-                            <div class="col-lg-4 col-md-6 col-sm-12 project-block">
-                                <div class="project-block-two">
-                                    <div class="inner-box">
-                                        <div class="bg-layer" style="background-image: url({{ asset(optional($other->images->first())->path ?: 'assets/images/project/project-1.jpg') }});"></div>
-                                        <div class="upper-box">
-                                            <h3><a href="{{ route('projects.show', $other->id) }}">{{ $other->title }}</a></h3>
-                                        </div>
-                                        <div class="lower-box">
-                                            <h6><i class="flaticon-nut"></i><span>{{ $other->type ?: 'Project' }}</span></h6>
-                                            <div class="link"><a href="{{ route('projects.show', $other->id) }}"><i class="flaticon-right-arrow"></i></a></div>
+                            <div class="col-xl-4 col-md-6 col-sm-12 vp-col">
+                                <article class="vp-card">
+                                    <a class="vp-card-img vp-card-img-lg" href="{{ route('projects.show', $other->id) }}" tabindex="-1" aria-hidden="true">
+                                        <img src="{{ asset(optional($other->images->first())->path ?: 'assets/images/project/project-1.jpg') }}" alt="{{ $other->title }}" loading="lazy">
+                                    </a>
+                                    <div class="vp-card-body">
+                                        <span class="vp-card-tag">{{ $other->type ?: 'Project' }}</span>
+                                        <h3><a href="{{ route('projects.show', $other->id) }}">{{ $other->title }}</a></h3>
+                                        <div class="vp-extra">
+                                            @if ($other->place)
+                                                <p class="vp-card-place"><i class="flaticon-nut"></i> {{ $other->place }}</p>
+                                            @endif
+                                            <p>{{ \Illuminate\Support\Str::limit($other->text, 110) }}</p>
+                                            <a href="{{ route('projects.show', $other->id) }}" class="vp-card-link">View project <i class="flaticon-right-arrow"></i></a>
                                         </div>
                                     </div>
-                                </div>
+                                </article>
                             </div>
                         @endforeach
                     </div>

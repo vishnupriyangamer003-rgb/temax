@@ -531,3 +531,4 @@ body { background: var(--ts-page-bg); }
   .vp-grid--hover .vp-card-link { color: var(--theme-color); }
   .vp-grid--hover .vp-card-link:hover { color: #fff; }
 }
+.related-project { margin-top: 20px; }
