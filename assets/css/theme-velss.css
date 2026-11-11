@@ -68,7 +68,7 @@ body .main-header .menu-right-content { gap: 20px; }
    (body prefix beats the inline <style> in layouts/app.blade.php) */
 body .page-title {
   padding: 48px 0;
-  background-color: var(--secondary-color);
+  background: linear-gradient(90deg, rgba(20,40,58,.88) 0%, rgba(20,40,58,.7) 45%, rgba(20,40,58,0) 100%), url("../images/temax/page-banner.svg") 70% center / cover no-repeat, var(--secondary-color);
   border-bottom: 0;
 }
 body .page-title .bg-layer,
@@ -94,6 +94,12 @@ body .page-title .content-box .bread-crumb li i,
 body .page-title .content-box .bread-crumb li span { text-shadow: none; font-weight: 500; }
 body .page-title .content-box .bread-crumb li:last-child span { text-decoration: none; }
 
+/* banner text contrast: light text on the dark image */
+body .page-title .content-box h1 { color: #fff; text-shadow: 0 1px 2px rgba(0,0,0,.35); }
+body .page-title .content-box .bread-crumb li a,
+body .page-title .content-box .bread-crumb li i { color: rgba(255,255,255,.88); }
+body .page-title .content-box .bread-crumb li a:hover { color: #fff; }
+body .page-title .content-box .bread-crumb li:last-child span { color: #ff8a52; }
 @media (max-width: 767px) {
   body .page-title { padding: 32px 0; }
   body .page-title .content-box h1 { font-size: 26px; line-height: 34px; }
