@@ -430,3 +430,5 @@ body { background: var(--ts-page-bg); }
   .va-table td { padding-top: 0; border-bottom: 1px solid var(--ts-border); }
   .va-story-body h3 { font-size: 23px; line-height: 30px; }
 }
+.va-copy { max-width: 820px; margin: -8px auto 36px; }
+.va-copy p { text-align: left; font-size: 16px; line-height: 27px; margin-bottom: 14px; }

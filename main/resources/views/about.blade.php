@@ -17,6 +17,11 @@
             <p class="va-lead">Founded in 1996 in Karur, Tamil Nadu, TEMAX manufactures high-temperature
                 furnace camera systems, cooling systems, auto retraction systems and
                 thermal cameras for the cement, thermal and glass industries.</p>
+            <div class="va-copy">
+                <p>The TEMAX Technical Development Team, founded in 1996, is an innovative, high-technology enterprise engaged in technical solutions for special high-temperature image detection and industrial process digital integration, as well as system development, manufacture, sale and service.</p>
+                <p>With a self-owned brand, a strong marketing and service network and a strict production management system, TEMAX products are supplied all over India. Guided by the tenet &ldquo;market oriented and innovation for development&rdquo;, the company is devoted to being an industry leader in special automatic detection technology.</p>
+                <p>TEMAX believes its responsibility is to satisfy every customer and user of its products and services by meeting their needs promptly and accurately, while maintaining the highest quality standards. Its state-of-the-art manufacturing facilities are backed by a continuous focus on new products, innovation, technology up-gradation and research and development.</p>
+            </div>
             <figure class="va-hero"><img src="{{ asset('assets/images/temax/kiln-2016.png') }}" alt="TEMAX furnace camera on a rotary kiln"></figure>
         </div>
     </section>
@@ -26,10 +31,12 @@
         <div class="auto-container">
             <div class="vh-title text-center"><h2>Key facts</h2></div>
             <div class="row clearfix">
-                <div class="col-lg-3 col-sm-6"><div class="va-fact"><i class="flaticon-factory-1"></i><strong>1996</strong><span>Founded in Karur, Tamil Nadu</span></div></div>
-                <div class="col-lg-3 col-sm-6"><div class="va-fact"><i class="flaticon-trophy"></i><strong>30+</strong><span>Years of experience</span></div></div>
-                <div class="col-lg-3 col-sm-6"><div class="va-fact"><i class="flaticon-manufacturing"></i><strong>90%</strong><span>Made in India</span></div></div>
-                <div class="col-lg-3 col-sm-6"><div class="va-fact"><i class="flaticon-engineer"></i><strong>100+</strong><span>Plants served</span></div></div>
+                <div class="col-lg-4 col-sm-6"><div class="va-fact"><i class="flaticon-factory-1"></i><strong>1996</strong><span>Founded in Karur, Tamil Nadu</span></div></div>
+                <div class="col-lg-4 col-sm-6"><div class="va-fact"><i class="flaticon-trophy"></i><strong>30+</strong><span>Years of experience</span></div></div>
+                <div class="col-lg-4 col-sm-6"><div class="va-fact"><i class="flaticon-manufacturing"></i><strong>90%</strong><span>Made in India</span></div></div>
+                <div class="col-lg-4 col-sm-6"><div class="va-fact"><i class="flaticon-engineer"></i><strong>100+</strong><span>Plants served</span></div></div>
+                <div class="col-lg-4 col-sm-6"><div class="va-fact"><i class="flaticon-manufacturing-1"></i><strong>2000&nbsp;°C</strong><span>Operating environment rating</span></div></div>
+                <div class="col-lg-4 col-sm-6"><div class="va-fact"><i class="flaticon-zoom"></i><strong>1080p</strong><span>HD image, 960+ TV lines</span></div></div>
             </div>
         </div>
     </section>
@@ -45,6 +52,13 @@
                     <tr><th>Made in India</th><td>90%</td></tr>
                     <tr><th>First furnace camera for kiln application</th><td>2016</td></tr>
                     <tr><th>Industries served</th><td>Cement, Thermal, Glass</td></tr>
+                    <tr><th>Core products</th><td>Furnace camera tube, cooling system, auto retraction system, thermal cameras</td></tr>
+                    <tr><th>Image sensor</th><td>1/3&Prime; Sony colour CCD, more than 960 and 1080 TV lines (HD quality)</td></tr>
+                    <tr><th>Maximum environment</th><td>Up to 2000 °C</td></tr>
+                    <tr><th>Cooling</th><td>Air or water cooling (SS 316, corrosion free)</td></tr>
+                    <tr><th>Furnace wall thickness</th><td>200 to 600 mm</td></tr>
+                    <tr><th>Manufacturing</th><td>90% in India, spares available locally, customisation possible</td></tr>
+                    <tr><th>Service area</th><td>Supplied all over India</td></tr>
                 </tbody>
             </table>
         </div>
