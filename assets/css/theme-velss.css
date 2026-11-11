@@ -252,3 +252,13 @@ body .wow {
   .vh-project { height: 220px; }
 }
 @media (max-width: 991px) { .vh-card, .vh-feature { height: auto; } }
+
+/* 13) Why Choose Us: simple icon + title + text grid ----------------------- */
+.vh-reasons { padding: 70px 0; background: var(--ts-surface-alt); }
+.vh-reason { height: 100%; margin-bottom: 24px; padding: 24px; background: #fff; border: 1px solid var(--ts-border); border-radius: var(--ts-radius); }
+.vh-reason > i { display: block; font-size: 34px; line-height: 1; color: var(--theme-color); margin-bottom: 14px; }
+.vh-reason h3 { font-size: 19px; line-height: 26px; margin-bottom: 8px; }
+.vh-reason h3 a { color: var(--title-color); }
+.vh-reason h3 a:hover { color: var(--theme-color); }
+.vh-reason p { margin: 0; }
+@media (max-width: 991px) { .vh-reason { height: auto; } .vh-reasons { padding: 48px 0; } }

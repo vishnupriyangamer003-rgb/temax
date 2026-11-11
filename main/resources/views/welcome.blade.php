@@ -348,103 +348,55 @@
     </section>
     <!-- working-section end -->
 
-    <!-- chooseus-section -->
-    <section class="chooseus-section">
+    <!-- chooseus-section (simple icon + title + text grid) -->
+    <section class="vh-reasons">
         <div class="auto-container">
-            <div class="sec-title centred mb_45">
+            <div class="vh-title text-center">
                 <h6>Why Choose Us</h6>
                 <h2>Top Reasons to <span>Choose</span> Us</h2>
-                <p class="mt_12">Three decades of furnace viewing expertise.</p>
+                <p>Three decades of furnace viewing expertise.</p>
             </div>
             <div class="row clearfix">
-                <div class="col-lg-4 col-md-6 col-sm-12 chooseus-block">
-                    <div class="chooseus-block-one">
-                        <div class="inner-box">
-                            <div class="light-icon"><i class="flaticon-gear"></i></div>
-                            <div class="block-shape" style="background-image: url({{ asset('assets/images/shape/shape-11.png') }});"></div>
-                            <div class="icon-box">
-                                <div class="icon"><i class="flaticon-manufacturing"></i></div>
-                                <div class="bar-shape"></div>
-                            </div>
-                            <h3><a href="{{ route('about') }}">Furnace Camera Specialists</a></h3>
-                            <p>Three decades of high-temperature viewing experience across cement, thermal and glass plants.</p>
-                            <div class="link"><a href="{{ route('about') }}"><i class="flaticon-right-arrow"></i><span>Read More</span></a></div>
-                        </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="vh-reason">
+                        <i class="flaticon-manufacturing"></i>
+                        <h3><a href="{{ route('about') }}">Furnace Camera Specialists</a></h3>
+                        <p>Three decades of high-temperature viewing experience across cement, thermal and glass plants.</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 chooseus-block">
-                    <div class="chooseus-block-one">
-                        <div class="inner-box">
-                            <div class="light-icon"><i class="flaticon-gear"></i></div>
-                            <div class="block-shape" style="background-image: url({{ asset('assets/images/shape/shape-11.png') }});"></div>
-                            <div class="icon-box">
-                                <div class="icon"><i class="flaticon-engineer"></i></div>
-                                <div class="bar-shape"></div>
-                            </div>
-                            <h3><a href="{{ route('about') }}">90% Made in India</a></h3>
-                            <p>Main modules only imported — all spares available locally with immediate support.</p>
-                            <div class="link"><a href="{{ route('about') }}"><i class="flaticon-right-arrow"></i><span>Read More</span></a></div>
-                        </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="vh-reason">
+                        <i class="flaticon-engineer"></i>
+                        <h3><a href="{{ route('about') }}">90% Made in India</a></h3>
+                        <p>Main modules only imported — all spares available locally with immediate support.</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 chooseus-block">
-                    <div class="chooseus-block-one">
-                        <div class="inner-box">
-                            <div class="light-icon"><i class="flaticon-gear"></i></div>
-                            <div class="block-shape" style="background-image: url({{ asset('assets/images/shape/shape-11.png') }});"></div>
-                            <div class="icon-box">
-                                <div class="icon"><i class="flaticon-manufacturing-1"></i></div>
-                                <div class="bar-shape"></div>
-                            </div>
-                            <h3><a href="{{ route('services') }}">Built for 2000&nbsp;°C</a></h3>
-                            <p>Air and water cooled camera systems rated for the toughest furnace environments.</p>
-                            <div class="link"><a href="{{ route('services') }}"><i class="flaticon-right-arrow"></i><span>Read More</span></a></div>
-                        </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="vh-reason">
+                        <i class="flaticon-manufacturing-1"></i>
+                        <h3><a href="{{ route('services') }}">Built for 2000&nbsp;°C</a></h3>
+                        <p>Air and water cooled camera systems rated for the toughest furnace environments.</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 chooseus-block">
-                    <div class="chooseus-block-one">
-                        <div class="inner-box">
-                            <div class="light-icon"><i class="flaticon-gear"></i></div>
-                            <div class="block-shape" style="background-image: url({{ asset('assets/images/shape/shape-11.png') }});"></div>
-                            <div class="icon-box">
-                                <div class="icon"><i class="flaticon-goal"></i></div>
-                                <div class="bar-shape"></div>
-                            </div>
-                            <h3><a href="{{ route('contact') }}">Cost-Effective Spares</a></h3>
-                            <p>Economical, locally available spares keep your running costs down.</p>
-                            <div class="link"><a href="{{ route('contact') }}"><i class="flaticon-right-arrow"></i><span>Read More</span></a></div>
-                        </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="vh-reason">
+                        <i class="flaticon-goal"></i>
+                        <h3><a href="{{ route('contact') }}">Cost-Effective Spares</a></h3>
+                        <p>Economical, locally available spares keep your running costs down.</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 chooseus-block">
-                    <div class="chooseus-block-one">
-                        <div class="inner-box">
-                            <div class="light-icon"><i class="flaticon-gear"></i></div>
-                            <div class="block-shape" style="background-image: url({{ asset('assets/images/shape/shape-11.png') }});"></div>
-                            <div class="icon-box">
-                                <div class="icon"><i class="flaticon-test"></i></div>
-                                <div class="bar-shape"></div>
-                            </div>
-                            <h3><a href="{{ route('about') }}">Quality Assurance</a></h3>
-                            <p>Every unit is built and tested at the TEMAX production unit in Karur.</p>
-                            <div class="link"><a href="{{ route('about') }}"><i class="flaticon-right-arrow"></i><span>Read More</span></a></div>
-                        </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="vh-reason">
+                        <i class="flaticon-test"></i>
+                        <h3><a href="{{ route('about') }}">Quality Assurance</a></h3>
+                        <p>Every unit is built and tested at the TEMAX production unit in Karur.</p>
                     </div>
                 </div>
-                <div class="col-lg-4 col-md-6 col-sm-12 chooseus-block">
-                    <div class="chooseus-block-one">
-                        <div class="inner-box">
-                            <div class="light-icon"><i class="flaticon-gear"></i></div>
-                            <div class="block-shape" style="background-image: url({{ asset('assets/images/shape/shape-11.png') }});"></div>
-                            <div class="icon-box">
-                                <div class="icon"><i class="flaticon-certificate"></i></div>
-                                <div class="bar-shape"></div>
-                            </div>
-                            <h3><a href="{{ route('projects') }}">First for Kiln Cameras</a></h3>
-                            <p>Developed the first furnace camera for kiln application in 2016.</p>
-                            <div class="link"><a href="{{ route('projects') }}"><i class="flaticon-right-arrow"></i><span>Read More</span></a></div>
-                        </div>
+                <div class="col-lg-4 col-md-6 col-sm-12">
+                    <div class="vh-reason">
+                        <i class="flaticon-certificate"></i>
+                        <h3><a href="{{ route('projects') }}">First for Kiln Cameras</a></h3>
+                        <p>Developed the first furnace camera for kiln application in 2016.</p>
                     </div>
                 </div>
             </div>
