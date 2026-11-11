@@ -207,7 +207,7 @@
     </section>
     <!-- industries-section end -->
 
-    <!-- project-section (Velss layout: image cards with hover overlay) -->
+    <!-- project-section (product-card style: title, tag, image, place, text, button) -->
     <section class="vh-projects">
         <div class="auto-container">
             <div class="vh-title text-center">
@@ -217,17 +217,17 @@
             </div>
             <div class="row clearfix">
                 @forelse ($homeProjects->take(4) as $project)
-                    <div class="col-lg-3 col-md-6 col-sm-12">
-                        <a class="vh-project" href="{{ route('projects.show', $project->id) }}">
-                            <div class="vh-project-img" style="background-image: url({{ asset(optional($project->images->first())->path ?: 'assets/images/project/project-1.jpg') }});"></div>
-                            <h3 class="vh-project-title">{{ $project->title }}</h3>
-                            <div class="vh-project-hover">
-                                <span class="category">{{ $project->type ?: 'Project' }}</span>
-                                <h3>{{ $project->title }}</h3>
-                                <p>{{ \Illuminate\Support\Str::limit($project->text, 90) }}</p>
-                                <small>{{ $project->place }}</small>
-                            </div>
-                        </a>
+                    <div class="col-xl-3 col-md-6 col-sm-12">
+                        <article class="vh-pcard">
+                            <h3 class="vh-pcard-title"><a href="{{ route('projects.show', $project->id) }}">{{ $project->title }}</a></h3>
+                            <span class="vh-pcard-tag">{{ $project->type ?: 'Project' }}</span>
+                            <a class="vh-pcard-img" href="{{ route('projects.show', $project->id) }}" tabindex="-1" aria-hidden="true">
+                                <img src="{{ asset(optional($project->images->first())->path ?: 'assets/images/project/project-1.jpg') }}" alt="{{ $project->title }}" loading="lazy">
+                            </a>
+                            <strong class="vh-pcard-place">{{ $project->place }}</strong>
+                            <p>{{ \Illuminate\Support\Str::limit($project->text, 90) }}</p>
+                            <a href="{{ route('projects.show', $project->id) }}" class="vh-pcard-btn"><i class="flaticon-right-arrow"></i> View project</a>
+                        </article>
                     </div>
                 @empty
                     <div class="col-12 text-center"><p>New installations are being added to this section. <a href="{{ route('contact') }}">Contact us</a>.</p></div>
