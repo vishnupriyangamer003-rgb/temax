@@ -74,7 +74,6 @@
                                 <div class="icon-box"><div class="icon"><i class="flaticon-headphones"></i></div></div>
                                 <h4><a href="tel:{{ preg_replace('/[^0-9+]/', '', setting('phone')) }}">{{ setting('phone_display', setting('phone')) }}</a></h4>
                                 <p><a href="mailto:{{ setting('email') }}">{{ setting('email') }}</a></p>
-                                <a href="{{ route('contact') }}" class="theme-btn"><i class="flaticon-right-arrow"></i><span>Appointment</span></a>
                             </div>
                         </div>
                     </div>
