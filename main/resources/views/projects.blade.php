@@ -36,7 +36,7 @@
 
                 <p class="vp-count" aria-live="polite"><span id="vp-shown">{{ $projects->count() }}</span> of {{ $projects->count() }} projects</p>
 
-                <div class="row clearfix vp-grid">
+                <div class="row clearfix vp-grid vp-grid--hover">
                     @foreach ($projects as $project)
                         <div class="col-xl-4 col-md-6 col-sm-12 vp-col" data-cat="type-{{ \Illuminate\Support\Str::slug($project->type) }}" data-text="{{ \Illuminate\Support\Str::lower($project->title . ' ' . $project->text . ' ' . $project->place . ' ' . $project->type) }}">
                             <article class="vp-card">
@@ -46,11 +46,13 @@
                                 <div class="vp-card-body">
                                     <span class="vp-card-tag">{{ $project->type ?: 'Project' }}</span>
                                     <h3><a href="{{ route('projects.show', $project->id) }}">{{ $project->title }}</a></h3>
+                                    <div class="vp-extra">
                                     @if ($project->place)
                                         <p class="vp-card-place"><i class="flaticon-nut"></i> {{ $project->place }}</p>
                                     @endif
                                     <p>{{ \Illuminate\Support\Str::limit($project->text, 110) }}</p>
                                     <a href="{{ route('projects.show', $project->id) }}" class="vp-card-link">View project <i class="flaticon-right-arrow"></i></a>
+                                    </div>
                                 </div>
                             </article>
                         </div>
