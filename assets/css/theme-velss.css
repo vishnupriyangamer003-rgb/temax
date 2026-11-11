@@ -338,3 +338,21 @@ body { background: var(--ts-page-bg); }
 .form-inner, .form-inner .form-group input, .form-inner .form-group textarea, .form-inner .form-group .nice-select, .form-inner .form-group select { background-color: #fff; }
 .contact-style-three .content-column .content-box { background-color: #fff; }
 .product-block-one .inner-box { background-color: #fff; border: 1px solid var(--ts-border); }
+
+/* 18) Mobile fixes (home page) --------------------------------------------- */
+@media (max-width: 991px) {
+  body .main-header .header-logo { display: flex; }
+  body .main-header .header-logo img { max-width: 130px; max-height: 34px; }
+  body .main-header .left-column { gap: 16px; }
+  body .main-header .menu-area { margin-left: 0; }
+  .vh-about .col-lg-6:first-child { margin-bottom: 24px; }
+}
+@media (max-width: 575px) {
+  .vh-hero-actions .theme-btn, .vh-feature-strip .theme-btn { width: 100%; }
+  .vh-service-go { display: none; }
+  .temax-slogan-section .theme-btn { margin: 0 auto; }
+}
+@media (max-width: 575px) {
+  body .main-header .left-column { width: 100%; justify-content: space-between; }
+  body .main-header .menu-area { margin-left: auto; }
+}
