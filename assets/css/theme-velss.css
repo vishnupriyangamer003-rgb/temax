@@ -337,3 +337,4 @@ body { background: var(--ts-page-bg); }
 .vh-service-row:nth-child(even) { background: var(--ts-page-bg); }
 .form-inner, .form-inner .form-group input, .form-inner .form-group textarea, .form-inner .form-group .nice-select, .form-inner .form-group select { background-color: #fff; }
 .contact-style-three .content-column .content-box { background-color: #fff; }
+.product-block-one .inner-box { background-color: #fff; border: 1px solid var(--ts-border); }
