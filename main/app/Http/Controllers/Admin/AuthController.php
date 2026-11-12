@@ -13,7 +13,7 @@ class AuthController extends Controller
     public function showLogin()
     {
         if (Auth::check() && Auth::user()->is_admin) {
-            return redirect()->route('admin.dashboard');
+            return redirect()->route('admin.slides.index');
         }
 
         return view('admin.auth.login');
@@ -62,7 +62,7 @@ class AuthController extends Controller
         Auth::login($user, $request->boolean('remember'));
         $request->session()->regenerate();
 
-        return redirect()->intended(route('admin.dashboard'));
+        return redirect()->intended(route('admin.slides.index'));
     }
 
     public function logout(Request $request)

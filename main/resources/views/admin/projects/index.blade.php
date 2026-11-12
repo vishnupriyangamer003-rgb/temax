@@ -40,8 +40,8 @@
                                 @endif
                             </td>
                             <td style="padding:12px 16px;">
-                                <strong>{{ $project->title }}</strong>
-                                <small style="display:block; color:var(--text-muted);">{{ $project->place }}</small>
+                                <strong>{{ $project->title }}</strong>@if ($project->is_featured) <span style="font-size:11px; font-weight:700; padding:2px 7px; border-radius:6px; background:#fef3c7; color:#92400e;">Featured</span>@endif
+                                <small style="display:block; color:var(--text-muted);">{{ $project->client ? $project->client . ' · ' : '' }}{{ $project->place }}</small>
                             </td>
                             <td style="padding:12px 16px;">
                                 <span style="font-size:12px; font-weight:600; padding:3px 8px; border-radius:6px; background:#f1f5f9; color:#475569;">

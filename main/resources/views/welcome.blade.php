@@ -36,43 +36,27 @@
 @section('content')
 
     <!-- hero slider: simple auto-sliding image banner -->
+    @if ($slides->count())
     <section class="vh-slider" id="home-hero" aria-roledescription="carousel" aria-label="TEMAX highlights">
         <div class="vh-slides">
-            <div class="vh-slide is-active" style="background-image: url({{ asset('assets/images/temax/kiln-camera.jpg') }});">
-                <div class="vh-slide-overlay"></div>
-                <div class="auto-container">
-                    <div class="vh-slide-text">
-                        <h1>See <span>Inside Your Furnace</span></h1>
-                        <p>Live, continuous furnace viewing — TEMAX camera systems built for cement, thermal and glass plants since 1996.</p>
-                        <a href="{{ route('services') }}" class="theme-btn btn-one"><i class="flaticon-right-arrow"></i><span>Read More</span></a>
+            @foreach ($slides as $slide)
+                @php $hTag = $loop->first ? 'h1' : 'h2'; @endphp
+                <div class="vh-slide {{ $loop->first ? 'is-active' : '' }}" style="background-image: url({{ asset($slide->image) }});">
+                    <div class="vh-slide-overlay"></div>
+                    <div class="auto-container">
+                        <div class="vh-slide-text">
+                            <{{ $hTag }}>{!! e($slide->title) !!} @if ($slide->highlight)<span>{{ $slide->highlight }}</span>@endif</{{ $hTag }}>
+                            @if ($slide->text)<p>{{ $slide->text }}</p>@endif
+                        </div>
                     </div>
                 </div>
-            </div>
-            <div class="vh-slide" style="background-image: url({{ asset('assets/images/temax/dispatch.jpg') }});">
-                <div class="vh-slide-overlay"></div>
-                <div class="auto-container">
-                    <div class="vh-slide-text">
-                        <h2>Cooling &amp; <span>Retraction Systems</span></h2>
-                        <p>SS 316 cooling and pneumatic auto retraction protect camera and operator in environments up to 2000&nbsp;°C.</p>
-                        <a href="{{ route('products') }}" class="theme-btn btn-one"><i class="flaticon-right-arrow"></i><span>Read More</span></a>
-                    </div>
-                </div>
-            </div>
-            <div class="vh-slide" style="background-image: url({{ asset('assets/images/temax/thermal-camera.jpg') }});">
-                <div class="vh-slide-overlay"></div>
-                <div class="auto-container">
-                    <div class="vh-slide-text">
-                        <h2>Thermal <span>Kiln Shell Monitoring</span></h2>
-                        <p>Temperature-reading thermal cameras track hot spots and coating loss across the entire kiln length.</p>
-                        <a href="{{ route('projects') }}" class="theme-btn btn-one"><i class="flaticon-right-arrow"></i><span>Read More</span></a>
-                    </div>
-                </div>
-            </div>
+            @endforeach
         </div>
         <button type="button" class="vh-nav vh-prev" aria-label="Previous slide">&#10094;</button>
         <button type="button" class="vh-nav vh-next" aria-label="Next slide">&#10095;</button>
         <div class="vh-dots" role="tablist" aria-label="Choose slide"></div>
     </section>
+    @endif
     <!-- hero slider end -->
 
     <!-- intro-section (Identity / Stability / Technology) -->

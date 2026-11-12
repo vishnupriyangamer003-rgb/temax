@@ -34,19 +34,6 @@
                             @endif
                         </div>
 
-                        @if (!empty($service->points) && count($service->points))
-                            <div class="content-three pb_20">
-                                <div class="text-box">
-                                    <h3>Why It Matters</h3>
-                                    <p>Reasons plants across India choose this TEMAX system.</p>
-                                </div>
-                                <ul class="list-style-one clearfix mt_25">
-                                    @foreach ($service->points as $point)
-                                        <li><i class="flaticon-check"></i><span>{{ $point }}</span></li>
-                                    @endforeach
-                                </ul>
-                            </div>
-                        @endif
                     </div>
                 </div>
 

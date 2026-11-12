@@ -42,9 +42,6 @@
                                             <li class="{{ request()->routeIs('projects*') ? 'current' : '' }}">
                                                 <a href="{{ route('projects') }}">Projects</a>
                                             </li>
-                                            <li class="{{ request()->routeIs('contact') ? 'current' : '' }}">
-                                                <a href="{{ route('contact') }}">Contact</a>
-                                            </li>
                                         </ul>
                                     </div>
                                 </nav>
@@ -57,7 +54,7 @@
                                 </a>
                             </li>
                             <li class="btn-box">
-                                <a href="{{ route('contact') }}" class="theme-btn btn-one"><i class="flaticon-mail"></i><span>Get a Quote</span></a>
+                                <a href="{{ route('contact') }}" class="theme-btn btn-one"><i class="flaticon-mail"></i><span>Contact</span></a>
                             </li>
                         </ul>
                     </div>
@@ -88,7 +85,7 @@
                                 </a>
                             </li>
                             <li class="btn-box">
-                                <a href="{{ route('contact') }}" class="theme-btn btn-one"><i class="flaticon-mail"></i><span>Get a Quote</span></a>
+                                <a href="{{ route('contact') }}" class="theme-btn btn-one"><i class="flaticon-mail"></i><span>Contact</span></a>
                             </li>
                         </ul>
                     </div>

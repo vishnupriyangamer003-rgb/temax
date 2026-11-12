@@ -405,6 +405,14 @@
                 grid-template-columns: 1fr !important;
             }
         }
+
+        /* Shared admin form controls */
+        .form-group { margin-bottom: 20px; }
+        .form-label { display: block; font-weight: 600; font-size: 14px; margin-bottom: 6px; }
+        .form-control { display: block; width: 100%; padding: 10px 14px; border: 1px solid var(--border); border-radius: 6px; font-size: 15px; font-family: inherit; background: #fff; }
+        textarea.form-control { resize: vertical; }
+        input[type="file"].form-control { padding: 8px 10px; }
+        .form-control:focus { outline: 0; border-color: var(--accent); box-shadow: 0 0 0 2px rgba(242, 101, 34, .15); }
     </style>
     @stack('styles')
 </head>
@@ -413,7 +421,7 @@
     <!-- Sidebar -->
     <aside class="admin-sidebar">
         <div class="sidebar-brand">
-            <a href="{{ route('admin.dashboard') }}">
+            <a href="{{ route('admin.slides.index') }}">
                 <img src="{{ asset('assets/images/temax/logo.png') }}" alt="{{ setting('site_name', 'TEMAX') }}">
             </a>
             <h4>Control Panel</h4>
@@ -421,9 +429,9 @@
 
         <ul class="sidebar-menu">
             <li>
-                <a href="{{ route('admin.dashboard') }}" class="{{ request()->routeIs('admin.dashboard') ? 'active' : '' }}">
-                    <i class="fas fa-tachometer-alt"></i>
-                    <span>Dashboard</span>
+                <a href="{{ route('admin.slides.index') }}" class="{{ request()->routeIs('admin.slides*') ? 'active' : '' }}">
+                    <i class="fas fa-images"></i>
+                    <span>Home Banner</span>
                 </a>
             </li>
             <li>
@@ -448,16 +456,6 @@
                 <a href="{{ route('admin.clients.index') }}" class="{{ request()->routeIs('admin.clients*') ? 'active' : '' }}">
                     <i class="fas fa-building"></i>
                     <span>Clients & Brands</span>
-                </a>
-            </li>
-            <li>
-                <a href="{{ route('admin.enquiries.index') }}" class="{{ request()->routeIs('admin.enquiries*') ? 'active' : '' }}">
-                    <i class="fas fa-envelope"></i>
-                    <span>Enquiries</span>
-                    @php $unread = \App\Models\Enquiry::unread()->count(); @endphp
-                    @if ($unread > 0)
-                        <span class="badge">{{ $unread }}</span>
-                    @endif
                 </a>
             </li>
             <li>
@@ -524,6 +522,39 @@
         </main>
     </div>
 
+    <script>
+        // Live preview for every image upload input
+        document.querySelectorAll('input[type="file"][accept*="image"]').forEach(function (input) {
+            var box = document.createElement('div');
+            box.style.cssText = 'display:none; flex-wrap:wrap; gap:10px; margin-top:12px;';
+            input.insertAdjacentElement('afterend', box);
+            var urls = [];
+
+            input.addEventListener('change', function () {
+                urls.forEach(function (u) { URL.revokeObjectURL(u); });
+                urls = [];
+                box.innerHTML = '';
+                Array.prototype.forEach.call(input.files, function (file) {
+                    if (!file.type || file.type.indexOf('image/') !== 0) return;
+                    var url = URL.createObjectURL(file);
+                    urls.push(url);
+                    var fig = document.createElement('figure');
+                    fig.style.cssText = 'margin:0; width:150px;';
+                    var img = document.createElement('img');
+                    img.src = url;
+                    img.alt = file.name;
+                    img.style.cssText = 'display:block; width:150px; height:100px; object-fit:contain; background:#f8fafc; border:1px solid #e2e8f0; border-radius:6px; padding:4px;';
+                    var cap = document.createElement('figcaption');
+                    cap.textContent = file.name;
+                    cap.style.cssText = 'margin-top:4px; font-size:11px; color:#64748b; overflow:hidden; text-overflow:ellipsis; white-space:nowrap;';
+                    fig.appendChild(img);
+                    fig.appendChild(cap);
+                    box.appendChild(fig);
+                });
+                box.style.display = box.children.length ? 'flex' : 'none';
+            });
+        });
+    </script>
     @stack('scripts')
 </body>
 

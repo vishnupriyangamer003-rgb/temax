@@ -26,6 +26,11 @@
                 <input type="text" name="title" value="{{ old('title', $project->title ?? '') }}" required style="width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:6px; font-size:15px; font-family:inherit;">
             </div>
 
+            <div style="margin-bottom:20px;">
+                <label style="display:block; font-weight:600; font-size:14px; margin-bottom:6px;">Client Name</label>
+                <input type="text" name="client" value="{{ old('client', $project->client ?? '') }}" placeholder="e.g. ABC Cements Ltd" style="width:100%; padding:10px 14px; border:1px solid var(--border); border-radius:6px; font-size:15px; font-family:inherit;">
+            </div>
+
             <div style="display:grid; grid-template-columns:1fr 1fr; gap:20px; margin-bottom:20px;">
                 <div>
                     <label style="display:block; font-weight:600; font-size:14px; margin-bottom:6px;">Location / Plant</label>
@@ -70,6 +75,12 @@
                     <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
                         <input type="checkbox" name="is_active" value="1" {{ old('is_active', $project->is_active ?? true) ? 'checked' : '' }} style="width:18px; height:18px; accent-color:var(--accent);">
                         <span style="font-weight:600; font-size:14px;">Active / Published</span>
+                    </label>
+                </div>
+                <div style="display:flex; align-items:center; padding-top:24px;">
+                    <label style="display:flex; align-items:center; gap:8px; cursor:pointer;">
+                        <input type="checkbox" name="is_featured" value="1" {{ old('is_featured', $project->is_featured ?? false) ? 'checked' : '' }} style="width:18px; height:18px; accent-color:var(--accent);">
+                        <span style="font-weight:600; font-size:14px;">Featured (highlight on Projects page)</span>
                     </label>
                 </div>
             </div>

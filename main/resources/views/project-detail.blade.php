@@ -24,9 +24,12 @@
                         <div class="content-box">
                             <h2>{{ $project->title }}</h2>
                             <p>{{ $project->text }}</p>
-                            @if (!empty($project->type) || !empty($project->place))
+                            @if (!empty($project->type) || !empty($project->place) || !empty($project->client))
                                 <h3>Project Scope</h3>
                                 <ul class="list-style-one clearfix mt_25">
+                                    @if (!empty($project->client))
+                                        <li><i class="flaticon-check"></i><span>Client: {{ $project->client }}</span></li>
+                                    @endif
                                     @if (!empty($project->type))
                                         <li><i class="flaticon-check"></i><span>Industry: {{ $project->type }}</span></li>
                                     @endif

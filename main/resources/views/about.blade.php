@@ -41,79 +41,36 @@
         </div>
     </section>
 
-    <!-- company in figures -->
-    <section class="va-figures">
+    <!-- timeline -->
+    <section class="va-timeline-sec">
         <div class="auto-container">
-            <div class="vh-title"><h2>The company in figures</h2></div>
-            <table class="va-table">
-                <tbody>
-                    <tr><th>Year of founding</th><td>1996</td></tr>
-                    <tr><th>Location</th><td>Karur, Tamil Nadu, India</td></tr>
-                    <tr><th>Made in India</th><td>90%</td></tr>
-                    <tr><th>First furnace camera for kiln application</th><td>2016</td></tr>
-                    <tr><th>Industries served</th><td>Cement, Thermal, Glass</td></tr>
-                    <tr><th>Core products</th><td>Furnace camera tube, cooling system, auto retraction system, thermal cameras</td></tr>
-                    <tr><th>Image sensor</th><td>1/3&Prime; Sony colour CCD, more than 960 and 1080 TV lines (HD quality)</td></tr>
-                    <tr><th>Maximum environment</th><td>Up to 2000 °C</td></tr>
-                    <tr><th>Cooling</th><td>Air or water cooling (SS 316, corrosion free)</td></tr>
-                    <tr><th>Furnace wall thickness</th><td>200 to 600 mm</td></tr>
-                    <tr><th>Manufacturing</th><td>90% in India, spares available locally, customisation possible</td></tr>
-                    <tr><th>Service area</th><td>Supplied all over India</td></tr>
-                </tbody>
-            </table>
-        </div>
-    </section>
-
-    <!-- story cards (Mission / Vision / History) -->
-    <section class="va-stories">
-        <div class="auto-container">
-            <article class="va-story">
-                <figure class="va-shape"><img src="{{ asset('assets/images/temax/control-panel.jpg') }}" alt="TEMAX control panel" loading="lazy"></figure>
-                <div class="va-story-body">
-                    <h3>Our Mission</h3>
-                    <p>To give every plant safe, reliable and continuous visibility inside its furnace — with technology that is economical, serviceable locally and built to last.</p>
-                    <ul class="vh-ticks">
-                        <li>Immediate Support</li>
-                        <li>Locally Available Spares</li>
-                        <li>Customisation on Demand</li>
-                    </ul>
-                </div>
-            </article>
-
-            <article class="va-story va-story-rev">
-                <figure class="va-shape"><img src="{{ asset('assets/images/temax/camera-tube.jpg') }}" alt="TEMAX furnace camera tube" loading="lazy"></figure>
-                <div class="va-story-body">
-                    <h3>Our Vision</h3>
-                    <p>To lead the industry with innovative, Made-in-India furnace viewing technology that keeps Indian plants competitive, safe and efficient.</p>
-                    <ul class="vh-ticks">
-                        <li>Innovation in Imaging</li>
-                        <li>90% Made in India</li>
-                        <li>Quality Assurance</li>
-                    </ul>
-                </div>
-            </article>
-
-            <article class="va-story">
-                <figure class="va-shape"><img src="{{ asset('assets/images/temax/production-tube.jpg') }}" alt="TEMAX team building furnace cameras" loading="lazy"></figure>
-                <div class="va-story-body">
-                    <h3>A timeline of furnace &amp; camera innovation</h3>
-                    <h4>Foundation Year 1996</h4>
-                    <p>TEMAX was established in Karur, Tamil Nadu as a furnace camera
-                        manufacturing company — building high-temperature viewing systems
-                        for Indian industry with a focus on precision, quality and
-                        meeting client needs. From a workshop to a trusted name, built on precision and passion.</p>
-                    <h4>First Kiln Camera 2016</h4>
-                    <p>TEMAX developed the first furnace camera for kiln application in
-                        2016 — giving cement plant operators their first live view inside
-                        the kiln and starting the range of retrofit, cowl shell and under
-                        grate cameras that followed. A reference installation that started the TEMAX furnace camera range.</p>
-                    <h4>Three Decades Today</h4>
-                    <p>With 90% of production in India, all spares available locally and
-                        customisation possible with immediate support, TEMAX cameras now
-                        run in cement, thermal and glass plants — including 600MW utility
-                        power plants across the country. Thirty years of furnace viewing expertise, made in India.</p>
-                </div>
-            </article>
+            <div class="vh-title text-center">
+                <h6>Our Journey</h6>
+                <h2>A timeline of furnace &amp; camera innovation</h2>
+            </div>
+            <ol class="va-timeline">
+                <li class="va-tl-item">
+                    <span class="va-tl-year">1996</span>
+                    <div class="va-tl-card">
+                        <h4>Foundation Year 1996</h4>
+                        <p>TEMAX was established in Karur, Tamil Nadu as a furnace camera manufacturing company — building high-temperature viewing systems for Indian industry with a focus on precision, quality and meeting client needs. From a workshop to a trusted name, built on precision and passion.</p>
+                    </div>
+                </li>
+                <li class="va-tl-item">
+                    <span class="va-tl-year">2016</span>
+                    <div class="va-tl-card">
+                        <h4>First Kiln Camera 2016</h4>
+                        <p>TEMAX developed the first furnace camera for kiln application in 2016 — giving cement plant operators their first live view inside the kiln and starting the range of retrofit, cowl shell and under grate cameras that followed. A reference installation that started the TEMAX furnace camera range.</p>
+                    </div>
+                </li>
+                <li class="va-tl-item">
+                    <span class="va-tl-year">Today</span>
+                    <div class="va-tl-card">
+                        <h4>Three Decades Today</h4>
+                        <p>With 90% of production in India, all spares available locally and customisation possible with immediate support, TEMAX cameras now run in cement, thermal and glass plants — including 600MW utility power plants across the country. Thirty years of furnace viewing expertise, made in India.</p>
+                    </div>
+                </li>
+            </ol>
         </div>
     </section>
 

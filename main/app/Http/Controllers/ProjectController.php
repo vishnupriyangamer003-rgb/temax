@@ -8,10 +8,11 @@ class ProjectController extends Controller
 {
     public function index()
     {
-        $projects = Project::active()->ordered()->with('images')->get();
+        $projects = Project::active()->orderByDesc('is_featured')->ordered()->with('images')->get();
         $types = Project::active()->whereNotNull('type')->distinct()->pluck('type')->filter()->values();
+        $clients = Project::active()->whereNotNull('client')->where('client', '!=', '')->distinct()->orderBy('client')->pluck('client')->values();
 
-        return view('projects', compact('projects', 'types'));
+        return view('projects', compact('projects', 'types', 'clients'));
     }
 
     public function show($id)

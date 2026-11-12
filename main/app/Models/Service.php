@@ -8,13 +8,12 @@ class Service extends Model
 {
     protected $fillable = [
         'slug', 'title', 'icon', 'image', 'summary', 'badge', 'banner',
-        'items_title', 'cta_title', 'lead', 'intro', 'points',
+        'items_title', 'cta_title', 'lead', 'intro',
         'image_a', 'image_b', 'sort_order', 'is_active',
     ];
 
     protected $casts = [
         'intro' => 'array',
-        'points' => 'array',
         'is_active' => 'boolean',
     ];
 

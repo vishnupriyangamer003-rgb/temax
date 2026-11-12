@@ -48,7 +48,9 @@
     <meta name="ICBM" content="10.9601, 78.0766">
 
     <!-- Open Graph / Facebook -->
-    <meta property="og:type" content="website">
+    <link rel="alternate" hreflang="en-IN" href="{{ $canonicalUrl }}">
+    <link rel="sitemap" type="application/xml" href="{{ url('/sitemap.xml') }}">
+    <meta property="og:type" content="@yield('og_type', 'website')">
     <meta property="og:locale" content="en_IN">
     <meta property="og:site_name" content="{{ setting('site_name', 'TEMAX') }}">
     <meta property="og:title" content="{{ $ogTitle }}">
@@ -434,6 +436,20 @@
             $(".mobile-menu li.dropdown > .dropdown-btn").addClass("open");
         });
     </script>
+
+    @php $waNum = preg_replace('/[^0-9]/', '', (string) setting('whatsapp', '919443169098')); @endphp
+    <style>
+        .wa-float{position:fixed;left:22px;bottom:24px;width:56px;height:56px;border-radius:50%;background:#25d366;color:#fff;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 18px rgba(0,0,0,.28);z-index:999;transition:transform .2s}
+        .wa-float:hover{transform:scale(1.08);color:#fff}
+        .wa-float svg{width:30px;height:30px;fill:currentColor}
+        .wa-float::after{content:"";position:absolute;inset:0;border-radius:50%;border:2px solid #25d366;animation:wa-pulse 2s infinite}
+        @keyframes wa-pulse{0%{transform:scale(1);opacity:.7}100%{transform:scale(1.5);opacity:0}}
+        @media (prefers-reduced-motion:reduce){.wa-float::after{animation:none}}
+        @media (max-width:575px){.wa-float{width:50px;height:50px;left:14px;bottom:18px}}
+    </style>
+    <a class="wa-float" href="https://wa.me/{{ $waNum }}?text={{ rawurlencode('Hello TEMAX, I would like to enquire about your furnace camera systems.') }}" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+        <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.003 3C8.83 3 3 8.83 3 16c0 2.29.6 4.52 1.74 6.49L3 29l6.68-1.72A12.94 12.94 0 0 0 16 29c7.17 0 13-5.83 13-13S23.17 3 16.003 3zm0 23.7c-1.95 0-3.86-.53-5.53-1.52l-.4-.23-3.97 1.02 1.06-3.86-.26-.4A10.67 10.67 0 0 1 5.3 16c0-5.9 4.8-10.7 10.7-10.7S26.7 10.1 26.7 16s-4.8 10.7-10.697 10.7zm5.87-8c-.32-.16-1.9-.94-2.2-1.04-.3-.11-.51-.16-.73.16-.21.32-.83 1.04-1.02 1.26-.19.21-.37.24-.7.08-.32-.16-1.36-.5-2.59-1.6-.96-.85-1.6-1.9-1.79-2.22-.19-.32-.02-.5.14-.66.15-.14.32-.37.48-.56.16-.19.21-.32.32-.54.1-.21.05-.4-.03-.56-.08-.16-.73-1.76-1-2.4-.26-.63-.53-.54-.73-.55h-.62c-.21 0-.56.08-.85.4-.29.32-1.12 1.09-1.12 2.66s1.15 3.08 1.3 3.3c.16.21 2.25 3.44 5.46 4.82.76.33 1.36.53 1.82.68.77.24 1.46.21 2.01.13.61-.09 1.9-.78 2.17-1.53.27-.75.27-1.4.19-1.53-.08-.13-.29-.21-.61-.37z"/></svg>
+    </a>
 
     @stack('scripts')
 

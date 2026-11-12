@@ -3,8 +3,7 @@
 use App\Http\Controllers\Admin\AccountController as AdminAccountController;
 use App\Http\Controllers\Admin\AuthController as AdminAuthController;
 use App\Http\Controllers\Admin\ClientController as AdminClientController;
-use App\Http\Controllers\Admin\DashboardController as AdminDashboardController;
-use App\Http\Controllers\Admin\EnquiryController as AdminEnquiryController;
+use App\Http\Controllers\Admin\HomeSlideController as AdminHomeSlideController;
 use App\Http\Controllers\Admin\ProductController as AdminProductController;
 use App\Http\Controllers\Admin\ProjectController as AdminProjectController;
 use App\Http\Controllers\Admin\ServiceController as AdminServiceController;
@@ -25,6 +24,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
+
+Route::get('/sitemap.xml', function () {
+    $urls = [url('/'), url('/about'), url('/services'), url('/products'), url('/projects'), url('/contact')];
+    foreach (\App\Models\Service::all() as $s) {
+        $urls[] = route('services.show', $s->slug);
+    }
+    foreach (\App\Models\Project::all() as $p) {
+        $urls[] = route('projects.show', $p->id);
+    }
+    $xml = '<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+    foreach ($urls as $u) {
+        $xml .= '<url><loc>' . e($u) . '</loc></url>';
+    }
+    return response($xml . '</urlset>', 200, ['Content-Type' => 'application/xml']);
+})->name('sitemap');
 
 Route::get('/about', function () {
     return view('about', [
@@ -66,7 +80,15 @@ Route::prefix('ktgadmin')->name('admin.')->group(function () {
     Route::post('logout', [AdminAuthController::class, 'logout'])->name('logout');
 
     Route::middleware('admin')->group(function () {
-        Route::get('/', [AdminDashboardController::class, 'index'])->name('dashboard');
+        Route::redirect('/', '/ktgadmin/slides')->name('dashboard');
+
+        // Home page banner slides
+        Route::get('slides', [AdminHomeSlideController::class, 'index'])->name('slides.index');
+        Route::get('slides/create', [AdminHomeSlideController::class, 'create'])->name('slides.create');
+        Route::post('slides', [AdminHomeSlideController::class, 'store'])->name('slides.store');
+        Route::get('slides/{slide}/edit', [AdminHomeSlideController::class, 'edit'])->name('slides.edit');
+        Route::put('slides/{slide}', [AdminHomeSlideController::class, 'update'])->name('slides.update');
+        Route::delete('slides/{slide}', [AdminHomeSlideController::class, 'destroy'])->name('slides.destroy');
 
         // Services
         Route::get('services', [AdminServiceController::class, 'index'])->name('services.index');
@@ -107,12 +129,6 @@ Route::prefix('ktgadmin')->name('admin.')->group(function () {
         Route::get('clients/{client}/edit', [AdminClientController::class, 'edit'])->name('clients.edit');
         Route::put('clients/{client}', [AdminClientController::class, 'update'])->name('clients.update');
         Route::delete('clients/{client}', [AdminClientController::class, 'destroy'])->name('clients.destroy');
-
-        // Enquiries
-        Route::get('enquiries', [AdminEnquiryController::class, 'index'])->name('enquiries.index');
-        Route::get('enquiries/{enquiry}', [AdminEnquiryController::class, 'show'])->name('enquiries.show');
-        Route::patch('enquiries/{enquiry}/status', [AdminEnquiryController::class, 'updateStatus'])->name('enquiries.status');
-        Route::delete('enquiries/{enquiry}', [AdminEnquiryController::class, 'destroy'])->name('enquiries.destroy');
 
         // Settings and account
         Route::get('settings', [AdminSettingController::class, 'index'])->name('settings.index');

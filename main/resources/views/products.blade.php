@@ -42,7 +42,7 @@
         };
     @endphp
 
-    <!-- products portfolio: search + category filter + card grid -->
+    <!-- products portfolio: category filter + card grid -->
     <section class="vp-section">
         <div class="auto-container">
             <div class="vh-title">
@@ -52,10 +52,6 @@
             </div>
 
             <div class="vp-bar" id="vp-bar">
-                <label class="vp-search">
-                    <span class="visually-hidden">Search products</span>
-                    <input type="search" id="vp-search" placeholder="Search products..." autocomplete="off">
-                </label>
                 <div class="vp-chips" role="group" aria-label="Filter by category">
                     <button type="button" class="vp-chip is-active" data-cat="all">All <small>{{ $totalProducts }}</small></button>
                     @foreach ($categories as $category)
@@ -69,7 +65,7 @@
             <div class="row clearfix vp-grid">
                 @foreach ($categories as $category)
                     @foreach ($category->items as $item)
-                        <div class="col-xl-3 col-md-6 col-sm-12 vp-col" data-cat="cat-{{ $category->id }}" data-text="{{ \Illuminate\Support\Str::lower($item->name . ' ' . $item->description . ' ' . $category->title) }}">
+                        <div class="col-xl-3 col-md-6 col-sm-12 vp-col" data-cat="cat-{{ $category->id }}">
                             <article class="vp-card">
                                 <figure class="vp-card-img"><img src="{{ asset($imageFor($item->name, $category->image)) }}" alt="{{ $item->name }}" loading="lazy"></figure>
                                 <div class="vp-card-body">
@@ -86,7 +82,7 @@
                 @endforeach
             </div>
 
-            <p class="vp-empty" id="vp-empty" hidden>No products match your search.</p>
+            <p class="vp-empty" id="vp-empty" hidden>No products in this category.</p>
         </div>
     </section>
 
@@ -99,7 +95,6 @@
         (function () {
             var bar = document.getElementById('vp-bar');
             if (!bar) return;
-            var input = document.getElementById('vp-search');
             var chips = bar.querySelectorAll('.vp-chip');
             var cols = document.querySelectorAll('.vp-col');
             var shown = document.getElementById('vp-shown');
@@ -107,10 +102,9 @@
             var cat = 'all';
 
             function apply() {
-                var q = input.value.trim().toLowerCase(), n = 0;
+                var n = 0;
                 Array.prototype.forEach.call(cols, function (c) {
-                    var ok = (cat === 'all' || c.getAttribute('data-cat') === cat) &&
-                             (q === '' || c.getAttribute('data-text').indexOf(q) !== -1);
+                    var ok = cat === 'all' || c.getAttribute('data-cat') === cat;
                     c.hidden = !ok;
                     if (ok) n++;
                 });
@@ -124,7 +118,6 @@
                     apply();
                 });
             });
-            input.addEventListener('input', apply);
         })();
     </script>
 @endpush

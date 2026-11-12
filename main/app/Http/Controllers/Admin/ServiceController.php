@@ -25,7 +25,6 @@ class ServiceController extends Controller
             'itemsText'  => '',
             'stepsText'  => '',
             'introText'  => '',
-            'pointsText' => '',
         ]);
     }
 
@@ -38,7 +37,6 @@ class ServiceController extends Controller
             'itemsText'  => implode("\n", $service->items->map(fn ($i) => trim($i->title . ($i->text ? ' | ' . $i->text : '')))->all()),
             'stepsText'  => implode("\n", $service->steps->map(fn ($s) => trim($s->title . ($s->text ? ' | ' . $s->text : '')))->all()),
             'introText'  => implode("\n", (array) $service->intro),
-            'pointsText' => implode("\n", (array) $service->points),
         ]);
     }
 
@@ -84,7 +82,6 @@ class ServiceController extends Controller
             'items_text'   => 'nullable|string',
             'steps_text'   => 'nullable|string',
             'intro_text'   => 'nullable|string',
-            'points_text'  => 'nullable|string',
         ]);
 
         DB::transaction(function () use ($request, $service) {
@@ -101,7 +98,6 @@ class ServiceController extends Controller
                 'items_title' => $request->input('items_title'),
                 'cta_title'  => $request->input('cta_title'),
                 'intro'      => $this->lines($request->input('intro_text')),
-                'points'     => $this->lines($request->input('points_text')),
                 'sort_order' => (int) $request->input('sort_order', 0),
                 'is_active'  => $request->boolean('is_active'),
             ]);

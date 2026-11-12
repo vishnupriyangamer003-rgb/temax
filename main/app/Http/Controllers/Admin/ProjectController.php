@@ -69,6 +69,7 @@ class ProjectController extends Controller
     {
         $request->validate([
             'title'          => 'required|string|max:255',
+            'client'         => 'nullable|string|max:255',
             'place'          => 'nullable|string|max:255',
             'type'           => 'nullable|string|max:60',
             'text'           => 'nullable|string',
@@ -77,16 +78,19 @@ class ProjectController extends Controller
             'remove_images.*' => 'integer|exists:project_images,id',
             'sort_order'     => 'nullable|integer|min:0|max:9999',
             'is_active'      => 'nullable|boolean',
+            'is_featured'    => 'nullable|boolean',
         ]);
 
         DB::transaction(function () use ($request, $project) {
             $project->fill([
                 'title'      => $request->input('title'),
+                'client'     => $request->input('client'),
                 'place'      => $request->input('place'),
                 'type'       => $request->input('type'),
                 'text'       => $request->input('text'),
                 'sort_order' => (int) $request->input('sort_order', 0),
                 'is_active'  => $request->boolean('is_active'),
+                'is_featured' => $request->boolean('is_featured'),
             ]);
             $project->save();
 

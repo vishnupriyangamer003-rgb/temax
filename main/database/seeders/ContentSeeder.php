@@ -76,11 +76,6 @@ class ContentSeeder extends Seeder
                     'Min illumination: 0.2 Lux (F1.2, 30 IRE) / 0.001 Lux (F1.2, X128 DSS)',
                     'Power source: DC12V, max. 6W consumption',
                 ],
-                'points'  => [
-                    'First furnace camera developed for kiln application in 2016',
-                    '90% manufacturing in India — all spares available locally',
-                    'Customisation possible with immediate support',
-                ],
                 'items_title' => 'Key features',
                 'cta_title'   => 'Need a furnace camera?',
                 'items'   => [
@@ -111,10 +106,6 @@ class ContentSeeder extends Seeder
                     'Furnace wall thickness: 200 - 600 mm',
                     'Water volume flow: 10 LPM',
                 ],
-                'points'  => [
-                    'Less weight for easy handling',
-                    'All spares available in India',
-                ],
                 'items_title' => 'Cooling options',
                 'cta_title'   => 'Specify your cooling',
                 'items'   => [
@@ -144,10 +135,6 @@ class ContentSeeder extends Seeder
                     'Control panel: mini LED monitor, LCD based PLC, 12V/24V DC SMPS',
                     '24 pin connecting cable, emergency exit switch, auto/manual changeover',
                 ],
-                'points'  => [
-                    'Forward and reverse indicators',
-                    'Emergency exit switch for safe shutdown',
-                ],
                 'items_title' => 'System components',
                 'cta_title'   => 'Plan your retraction unit',
                 'items'   => [
@@ -175,10 +162,6 @@ class ContentSeeder extends Seeder
                     'Continuous temperature profile of shell and refractory',
                     'Early warning for coating loss, hot spots and brick damage',
                 ],
-                'points'  => [
-                    'Works alongside furnace camera systems for a complete view',
-                    'Data-driven maintenance planning',
-                ],
                 'items_title' => 'Applications',
                 'cta_title'   => 'Monitor your kiln shell',
                 'items'   => [
@@ -204,10 +187,6 @@ class ContentSeeder extends Seeder
                     'Cement cyclone jam prevent camera system',
                     'Cost effective fixed camera for cement industry',
                     'Cowl shell camera for kiln',
-                ],
-                'points'  => [
-                    'Immediate support and economical spares',
-                    'Retrofits tailored to existing furnace ports',
                 ],
                 'items_title' => 'Retrofit options',
                 'cta_title'   => 'Upgrade your system',
@@ -235,10 +214,6 @@ class ContentSeeder extends Seeder
                     'Wide dynamic range up to 120 dB for glare-free images',
                     'True Day/Night with 3D noise reduction and excellent low-light performance',
                     'Customised solutions for air cooling and filter applications',
-                ],
-                'points'  => [
-                    'Full HD 1080p at 25/30 fps progressive scan',
-                    'Customisation is possible with immediate support',
                 ],
                 'items_title' => 'Custom builds',
                 'cta_title'   => 'Discuss your application',
@@ -268,7 +243,6 @@ class ContentSeeder extends Seeder
                 'cta_title'   => $service['cta_title'] ?? null,
                 'lead'        => $service['lead'] ?? null,
                 'intro'       => $service['intro'] ?? [],
-                'points'      => $service['points'] ?? [],
                 'sort_order'  => $order++,
                 'is_active'   => true,
             ]);
@@ -377,6 +351,8 @@ class ContentSeeder extends Seeder
         $catalog = [
             [
                 'title' => 'First Furnace Camera for Kiln Application',
+                'client' => 'Sri Vinayaga Cements',
+                'is_featured' => true,
                 'place' => 'Cement plant, India',
                 'type'  => 'Cement',
                 'text'  => 'In 2016 TEMAX developed the first furnace camera for kiln application — the reference installation that started the TEMAX furnace camera range. The unit gave operators their first live view inside the kiln and set the standard for the retrofit and cowl shell cameras that followed.',
@@ -384,6 +360,7 @@ class ContentSeeder extends Seeder
             ],
             [
                 'title' => 'TEMAX Cameras in a Captive Power Plant',
+                'client' => 'Tamilnadu Power Corp',
                 'place' => 'Captive power plant, India',
                 'type'  => 'Thermal',
                 'text'  => 'TEMAX furnace cameras are working in captive power plants, giving continuous in-furnace visibility of boiler and furnace conditions for reliable operation and faster response to upsets.',
@@ -391,6 +368,8 @@ class ContentSeeder extends Seeder
             ],
             [
                 'title' => '600MW Utility Power Plant Camera System',
+                'client' => 'Sakthi Captive Power',
+                'is_featured' => true,
                 'place' => 'Utility power plant, India',
                 'type'  => 'Thermal',
                 'text'  => 'A complete camera system delivered for a 600MW utility power plant — furnace viewing, cooling and control panels engineered for utility scale operation and continuous duty.',
@@ -398,6 +377,7 @@ class ContentSeeder extends Seeder
             ],
             [
                 'title' => 'Under Grate Camera for Cement Industry',
+                'client' => 'Coromandel Cements Ltd',
                 'place' => 'Cement plant, India',
                 'type'  => 'Cement',
                 'text'  => 'Under grate camera installation giving the control room a clear view of grate conditions — helping operators manage material movement and spot build-ups early.',
@@ -405,6 +385,7 @@ class ContentSeeder extends Seeder
             ],
             [
                 'title' => 'Glass Melting Furnace Camera Installation',
+                'client' => 'Southern Glass Works',
                 'place' => 'Glass plant, India',
                 'type'  => 'Glass',
                 'text'  => 'Furnace camera video monitoring for a glass melting furnace — live visibility of the melt and flame without opening the furnace, supporting consistent glass quality.',
@@ -412,6 +393,7 @@ class ContentSeeder extends Seeder
             ],
             [
                 'title' => 'Cement Cooler Camera System',
+                'client' => 'Sri Vinayaga Cements',
                 'place' => 'Cement plant, India',
                 'type'  => 'Cement',
                 'text'  => 'Cooler camera installation covering the cement cooler process — operators monitor cooler conditions in real time and reduce unplanned stoppages.',
@@ -422,6 +404,8 @@ class ContentSeeder extends Seeder
         foreach ($catalog as $index => $project) {
             $record = Project::create([
                 'title'      => $project['title'],
+                'client'     => $project['client'] ?? null,
+                'is_featured' => $project['is_featured'] ?? false,
                 'place'      => $project['place'] ?? null,
                 'type'       => $project['type'] ?? null,
                 'text'       => $project['text'] ?? null,
