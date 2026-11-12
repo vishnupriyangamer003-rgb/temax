@@ -72,7 +72,7 @@ Route::post('/enquiry', [EnquiryController::class, 'store'])
 |--------------------------------------------------------------------------
 */
 
-Route::redirect('/admin', '/ktgadmin');
+Route::get('/admin', fn () => redirect()->route('admin.login'));
 
 Route::prefix('ktgadmin')->name('admin.')->group(function () {
     Route::get('login', [AdminAuthController::class, 'showLogin'])->name('login');
@@ -80,7 +80,7 @@ Route::prefix('ktgadmin')->name('admin.')->group(function () {
     Route::post('logout', [AdminAuthController::class, 'logout'])->name('logout');
 
     Route::middleware('admin')->group(function () {
-        Route::redirect('/', '/ktgadmin/slides')->name('dashboard');
+        Route::get('/', fn () => redirect()->route('admin.slides.index'))->name('dashboard');
 
         // Home page banner slides
         Route::get('slides', [AdminHomeSlideController::class, 'index'])->name('slides.index');
